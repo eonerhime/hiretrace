@@ -48,7 +48,7 @@ Each PBI from `product.md` is decomposed into one or more named **features**. A 
 
 **Behaviour:** A public GitHub repository named `hiretrace` exists with a Node.js `.gitignore`, a `README.md` placeholder, and the correct visibility setting. This is the single source of truth for all project code and documentation.
 
-**Completion signal:** Repository is accessible at `github.com/[username]/hiretrace` with no private flag.
+**Completion signal:** Repository is accessible at `github.com/eonerhime/hiretrace` with no private flag.
 
 ---
 
