@@ -48,11 +48,13 @@ Each feature from `features.md` is broken into atomic tasks. A task is the small
 
 #### F-007-02 — Branch Strategy Setup
 
-| Task ID      | Task                                                                                                                                        | Status |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| T-F007-02-01 | Immediately after repo creation: run `git checkout -b develop && git push -u origin develop` — before any other commits                     | [ ]    |
-| T-F007-02-02 | Enable branch protection on `main`: Settings → Branches → Add ruleset → Require PR before merging — do this before committing anything else | [ ]    |
-| T-F007-02-03 | Add branch naming convention to `README.md`: `feature/PBI-XXX-desc`                                                                         | [ ]    |
+| Task ID                                                               | Task                                                                  | Status |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | ------ |
+| T-F007-02-01                                                          | Immediately after repo creation: run `git checkout -b develop && git  |        |
+| push -u origin develop` — before any other commits                    | [x]                                                                   |
+| T-F007-02-02                                                          | Enable branch protection on `main`: Settings → Branches → Add ruleset |        |
+| → Require PR before merging — do this before committing anything else | [x]                                                                   |
+| T-F007-02-03                                                          | Add branch naming convention to `README.md`: `feature-PBI-XXX-desc`   | [x]    |
 
 #### F-007-03 — SDD Documents Committed
 
