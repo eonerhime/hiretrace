@@ -271,7 +271,7 @@ Items are ordered by priority within each epic. Status reflects current state at
 | ID      | Item                                                | Size | Priority | Status |
 | ------- | --------------------------------------------------- | ---- | -------- | ------ |
 | PBI-001 | Next.js project scaffold with TypeScript + Tailwind | S    | 🔴       | [ ]    |
-| PBI-002 | PostgreSQL database setup on Railway                | S    | 🔴       | [ ]    |
+| PBI-002 | PostgreSQL database setup on Neon                   | S    | 🔴       | [ ]    |
 | PBI-003 | Prisma ORM setup + initial schema                   | M    | 🔴       | [ ]    |
 | PBI-004 | User registration (email/password + bcrypt)         | M    | 🔴       | [ ]    |
 | PBI-005 | User login + JWT session management                 | M    | 🔴       | [ ]    |

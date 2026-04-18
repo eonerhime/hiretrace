@@ -167,6 +167,7 @@ document I wrote before touching any code.
 Full doc in the GitHub repo. Link in comments.
 
 #HireTrace #BuildInPublic #ProductOwner #JobSearch #SoftwareEngineering
+https://github.com/eonerhime/hire-trace/blob/main/spec/product.md
 ```
 
 ---
@@ -241,6 +242,7 @@ evidence, not instinct.
 Full document in the GitHub repo. Link in comments.
 
 #HireTrace #BuildInPublic #ProductOwner #Agile #ScrumMaster #SpecDrivenDevelopment
+https://github.com/eonerhime/hire-trace/blob/main/spec/product.md
 ```
 
 ---

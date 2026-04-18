@@ -79,7 +79,7 @@
 - [ ] `product.md` committed to repo
 - [ ] `plan.md` committed to repo
 - [ ] `spec.md` sprint-1 sections authored and committed
-- [ ] Railway PostgreSQL instance provisioned
+- [ ] Neon PostgreSQL instance provisioned
 - [ ] Vercel project connected to GitHub repo (dev environment)
 
 ---
