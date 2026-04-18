@@ -244,9 +244,11 @@ See §5 for full branch strategy.
 
 ### Rules
 
-- **Never commit directly to `main`** — branch protection enforces this
+- **Create `develop` before your first commit** — the very first action after creating the repository is: create `develop` from `main`, push it, then route all subsequent commits there. Committing directly to `main` and migrating later is avoidable friction.
+- **Never commit directly to `main`** — branch protection enforces this; enable it immediately at repo creation
 - **Never commit directly to `develop` for application code** — always use a feature branch
 - **Documentation commits** (`/docs` changes only) may go directly to `develop`
+- **`/docs` folder must be named exactly `docs`** — all cross-references in all SDD documents use this path. Using any other name (`spec`, `documentation`, etc.) breaks every document link.
 - **Feature branch lifecycle:** create from `develop` → develop → open PR → self-review checklist → merge to `develop` → delete branch
 - **`main` receives merges** only at sprint close (after review) or phase gate
 
@@ -467,8 +469,11 @@ Record every significant technical change, decision, or milestone here. One entr
 **Infrastructure established:**
 
 - GitHub repository `hiretrace` created — public, Node.js `.gitignore`
+- `README.md` placeholder committed to `main` at repo creation
+- `develop` branch created from `main` immediately — before any SDD document commits
 - `main` branch protected (PR required before merge)
-- `develop` branch created — all commits routed here
+- All SDD document commits routed to `develop` — not `main`
+- `/docs` directory created on `develop` with exact name `docs`
 - Vercel project connected to GitHub — preview deployments on push to `develop`
 - Notion workspace created and published publicly
 - Neon account active — PostgreSQL instance to be provisioned at Sprint 1 start (PBI-002)

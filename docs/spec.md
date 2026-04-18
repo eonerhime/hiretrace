@@ -85,6 +85,7 @@ Establish the GitHub repository that will house all project code and SDD documen
 - Given the repository exists
 - When the developer views the branches
 - Then a `main` branch exists (protected — no direct pushes) and a `develop` branch exists as the integration branch
+- And `develop` was created before any SDD document commits — not after
 
 **AC-007-03 — Branch naming convention is documented**
 
@@ -102,9 +103,14 @@ Establish the GitHub repository that will house all project code and SDD documen
 
 - Repository name: `hiretrace` (lowercase, no spaces)
 - Visibility: Public — required for portfolio showcase
-- Branch protection on `main`: enable _Require a pull request before merging_ (self-merge is fine for solo work; the PR discipline is what matters)
+- **First action sequence — do in this exact order:**
+  1. Create repository on GitHub
+  2. Commit `README.md` placeholder to `main` (GitHub creates `main` automatically)
+  3. Create `develop` branch from `main` and push it: `git checkout -b develop && git push -u origin develop`
+  4. Enable branch protection on `main` immediately: Settings → Branches → Add ruleset → Require PR before merging
+  5. All subsequent commits — including SDD documents — go to `develop`
 - `.gitignore`: use GitHub's standard Node template; add `.env` and `.env.local` manually
-- `/docs` directory structure at project start:
+- `/docs` folder must be named exactly `docs` — SDD cross-references depend on this path
   ```
   /docs
     product.md

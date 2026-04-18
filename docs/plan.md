@@ -72,15 +72,19 @@
 
 **Pre-sprint deliverables (before Sprint 1 kickoff):**
 
-- [ ] GitHub repository created and configured
-- [ ] Branch strategy documented
-- [ ] Notion workspace created and shared publicly
+- [ ] GitHub repository created (`hiretrace`, public, Node.js `.gitignore`)
+- [ ] `README.md` placeholder committed to `main` (GitHub requires this at repo creation)
+- [ ] `develop` branch created from `main` immediately — before any further commits
+- [ ] Branch protection enabled on `main` (Settings → Branches → Require PR before merging)
+- [ ] All subsequent commits go to `develop` — never directly to `main`
+- [ ] `/docs` directory created on `develop` — name must be `docs`, not `spec` or any other name; cross-references throughout all SDD documents depend on this exact path
+- [ ] All SDD documents committed to `/docs` on `develop`: `product.md`, `plan.md`, `spec.md`, `linkedin.md`, `notion-setup.md`, `features.md`, `tasks.md`, `implementation.md`, `testing.md`
+- [ ] `/docs/sprints/` subdirectory created; `sprint-01.md` committed there
+- [ ] Branch strategy documented in `README.md` and `implementation.md`
+- [ ] Notion workspace created and shared publicly (follow `notion-setup.md`)
 - [ ] Canva brand kit and carousel template set up (see linkedin.md)
-- [ ] `product.md` committed to repo
-- [ ] `plan.md` committed to repo
-- [ ] `spec.md` sprint-1 sections authored and committed
-- [ ] Neon PostgreSQL instance provisioned
-- [ ] Vercel project connected to GitHub repo (dev environment)
+- [ ] Neon PostgreSQL instance provisioned (free at neon.tech — no credit card required)
+- [ ] Vercel project connected to GitHub repo (dev environment — preview on `develop` push)
 
 ---
 

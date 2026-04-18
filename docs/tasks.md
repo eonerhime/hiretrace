@@ -48,26 +48,28 @@ Each feature from `features.md` is broken into atomic tasks. A task is the small
 
 #### F-007-02 — Branch Strategy Setup
 
-| Task ID      | Task                                                                | Status |
-| ------------ | ------------------------------------------------------------------- | ------ |
-| T-F007-02-01 | Create `develop` branch from `main`                                 | [ ]    |
-| T-F007-02-02 | Enable branch protection on `main` (require PR before merge)        | [ ]    |
-| T-F007-02-03 | Add branch naming convention to `README.md`: `feature/PBI-XXX-desc` | [ ]    |
+| Task ID      | Task                                                                                                                                        | Status |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| T-F007-02-01 | Immediately after repo creation: run `git checkout -b develop && git push -u origin develop` — before any other commits                     | [ ]    |
+| T-F007-02-02 | Enable branch protection on `main`: Settings → Branches → Add ruleset → Require PR before merging — do this before committing anything else | [ ]    |
+| T-F007-02-03 | Add branch naming convention to `README.md`: `feature/PBI-XXX-desc`                                                                         | [ ]    |
 
 #### F-007-03 — SDD Documents Committed
 
-| Task ID      | Task                                         | Status |
-| ------------ | -------------------------------------------- | ------ |
-| T-F007-03-01 | Create `/docs` directory on `develop` branch | [x]    |
-| T-F007-03-02 | Commit `product.md` to `/docs`               | [x]    |
-| T-F007-03-03 | Commit `plan.md` to `/docs`                  | [x]    |
-| T-F007-03-04 | Commit `linkedin.md` to `/docs`              | [x]    |
-| T-F007-03-05 | Commit `spec.md` (Sprint 1 slice) to `/docs` | [ ]    |
-| T-F007-03-06 | Commit `notion-setup.md` to `/docs`          | [ ]    |
-| T-F007-03-07 | Create `/docs/sprints/` subdirectory         | [ ]    |
-| T-F007-03-08 | Commit `sprint-01.md` to `/docs/sprints/`    | [ ]    |
-| T-F007-03-09 | Commit `features.md` to `/docs`              | [ ]    |
-| T-F007-03-10 | Commit `tasks.md` to `/docs`                 | [ ]    |
+| Task ID                                 | Task                                         | Status |
+| --------------------------------------- | -------------------------------------------- | ------ |
+| T-F007-03-01                            | Create `/docs` directory on `develop` branch |        |
+| — must be named exactly `docs`; all SDD |                                              |
+| cross-references depend on this path    | [x]                                          |
+| T-F007-03-02                            | Commit `product.md` to `/docs`               | [x]    |
+| T-F007-03-03                            | Commit `plan.md` to `/docs`                  | [x]    |
+| T-F007-03-04                            | Commit `linkedin.md` to `/docs`              | [x]    |
+| T-F007-03-05                            | Commit `spec.md` (Sprint 1 slice) to `/docs` | [ ]    |
+| T-F007-03-06                            | Commit `notion-setup.md` to `/docs`          | [ ]    |
+| T-F007-03-07                            | Create `/docs/sprints/` subdirectory         | [ ]    |
+| T-F007-03-08                            | Commit `sprint-01.md` to `/docs/sprints/`    | [ ]    |
+| T-F007-03-09                            | Commit `features.md` to `/docs`              | [ ]    |
+| T-F007-03-10                            | Commit `tasks.md` to `/docs`                 | [ ]    |
 
 ---
 
