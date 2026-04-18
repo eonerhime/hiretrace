@@ -361,6 +361,7 @@ Sprint 1 backlog:
 Notion board is live and public. Link in comments.
 
 #HireTrace #BuildInPublic #ScrumMaster #Agile #Sprint #NextJS
+https://dull-grain-172.notion.site/HireTrace-3463cecb82d08016a90be8bf80a5c6ce
 ```
 
 ---
