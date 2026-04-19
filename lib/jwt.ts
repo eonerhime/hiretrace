@@ -5,6 +5,7 @@ const secret = new TextEncoder().encode(process.env.JWT_SECRET);
 export interface JWTPayload {
   userId: string;
   email: string;
+  [key: string]: string; // index signature required by jose
 }
 
 export async function signJWT(payload: JWTPayload): Promise<string> {
