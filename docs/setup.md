@@ -146,9 +146,7 @@ export default function Home() {
 Open `app/globals.css` and replace the entire contents with:
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 ```
 
 ### Step 2.4 — Verify Tailwind is working
