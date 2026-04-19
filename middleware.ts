@@ -6,7 +6,7 @@ const COOKIE_NAME = "hiretrace-token";
 const PUBLIC_ROUTES = ["/", "/login", "/register"];
 const PUBLIC_API_ROUTES = ["/api/auth/login", "/api/auth/register"];
 
-export async function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get(COOKIE_NAME)?.value;
 
@@ -40,5 +40,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\..*$).*)"],
 };
