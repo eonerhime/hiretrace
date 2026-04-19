@@ -90,8 +90,10 @@ hiretrace/
 These rules are permanent. Never break them — they were decisions made before the first commit.
 
 1. **No `any` types.** TypeScript strict mode is active from commit one. Never use `any` — fix the type properly.
-2. **No `new PrismaClient()` outside `lib/prisma.ts`.** Always import `prisma` from `@/lib/prisma`.
-   Import `PrismaClient` from '@prisma/client'`.
+2. **No `new PrismaClient()` outside `lib/prisma.ts`.** Always import `prisma`
+   from `@/lib/prisma`. Prisma v7 requires a `PrismaNeon` adapter — never call
+   `new PrismaClient()` without `{ adapter }`. Import `PrismaClient` from
+   `'@prisma/client'`.
 3. **No inline styles.** Tailwind utility classes only — no `style={}` props.
 4. **No Zod schemas defined inline.** All schemas live in `lib/schemas/` — never in components or route handlers.
 5. **No `jsonwebtoken`.** Use `jose` — it is Edge Runtime compatible and required for `middleware.ts`.
@@ -308,6 +310,11 @@ These are documented lessons from setup — do not repeat these mistakes:
 13. **Both Neon connection strings are always required.**
     `DATABASE_URL` (pooled) → runtime via `lib/prisma.ts`.
     `DIRECT_URL` (direct) → Prisma CLI via `prisma.config.ts`.
+
+14. **Prisma v7 requires an adapter — `new PrismaClient()` alone throws.**
+    Pass `PrismaNeon({ connectionString: process.env.DATABASE_URL })` as the
+    adapter. Install `@neondatabase/serverless` and `@prisma/adapter-neon`.
+    Do not pass a `Pool` instance or `neon()` function — use the config object.
 
 ---
 

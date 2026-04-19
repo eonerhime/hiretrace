@@ -409,7 +409,7 @@ git status
 ### Step 6.1 — Install Prisma
 
 ```bash
-npm install prisma @prisma/client
+npm install prisma @prisma/client @neondatabase/serverless @prisma/adapter-neon
 ```
 
 ### Step 6.2 — Initialise Prisma
@@ -516,12 +516,20 @@ Create `lib/prisma.ts`:
 
 ```typescript
 import { PrismaClient } from "@prisma/client";
+import { PrismaNeon } from "@prisma/adapter-neon";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
 };
 
-export const prisma = globalForPrisma.prisma ?? new PrismaClient();
+function createPrismaClient() {
+  const adapter = new PrismaNeon({
+    connectionString: process.env.DATABASE_URL,
+  });
+  return new PrismaClient({ adapter });
+}
+
+export const prisma = globalForPrisma.prisma ?? createPrismaClient();
 
 if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = prisma;
@@ -1660,6 +1668,20 @@ used only in `lib/prisma.ts` for runtime queries.
 The correct command is `openssl rand -base64 32` — not `openssl rand -base64_32`.
 On Windows Git Bash if `openssl` is not found, use:
 `node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"`
+
+**12. Prisma v7 requires a database adapter — no adapterless construction**
+`new PrismaClient()` without an adapter throws `PrismaClientInitializationError`
+in v7. Use `PrismaNeon` from `@prisma/adapter-neon` with a `connectionString`
+config object. Install both `@neondatabase/serverless` and `@prisma/adapter-neon`.
+The correct pattern is:
+
+```typescript
+const adapter = new PrismaNeon({ connectionString: process.env.DATABASE_URL });
+return new PrismaClient({ adapter });
+```
+
+Do not pass a `Pool` instance or a `neon()` query function — both throw
+TypeScript errors. Pass the config object directly.
 
 ---
 

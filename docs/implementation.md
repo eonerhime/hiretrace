@@ -477,7 +477,7 @@ strings and `@prisma/client` import path.
 
 1. Connection URLs moved from `schema.prisma` to `prisma.config.ts`
 2. `dotenv/config` does not read `.env.local` — use `@next/env` `loadEnvConfig`
-3. Generated client moved from `@prisma/client` to `@prisma/client`
+3. Generated client moved from `@prisma/client` to `@prisma/clienta`
 4. Pooled Neon URL throws P1001 on all Prisma CLI commands — `DIRECT_URL`
    required in `prisma.config.ts`; `DATABASE_URL` used only in `lib/prisma.ts`
 
@@ -486,23 +486,45 @@ strings and `@prisma/client` import path.
 - `schema.prisma` datasource block contains no `url` or `directUrl`
 - `prisma.config.ts` uses `loadEnvConfig` and `DIRECT_URL`
 - `lib/prisma.ts` uses `DATABASE_URL` at runtime
-- All Prisma imports use `from '@prisma/client'`
+- All Prisma imports use `from '@prisma/clienta'`
+
+### ADR-010 — Prisma v7 Requires Database Adapter
+
+**Date:** April 19, 2026
+**Status:** Accepted
+
+**Decision:** Use `PrismaNeon` adapter from `@prisma/adapter-neon` for all
+Prisma client construction.
+
+**Context:** Prisma v7 removed adapterless client construction. Calling
+`new PrismaClient()` without an adapter throws `PrismaClientInitializationError`
+at runtime. Three adapter patterns were attempted before finding the correct one:
+
+1. `datasourceUrl` property — does not exist in v7 type definitions
+2. `datasources.db.url` property — does not exist in v7 type definitions
+3. `new PrismaNeon(pool)` with Pool instance — type mismatch
+4. `new PrismaNeon(sql)` with neon() function — type mismatch
+5. `new PrismaNeon({ connectionString })` config object — correct ✅
+
+**Change:** `lib/prisma.ts` uses `PrismaNeon` with a `connectionString` config
+object. Requires `@neondatabase/serverless` and `@prisma/adapter-neon`.
 
 ---
 
 ## 8. Known Trade-offs & Constraints
 
-| ID    | Area       | Constraint                                                                                                 | Impact                                          | Sprint to Revisit         |
-| ----- | ---------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------- |
-| C-001 | Database   | Neon free tier: 0.5GB storage limit                                                                        | Low — HireTrace data model is lightweight       | —                         |
-| C-002 | Database   | Neon compute pauses on inactivity — cold start ~1s                                                         | Low — acceptable for portfolio                  | —                         |
-| C-003 | Database   | Single Neon instance used for both dev and production                                                      | Medium — no environment isolation               | Sprint 4 if budget allows |
-| C-004 | Security   | CSP allows `unsafe-eval` and `unsafe-inline`                                                               | Medium — reduced XSS protection                 | Sprint 4                  |
-| C-005 | Deployment | Vercel Hobby plan: 100GB/month bandwidth                                                                   | Low — portfolio traffic                         | —                         |
-| C-006 | Auth       | No refresh token — JWT expires after 7 days, requires re-login                                             | Low — acceptable for this use case              | —                         |
-| C-007 | Testing    | No E2E tests until Sprint 6                                                                                | Medium — manual testing covers gap until then   | Sprint 6                  |
-| C-008 | Prisma     | Pooled `DATABASE_URL` throws P1001 on Prisma CLI — `DIRECT_URL` required in `prisma.config.ts`             | Low — two env vars required, clearly documented | —                         |
-| C-009 | Prisma     | `dotenv/config` reads `.env` not `.env.local` — `@next/env` `loadEnvConfig` required in `prisma.config.ts` | Low — one additional dependency                 | —                         |
+| ID    | Area       | Constraint                                                                                                                   | Impact                                          | Sprint to Revisit         |
+| ----- | ---------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------- |
+| C-001 | Database   | Neon free tier: 0.5GB storage limit                                                                                          | Low — HireTrace data model is lightweight       | —                         |
+| C-002 | Database   | Neon compute pauses on inactivity — cold start ~1s                                                                           | Low — acceptable for portfolio                  | —                         |
+| C-003 | Database   | Single Neon instance used for both dev and production                                                                        | Medium — no environment isolation               | Sprint 4 if budget allows |
+| C-004 | Security   | CSP allows `unsafe-eval` and `unsafe-inline`                                                                                 | Medium — reduced XSS protection                 | Sprint 4                  |
+| C-005 | Deployment | Vercel Hobby plan: 100GB/month bandwidth                                                                                     | Low — portfolio traffic                         | —                         |
+| C-006 | Auth       | No refresh token — JWT expires after 7 days, requires re-login                                                               | Low — acceptable for this use case              | —                         |
+| C-007 | Testing    | No E2E tests until Sprint 6                                                                                                  | Medium — manual testing covers gap until then   | Sprint 6                  |
+| C-008 | Prisma     | Pooled `DATABASE_URL` throws P1001 on Prisma CLI — `DIRECT_URL` required in `prisma.config.ts`                               | Low — two env vars required, clearly documented | —                         |
+| C-009 | Prisma     | `dotenv/config` reads `.env` not `.env.local` — `@next/env` `loadEnvConfig` required in `prisma.config.ts`                   | Low — one additional dependency                 | —                         |
+| C-010 | Prisma     | v7 requires adapter for all client construction — adds `@neondatabase/serverless` and `@prisma/adapter-neon` as dependencies | Low — two additional packages, well documented  | —                         |
 
 ---
 
@@ -544,12 +566,15 @@ Record every significant technical change, decision, or milestone here. One entr
 **Architectural decisions recorded:** ADR-001 through ADR-007
 
 **Stack locked:** Next.js 15, TypeScript strict, Tailwind CSS, Prisma, Zod, react-hook-form, jose, bcryptjs, RTL, Jest, Neon, Vercel
+
 **Version corrections (actual installed versions):**
 
 - Next.js 16.x (not 15 as planned — create-next-app pulled latest)
 - Tailwind CSS 4.x (breaking change from v3 — globals.css updated)
 - Prisma 6.x (breaking changes — prisma.config.ts pattern, @prisma/client import)
 - PostgreSQL 17 on Neon (not 16 — Neon default)
+- Prisma client v7.7.0 (requires adapter pattern — see ADR-010)
+- Added dependencies: `@neondatabase/serverless`, `@prisma/adapter-neon`, `@next/env`
 
 ---
 
