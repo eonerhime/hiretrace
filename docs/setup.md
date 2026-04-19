@@ -1378,7 +1378,7 @@ Sprint 2 includes `PBI-040` (RTL core component suite). Set up the test infrastr
 Next.js includes Jest configuration support. Install the additional dependencies:
 
 ```bash
-npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event @types/jest
+npm install -D jest jest-environment-jsdom @testing-library/react @types/jest @testing-library/jest-dom @testing-library/user-event
 ```
 
 ### Step 11.2 — Create Jest configuration
