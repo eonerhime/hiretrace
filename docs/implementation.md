@@ -581,6 +581,7 @@ Record every significant technical change, decision, or milestone here. One entr
 ### Sprint 1 — 06 May – 19 May 2026
 
 _(to be completed at sprint close)_
+https://hiretrace-k1n5ipufc-e1rhyme.vercel.app/
 
 ---
 
