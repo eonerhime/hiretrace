@@ -43,8 +43,8 @@
 | ---------------- | --------------------- | ------- | ---------------------------------------------- |
 | Framework        | Next.js               | 15      | Full-stack React framework — App Router        |
 | Language         | TypeScript            | 5.x     | Strict mode enforced from commit one           |
-| Styling          | Tailwind CSS          | 3.x     | Utility-first CSS — no custom CSS files        |
-| ORM              | Prisma                | 5.x     | Type-safe database access layer                |
+| Styling          | Tailwind CSS          | 4.x     | Utility-first CSS — no custom CSS files        |
+| ORM              | Prisma                | 7.x     | Type-safe database access layer                |
 | Validation       | Zod                   | 3.x     | Schema validation — server and client          |
 | Forms            | react-hook-form       | 7.x     | Form state management                          |
 | Form resolver    | @hookform/resolvers   | 3.x     | Connects Zod schemas to react-hook-form        |
@@ -179,7 +179,7 @@ hiretrace/
 
 **Provider:** neon.tech
 **Plan:** Free tier
-**Engine:** PostgreSQL 16
+**Engine:** PostgreSQL 17
 **Connection mode:** Pooled (runtime) + Direct (migrations)
 
 **Connection string format:**
@@ -200,6 +200,13 @@ datasource db {
 ```
 
 **Known constraint:** Neon free tier pauses compute after a period of inactivity. Cold start on resume is under 1 second. Acceptable for a portfolio project. Not suitable for production applications with SLA requirements.
+
+**Connection string usage:**
+
+- `DATABASE_URL` (pooled) — `lib/prisma.ts` — runtime queries only
+- `DIRECT_URL` (direct) — `prisma.config.ts` — all Prisma CLI commands
+- Pooled URL throws P1001 on migrate commands — direct URL required for CLI
+- `prisma.config.ts` uses `@next/env` `loadEnvConfig` to read `.env.local`
 
 ---
 
@@ -442,17 +449,60 @@ Each ADR records a decision made, the options considered, and the rationale. ADR
 
 ---
 
+### ADR-008 — Tailwind CSS v4 Syntax
+
+**Date:** April 19, 2026
+**Status:** Accepted
+
+**Decision:** Use single import syntax in `app/globals.css`.
+
+**Context:** Next.js 16 installs Tailwind v4. The `@tailwind base`,
+`@tailwind components`, and `@tailwind utilities` directives no longer
+exist. `tailwind.config.ts` is not required in v4.
+
+**Change:** `app/globals.css` contains a single line:
+`@import "tailwindcss";`
+
+---
+
+### ADR-009 — Prisma v6 Configuration Pattern
+
+**Date:** April 19, 2026
+**Status:** Accepted
+
+**Decision:** Use Prisma v6 `defineConfig` pattern with dual connection
+strings and `@prisma/client` import path.
+
+**Context:** Prisma v6 introduced three breaking changes:
+
+1. Connection URLs moved from `schema.prisma` to `prisma.config.ts`
+2. `dotenv/config` does not read `.env.local` — use `@next/env` `loadEnvConfig`
+3. Generated client moved from `@prisma/client` to `@prisma/client`
+4. Pooled Neon URL throws P1001 on all Prisma CLI commands — `DIRECT_URL`
+   required in `prisma.config.ts`; `DATABASE_URL` used only in `lib/prisma.ts`
+
+**Changes:**
+
+- `schema.prisma` datasource block contains no `url` or `directUrl`
+- `prisma.config.ts` uses `loadEnvConfig` and `DIRECT_URL`
+- `lib/prisma.ts` uses `DATABASE_URL` at runtime
+- All Prisma imports use `from '@prisma/client'`
+
+---
+
 ## 8. Known Trade-offs & Constraints
 
-| ID    | Area       | Constraint                                                     | Impact                                        | Sprint to Revisit         |
-| ----- | ---------- | -------------------------------------------------------------- | --------------------------------------------- | ------------------------- |
-| C-001 | Database   | Neon free tier: 0.5GB storage limit                            | Low — HireTrace data model is lightweight     | —                         |
-| C-002 | Database   | Neon compute pauses on inactivity — cold start ~1s             | Low — acceptable for portfolio                | —                         |
-| C-003 | Database   | Single Neon instance used for both dev and production          | Medium — no environment isolation             | Sprint 4 if budget allows |
-| C-004 | Security   | CSP allows `unsafe-eval` and `unsafe-inline`                   | Medium — reduced XSS protection               | Sprint 4                  |
-| C-005 | Deployment | Vercel Hobby plan: 100GB/month bandwidth                       | Low — portfolio traffic                       | —                         |
-| C-006 | Auth       | No refresh token — JWT expires after 7 days, requires re-login | Low — acceptable for this use case            | —                         |
-| C-007 | Testing    | No E2E tests until Sprint 6                                    | Medium — manual testing covers gap until then | Sprint 6                  |
+| ID    | Area       | Constraint                                                                                                 | Impact                                          | Sprint to Revisit         |
+| ----- | ---------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------- |
+| C-001 | Database   | Neon free tier: 0.5GB storage limit                                                                        | Low — HireTrace data model is lightweight       | —                         |
+| C-002 | Database   | Neon compute pauses on inactivity — cold start ~1s                                                         | Low — acceptable for portfolio                  | —                         |
+| C-003 | Database   | Single Neon instance used for both dev and production                                                      | Medium — no environment isolation               | Sprint 4 if budget allows |
+| C-004 | Security   | CSP allows `unsafe-eval` and `unsafe-inline`                                                               | Medium — reduced XSS protection                 | Sprint 4                  |
+| C-005 | Deployment | Vercel Hobby plan: 100GB/month bandwidth                                                                   | Low — portfolio traffic                         | —                         |
+| C-006 | Auth       | No refresh token — JWT expires after 7 days, requires re-login                                             | Low — acceptable for this use case              | —                         |
+| C-007 | Testing    | No E2E tests until Sprint 6                                                                                | Medium — manual testing covers gap until then   | Sprint 6                  |
+| C-008 | Prisma     | Pooled `DATABASE_URL` throws P1001 on Prisma CLI — `DIRECT_URL` required in `prisma.config.ts`             | Low — two env vars required, clearly documented | —                         |
+| C-009 | Prisma     | `dotenv/config` reads `.env` not `.env.local` — `@next/env` `loadEnvConfig` required in `prisma.config.ts` | Low — one additional dependency                 | —                         |
 
 ---
 
@@ -494,6 +544,12 @@ Record every significant technical change, decision, or milestone here. One entr
 **Architectural decisions recorded:** ADR-001 through ADR-007
 
 **Stack locked:** Next.js 15, TypeScript strict, Tailwind CSS, Prisma, Zod, react-hook-form, jose, bcryptjs, RTL, Jest, Neon, Vercel
+**Version corrections (actual installed versions):**
+
+- Next.js 16.x (not 15 as planned — create-next-app pulled latest)
+- Tailwind CSS 4.x (breaking change from v3 — globals.css updated)
+- Prisma 6.x (breaking changes — prisma.config.ts pattern, @prisma/client import)
+- PostgreSQL 17 on Neon (not 16 — Neon default)
 
 ---
 

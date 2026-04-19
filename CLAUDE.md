@@ -18,20 +18,21 @@ This file is the persistent project context for Claude Code. Read it at the star
 
 ## Tech Stack
 
-| Layer            | Technology            | Version | Notes                                                |
-| ---------------- | --------------------- | ------- | ---------------------------------------------------- |
-| Framework        | Next.js               | 15      | App Router only — never Pages Router                 |
-| Language         | TypeScript            | 5.x     | Strict mode enforced — `"strict": true`              |
-| Styling          | Tailwind CSS          | 3.x     | Utility classes only — no custom CSS files           |
-| ORM              | Prisma                | 5.x     | Schema-first, singleton client in `lib/prisma.ts`    |
-| Validation       | Zod                   | 3.x     | Server and client — schemas in `lib/schemas/`        |
-| Forms            | react-hook-form       | 7.x     | Always use `zodResolver` from `@hookform/resolvers`  |
-| Auth (tokens)    | jose                  | 5.x     | Edge-compatible JWT — NOT `jsonwebtoken`             |
-| Password hashing | bcryptjs              | 2.x     | 10 salt rounds — never `bcrypt` (native)             |
-| Testing          | React Testing Library | 14.x    | Component tests — spec AC drives test cases          |
-| Test runner      | Jest                  | 29.x    | Config in `jest.config.ts`                           |
-| Database         | Neon (PostgreSQL 16)  | —       | Pooled URL for runtime, direct URL for migrations    |
-| Deployment       | Vercel                | —       | Hobby plan; `develop` → preview, `main` → production |
+| Layer                       | Technology            | Version | Notes                                                 |
+| --------------------------- | --------------------- | ------- | ----------------------------------------------------- |
+| Framework                   | Next.js               | 15      | App Router only — never Pages Router                  |
+| Language                    | TypeScript            | 5.x     | Strict mode enforced — `"strict": true`               |
+| Styling                     | Tailwind CSS          | 4.x     | Utility classes only — no custom CSS files            |
+| ORM                         | Prisma                | 7.x     | Schema-first, singleton client in lib/prisma.ts → add |
+| Import from '@prisma/client |
+| Validation                  | Zod                   | 3.x     | Server and client — schemas in `lib/schemas/`         |
+| Forms                       | react-hook-form       | 7.x     | Always use `zodResolver` from `@hookform/resolvers`   |
+| Auth (tokens)               | jose                  | 5.x     | Edge-compatible JWT — NOT `jsonwebtoken`              |
+| Password hashing            | bcryptjs              | 2.x     | 10 salt rounds — never `bcrypt` (native)              |
+| Testing                     | React Testing Library | 14.x    | Component tests — spec AC drives test cases           |
+| Test runner                 | Jest                  | 29.x    | Config in `jest.config.ts`                            |
+| Database                    | Neon (PostgreSQL 17)  | —       | Pooled URL for runtime, direct URL for migrations     |
+| Deployment                  | Vercel                | —       | Hobby plan; `develop` → preview, `main` → production  |
 
 ---
 
@@ -90,6 +91,7 @@ These rules are permanent. Never break them — they were decisions made before 
 
 1. **No `any` types.** TypeScript strict mode is active from commit one. Never use `any` — fix the type properly.
 2. **No `new PrismaClient()` outside `lib/prisma.ts`.** Always import `prisma` from `@/lib/prisma`.
+   Import `PrismaClient` from '@prisma/client'`.
 3. **No inline styles.** Tailwind utility classes only — no `style={}` props.
 4. **No Zod schemas defined inline.** All schemas live in `lib/schemas/` — never in components or route handlers.
 5. **No `jsonwebtoken`.** Use `jose` — it is Edge Runtime compatible and required for `middleware.ts`.
@@ -293,6 +295,19 @@ These are documented lessons from setup — do not repeat these mistakes:
 7. **`JWT_SECRET` must be set before testing auth routes.** If missing, login returns 500 silently.
 8. **`bcryptjs` not `bcrypt`.** Never install `bcrypt` — it requires native compilation that fails on Vercel.
 9. **`jose` not `jsonwebtoken`.** `middleware.ts` runs on Edge Runtime which does not support Node.js built-ins that `jsonwebtoken` depends on.
+10. **Tailwind v4 — use `@import "tailwindcss"` in `globals.css`.**
+    The `@tailwind` directives are gone in v4. One line replaces all three.
+
+11. **Prisma v6 — `prisma.config.ts` uses `DIRECT_URL` not `DATABASE_URL`.**
+    The pooled URL throws P1001 on all Prisma CLI commands.
+    Use `@next/env` `loadEnvConfig` to read `.env.local`.
+
+12. **Prisma v6 — import from `@prisma/client`.**
+    Run `npx prisma generate` after any schema change.
+
+13. **Both Neon connection strings are always required.**
+    `DATABASE_URL` (pooled) → runtime via `lib/prisma.ts`.
+    `DIRECT_URL` (direct) → Prisma CLI via `prisma.config.ts`.
 
 ---
 

@@ -241,9 +241,18 @@ Provision a PostgreSQL database on Neon that the application connects to. This i
 #### Implementation Notes
 
 - Neon account: create at neon.tech — free tier, no credit card required
-- Project setup: New Project → Create Database → copy the connection string from the Dashboard → Connection Details panel
-- Neon provides two connection strings — use the **pooled** connection string (contains `-pooler` in the hostname) for the application; use the direct string only for Prisma migrations
+- Project setup: New Project → Create Database → copy both connection strings from Dashboard → Connection Details panel
+- Two connection strings are required:
+  - `DATABASE_URL` (pooled, contains `-pooler` in hostname) → `lib/prisma.ts` → runtime queries only
+  - `DIRECT_URL` (direct, no `-pooler`) → `prisma.config.ts` → all Prisma CLI commands only
+- Pooled URL throws P1001 on all Prisma CLI commands — never use `DATABASE_URL` in `prisma.config.ts`
 - Add both to `.env.local`:
+  DATABASE_URL=<pooled connection string>
+  DIRECT_URL=<direct connection string>
+- `prisma.config.ts` uses `@next/env` `loadEnvConfig` to read `.env.local` — `dotenv/config` only reads `.env` which does not exist in this project
+- `schema.prisma` datasource block contains no URL fields — Prisma v6 pattern
+- Add both variables to Vercel environment variables (done at PBI-008)
+- Neon compute pauses after inactivity — resumes automatically in under 1 second; not a problem for a portfolio project
 
 #### DoD Checklist
 
@@ -480,8 +489,6 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
 }
 
 
@@ -492,6 +499,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+> Prisma v6 — connection URL configured in `prisma.config.ts`, not here.
 ```
 
 - Use `cuid()` not `uuid()` for IDs — shorter, URL-safe, ordered
@@ -526,6 +535,10 @@ if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 - [ ] `npx prisma studio` shows `User` table with correct columns
 - [ ] No TypeScript errors (`tsc --noEmit` clean)
 - [ ] PBI marked `[x]` in `product.md` and `sprint-01.md`
+- [ ] `DATABASE_URL` (pooled) and `DIRECT_URL` (direct) set in `.env.local`
+- [ ] Both variables added to Vercel environment variables
+- [ ] `DATABASE_URL` confirmed in `lib/prisma.ts`
+- [ ] `DIRECT_URL` confirmed in `prisma.config.ts`
 
 ---
 

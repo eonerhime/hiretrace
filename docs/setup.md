@@ -214,9 +214,6 @@ Open `.env.example` and add:
 # Pooled connection string (used by the app at runtime)
 DATABASE_URL=
 
-# Direct connection string (used by Prisma migrate only)
-DIRECT_URL=
-
 # Authentication
 # Generate with: openssl rand -base64 32
 JWT_SECRET=
@@ -359,25 +356,20 @@ git push origin develop
 
 On the project dashboard, find the **Connection Details** panel.
 
-1. From the **Connection string** dropdown, select **Prisma**
-2. You will see a connection string that looks like:
+**Pooled connection string (DATABASE_URL):**
 
-```
-postgresql://USER:PASSWORD@HOST-pooler.region.aws.neon.tech/DATABASE?sslmode=require
-```
+1. Ensure **Connection pooling** toggle is ON
+2. Copy the connection string — contains `-pooler` in the hostname
+3. This is used by the app at runtime via `lib/prisma.ts`
 
-This is your **pooled** connection string (`DATABASE_URL`).
+**Direct connection string (DIRECT_URL):**
 
-3. Now change the dropdown to **Connection string** (plain)
-4. You will see:
+1. Toggle **Connection pooling** OFF
+2. Copy the connection string — no `-pooler` in the hostname
+3. This is used by all Prisma CLI commands via `prisma.config.ts`
 
-```
-postgresql://USER:PASSWORD@HOST.region.aws.neon.tech/DATABASE?sslmode=require
-```
-
-Note: the pooled string has `-pooler` in the hostname; the direct string does not.
-
-This is your **direct** connection string (`DIRECT_URL`).
+> Both strings are required. The pooled URL cannot reach the database
+> server for migrations — only the direct URL works for Prisma CLI commands.
 
 ### Step 5.3 — Add connection strings to `.env.local`
 
@@ -434,6 +426,32 @@ rm .env
 
 Confirm `.env` is in `.gitignore` (Next.js adds this — double-check it is there).
 
+`prisma.config.ts`
+
+```typescript
+import { loadEnvConfig } from "@next/env";
+import { defineConfig } from "prisma/config";
+
+const projectDir = process.cwd();
+loadEnvConfig(projectDir);
+
+export default defineConfig({
+  schema: "prisma/schema.prisma",
+  migrations: {
+    path: "prisma/migrations",
+  },
+  datasource: {
+    url: process.env["DIRECT_URL"] as string,
+  },
+});
+```
+
+> `prisma.config.ts` uses `DIRECT_URL` for all Prisma CLI commands.
+> The pooled `DATABASE_URL` cannot reach the Neon server directly
+> and will throw P1001 on migrate commands.
+
+---
+
 ### Step 6.3 — Configure `prisma/schema.prisma`
 
 Open `prisma/schema.prisma` and replace the entire contents with:
@@ -445,8 +463,6 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -457,6 +473,9 @@ model User {
   updatedAt DateTime @updatedAt
 }
 ```
+
+> Connection URL is configured in `prisma.config.ts` — not in the
+> datasource block. This is a Prisma v6 change.
 
 **Schema decisions:**
 
@@ -1618,6 +1637,29 @@ Setting `secure: true` on cookies in development breaks local testing because `l
 
 **7. JWT_SECRET must be set before any auth routes are tested**
 If `JWT_SECRET` is missing from `.env.local`, the JWT signing will throw a silent error and the login route will return 500. Generate and set it before running the dev server.
+
+**8. Tailwind v4 syntax has changed**
+Next.js 16 installs Tailwind v4. The `@tailwind base`, `@tailwind components`,
+and `@tailwind utilities` directives no longer exist. Replace all three with
+a single line in `app/globals.css`: `@import "tailwindcss"`.
+`tailwind.config.ts` is not required in v4.
+
+**9. Prisma v6 moved database config out of `schema.prisma`**
+Connection URLs no longer go in the datasource block — they throw a TypeScript
+error in v6. Connection config lives in `prisma.config.ts` using `defineConfig`.
+Use `@next/env` `loadEnvConfig` to read `.env.local` — `dotenv/config` only
+reads `.env` which does not exist in this project.
+
+**10. Prisma v6 requires `DIRECT_URL` in `prisma.config.ts`**
+The pooled `DATABASE_URL` throws `P1001` on all Prisma CLI commands including
+migrate, studio, and generate. `prisma.config.ts` must use `DIRECT_URL`
+(direct connection, no `-pooler` in hostname). `DATABASE_URL` (pooled) is
+used only in `lib/prisma.ts` for runtime queries.
+
+**11. `openssl rand` uses a space not an underscore**
+The correct command is `openssl rand -base64 32` — not `openssl rand -base64_32`.
+On Windows Git Bash if `openssl` is not found, use:
+`node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"`
 
 ---
 
