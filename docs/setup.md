@@ -1234,9 +1234,9 @@ git push origin develop
 
 ## 10. Protected Route Middleware — PBI-006
 
-### Step 10.1 — Create `middleware.ts`
+### Step 10.1 — Create `proxy.ts`
 
-Create `middleware.ts` at the **project root** (same level as `package.json`):
+Create `proxy.ts` at the **project root** (same level as `package.json`):
 
 ```typescript
 import { NextRequest, NextResponse } from "next/server";

@@ -73,7 +73,7 @@ hiretrace/
 │   ├── notion-setup.md
 │   └── sprints/
 │       └── sprint-01.md
-├── middleware.ts         ← JWT verification at Edge — project root
+├── proxy.ts         ← JWT verification at Edge — project root
 ├── next.config.ts
 ├── tailwind.config.ts
 ├── tsconfig.json
@@ -96,7 +96,7 @@ These rules are permanent. Never break them — they were decisions made before 
    `'@prisma/client'`.
 3. **No inline styles.** Tailwind utility classes only — no `style={}` props.
 4. **No Zod schemas defined inline.** All schemas live in `lib/schemas/` — never in components or route handlers.
-5. **No `jsonwebtoken`.** Use `jose` — it is Edge Runtime compatible and required for `middleware.ts`.
+5. **No `jsonwebtoken`.** Use `jose` — it is Edge Runtime compatible and required for `proxy.ts`.
 6. **No `bcrypt`.** Use `bcryptjs` — no native compilation, same API, same security.
 7. **No direct commits to `main`.** All development goes through feature branches → `develop` → `main` at sprint close.
 8. **No secrets in source.** `.env.local` is gitignored. Never hardcode `DATABASE_URL`, `JWT_SECRET`, or any secret.
@@ -160,7 +160,7 @@ Login:
   Client → POST /api/auth/login → Zod validate → prisma.user.findUnique → bcrypt.compare → SignJWT → Set HTTP-only cookie → 200
 
 Protected request:
-  Browser sends cookie automatically → middleware.ts → jwtVerify → next() or redirect/401
+  Browser sends cookie automatically → proxy.ts → jwtVerify → next() or redirect/401
 
 Logout:
   Client → POST /api/auth/logout → Clear cookie (Max-Age=0) → 200 → client redirects to /login
@@ -296,7 +296,7 @@ These are documented lessons from setup — do not repeat these mistakes:
 6. **`secure: true` on cookies breaks localhost.** Use `secure: process.env.NODE_ENV === 'production'` on all cookie operations.
 7. **`JWT_SECRET` must be set before testing auth routes.** If missing, login returns 500 silently.
 8. **`bcryptjs` not `bcrypt`.** Never install `bcrypt` — it requires native compilation that fails on Vercel.
-9. **`jose` not `jsonwebtoken`.** `middleware.ts` runs on Edge Runtime which does not support Node.js built-ins that `jsonwebtoken` depends on.
+9. **`jose` not `jsonwebtoken`.** `proxy.ts` runs on Edge Runtime which does not support Node.js built-ins that `jsonwebtoken` depends on.
 10. **Tailwind v4 — use `@import "tailwindcss"` in `globals.css`.**
     The `@tailwind` directives are gone in v4. One line replaces all three.
 
@@ -325,7 +325,7 @@ These are documented lessons from setup — do not repeat these mistakes:
 | `/login`, `/register` | Client Component (`'use client'`) | Form interactivity required                     |
 | `/dashboard`          | Server Component (default)        | Data fetched server-side at page level          |
 | `/api/*`              | Route Handler                     | REST API — JSON responses only                  |
-| `middleware.ts`       | Edge Runtime                      | Runs before rendering — must be Edge-compatible |
+| `proxy.ts`            | Edge Runtime                      | Runs before rendering — must be Edge-compatible |
 
 ---
 
