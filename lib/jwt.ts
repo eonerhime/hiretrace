@@ -1,7 +1,5 @@
 import { SignJWT, jwtVerify } from "jose";
 
-const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-
 export interface JWTPayload {
   userId: string;
   email: string;
@@ -9,6 +7,7 @@ export interface JWTPayload {
 }
 
 export async function signJWT(payload: JWTPayload): Promise<string> {
+  const secret = new TextEncoder().encode(process.env.JWT_SECRET);
   return new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
@@ -17,6 +16,7 @@ export async function signJWT(payload: JWTPayload): Promise<string> {
 }
 
 export async function verifyJWT(token: string): Promise<JWTPayload> {
+  const secret = new TextEncoder().encode(process.env.JWT_SECRET);
   const { payload } = await jwtVerify(token, secret);
   return payload as unknown as JWTPayload;
 }
