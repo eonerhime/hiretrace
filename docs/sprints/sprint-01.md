@@ -37,17 +37,17 @@ At sprint close: the Next.js application is scaffolded, deployed to Vercel, conn
 
 | PBI     | Item                                                | Size | Priority | Status |
 | ------- | --------------------------------------------------- | ---- | -------- | ------ |
-| PBI-007 | GitHub repository + branch strategy                 | S    | 🔴       | [ ]    |
-| PBI-001 | Next.js project scaffold with TypeScript + Tailwind | S    | 🔴       | [ ]    |
-| PBI-002 | PostgreSQL database setup on Neon                   | S    | 🔴       | [ ]    |
-| PBI-039 | HTTPS + security headers (Next.js config)           | S    | 🔴       | [ ]    |
-| PBI-046 | Notion workspace setup and public share             | S    | 🔴       | [ ]    |
-| PBI-003 | Prisma ORM setup + initial schema                   | M    | 🔴       | [ ]    |
-| PBI-037 | Input validation (Zod — server and client)          | M    | 🔴       | [ ]    |
-| PBI-004 | User registration (email/password + bcrypt)         | M    | 🔴       | [ ]    |
-| PBI-005 | User login + JWT session management                 | M    | 🔴       | [ ]    |
-| PBI-006 | Protected route middleware                          | S    | 🔴       | [ ]    |
-| PBI-008 | Vercel deployment (dev environment)                 | S    | 🔴       | [ ]    |
+| PBI-007 | GitHub repository + branch strategy                 | S    | 🔴       | [x]    |
+| PBI-001 | Next.js project scaffold with TypeScript + Tailwind | S    | 🔴       | [x]    |
+| PBI-002 | PostgreSQL database setup on Neon                   | S    | 🔴       | [x]    |
+| PBI-039 | HTTPS + security headers (Next.js config)           | S    | 🔴       | [x]    |
+| PBI-046 | Notion workspace setup and public share             | S    | 🔴       | [x]    |
+| PBI-003 | Prisma ORM setup + initial schema                   | M    | 🔴       | [x]    |
+| PBI-037 | Input validation (Zod — server and client)          | M    | 🔴       | [x]    |
+| PBI-004 | User registration (email/password + bcrypt)         | M    | 🔴       | [x]    |
+| PBI-005 | User login + JWT session management                 | M    | 🔴       | [x]    |
+| PBI-006 | Protected route middleware                          | S    | 🔴       | [x]    |
+| PBI-008 | Vercel deployment (dev environment)                 | S    | 🔴       | [x]    |
 
 **Status markers:** `[ ]` Not started · `[~]` In progress · `[x]` Done · `[!]` Blocked
 
@@ -79,9 +79,19 @@ At sprint close: the Next.js application is scaffolded, deployed to Vercel, conn
 
 Use this section to record what was worked on each day. One line per session is sufficient.
 
-| Date | PBIs Worked | Notes |
-| ---- | ----------- | ----- |
-|      |             |       |
+| Date    | PBIs Worked | Notes |
+| ------- | ----------- | ----- |
+| 19 Apr  | PBI-007     | Done  |
+| PBI-001 | Done        |
+| PBI-002 | Done        |
+| PBI-039 | Done        |
+| PBI-046 | Done        |
+| PBI-003 | Done        |
+| PBI-037 | Done        |
+| PBI-004 | Done        |
+| PBI-005 | Done        |
+| PBI-006 | Done        |
+| PBI-008 | Done        |
 
 ---
 
@@ -101,45 +111,47 @@ Record any blocked PBIs here immediately. Do not leave a block undocumented.
 
 | PBI     | Status at Checkpoint | On Track? |
 | ------- | -------------------- | --------- |
-| PBI-007 |                      |           |
-| PBI-001 |                      |           |
-| PBI-002 |                      |           |
-| PBI-039 |                      |           |
-| PBI-046 |                      |           |
-| PBI-003 |                      |           |
-| PBI-037 |                      |           |
-| PBI-004 |                      |           |
-| PBI-005 |                      |           |
-| PBI-006 |                      |           |
-| PBI-008 |                      |           |
+| PBI-007 | Completed            | Yes       |
+| PBI-001 | Completed            | Yes       |
+| PBI-002 | Completed            | Yes       |
+| PBI-039 | Completed            | Yes       |
+| PBI-046 | Completed            | Yes       |
+| PBI-003 | Completed            | Yes       |
+| PBI-037 | Completed            | Yes       |
+| PBI-004 | Completed            | Yes       |
+| PBI-005 | Completed            | Yes       |
+| PBI-006 | Completed            | Yes       |
+| PBI-008 | Completed            | Yes       |
 
 **Overflow decision:** _(none / list PBI moved to Sprint 2 with reason)_
+No overflow; all PBIs completed
 
 ---
 
 ## Sprint Review (19 May 2026)
 
 **Date completed:** _(fill at review)_
+20 Apr 2026
 
 ### PBI Completion
 
 | PBI     | Item                                                | Done? | Notes |
 | ------- | --------------------------------------------------- | ----- | ----- |
-| PBI-007 | GitHub repository + branch strategy                 | [ ]   |       |
-| PBI-001 | Next.js project scaffold with TypeScript + Tailwind | [ ]   |       |
-| PBI-002 | PostgreSQL database setup on Neon                   | [ ]   |       |
-| PBI-039 | HTTPS + security headers (Next.js config)           | [ ]   |       |
-| PBI-046 | Notion workspace setup and public share             | [ ]   |       |
-| PBI-003 | Prisma ORM setup + initial schema                   | [ ]   |       |
-| PBI-037 | Input validation (Zod — server and client)          | [ ]   |       |
-| PBI-004 | User registration (email/password + bcrypt)         | [ ]   |       |
-| PBI-005 | User login + JWT session management                 | [ ]   |       |
-| PBI-006 | Protected route middleware                          | [ ]   |       |
-| PBI-008 | Vercel deployment (dev environment)                 | [ ]   |       |
+| PBI-007 | GitHub repository + branch strategy                 | [x]   |       |
+| PBI-001 | Next.js project scaffold with TypeScript + Tailwind | [x]   |       |
+| PBI-002 | PostgreSQL database setup on Neon                   | [x]   |       |
+| PBI-039 | HTTPS + security headers (Next.js config)           | [x]   |       |
+| PBI-046 | Notion workspace setup and public share             | [x]   |       |
+| PBI-003 | Prisma ORM setup + initial schema                   | [x]   |       |
+| PBI-037 | Input validation (Zod — server and client)          | [x]   |       |
+| PBI-004 | User registration (email/password + bcrypt)         | [x]   |       |
+| PBI-005 | User login + JWT session management                 | [x]   |       |
+| PBI-006 | Protected route middleware                          | [x]   |       |
+| PBI-008 | Vercel deployment (dev environment)                 | [x]   |       |
 
 ### Sprint Goal Met?
 
-- [ ] Yes — sprint goal achieved in full
+- [x] Yes — sprint goal achieved in full
 - [ ] Partial — sprint goal partially met (explain below)
 - [ ] No — sprint goal not met (explain below)
 
@@ -147,19 +159,20 @@ Record any blocked PBIs here immediately. Do not leave a block undocumented.
 
 ### Velocity
 
-| Metric            | Value    |
-| ----------------- | -------- |
-| PBIs committed    | 11       |
-| PBIs completed    | _(fill)_ |
-| PBIs carried over | _(fill)_ |
-| S completed       | _(fill)_ |
-| M completed       | _(fill)_ |
+| Metric            | Value |
+| ----------------- | ----- |
+| PBIs committed    | 11    |
+| PBIs completed    | 11    |
+| PBIs carried over | 0     |
+| S completed       | 7     |
+| M completed       | 4     |
 
 ---
 
 ## Sprint Retrospective (19 May 2026)
 
 **Date completed:** _(fill at retro)_
+21 Apr 2026
 
 ### What went well?
 

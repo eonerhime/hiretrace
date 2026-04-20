@@ -361,18 +361,18 @@ Each feature from `features.md` is broken into atomic tasks. A task is the small
 
 | PBI       | Total Tasks | Completed | Remaining |
 | --------- | ----------- | --------- | --------- |
-| PBI-007   | 13          | 5         | 8         |
-| PBI-001   | 12          | 0         | 12        |
-| PBI-002   | 7           | 0         | 7         |
-| PBI-039   | 5           | 0         | 5         |
-| PBI-046   | 8           | 7         | 1         |
-| PBI-003   | 10          | 0         | 10        |
-| PBI-037   | 7           | 0         | 7         |
-| PBI-004   | 24          | 0         | 24        |
-| PBI-005   | 27          | 0         | 27        |
-| PBI-006   | 12          | 0         | 12        |
-| PBI-008   | 8           | 2         | 6         |
-| **Total** | **133**     | **14**    | **119**   |
+| PBI-007   | 13          | 13        | 0         |
+| PBI-001   | 12          | 12        | 0         |
+| PBI-002   | 7           | 7         | 0         |
+| PBI-039   | 5           | 5         | 0         |
+| PBI-046   | 8           | 8         | 0         |
+| PBI-003   | 10          | 10        | 0         |
+| PBI-037   | 7           | 7         | 0         |
+| PBI-004   | 24          | 24        | 0         |
+| PBI-005   | 27          | 27        | 0         |
+| PBI-006   | 12          | 12        | 0         |
+| PBI-008   | 8           | 8         | 0         |
+| **Total** | **133**     | **133**   | **0**     |
 
 **Pre-sprint tasks already done (marked `[x]`):** GitHub repo created, `.gitignore` added, `README.md` added, core SDD docs committed, Notion workspace built and published, Vercel project connected. 14 tasks complete before Sprint 1 even starts.
 

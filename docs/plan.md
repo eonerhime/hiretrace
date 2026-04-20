@@ -423,15 +423,15 @@ Before a sprint is marked Closed in `sprint-XX.md`:
 
 Track sprint status here. Update at each sprint close.
 
-| Sprint     | Dates                | Goal                                   | PBI Count | Status         | Close Date | Notes |
-| ---------- | -------------------- | -------------------------------------- | --------- | -------------- | ---------- | ----- |
-| Pre-Sprint | 22 Apr – 05 May 2026 | Infrastructure + posts 01–06           | —         | 🔲 Not started | —          | —     |
-| Sprint 1   | 06 May – 19 May 2026 | Foundation + Auth                      | 11        | 🔲 Not started | —          | —     |
-| Sprint 2   | 20 May – 02 Jun 2026 | Core Pipeline                          | 9         | 🔲 Not started | —          | —     |
-| Sprint 3   | 03 Jun – 16 Jun 2026 | Contacts + Reminders + Dashboard (MVP) | 9         | 🔲 Not started | —          | —     |
-| Sprint 4   | 17 Jun – 30 Jun 2026 | Notes + Metrics + API Hardening        | 7         | 🔲 Not started | —          | —     |
-| Sprint 5   | 01 Jul – 14 Jul 2026 | Resume Management + Email Reminders    | 5         | 🔲 Not started | —          | —     |
-| Sprint 6   | 15 Jul – 28 Jul 2026 | Analytics + Export + OAuth + E2E       | 4         | 🔲 Not started | —          | —     |
+| Sprint     | Dates                | Goal                                   | PBI Count | Status         | Close Date  | Notes                                                     |
+| ---------- | -------------------- | -------------------------------------- | --------- | -------------- | ----------- | --------------------------------------------------------- |
+| Pre-Sprint | 22 Apr – 05 May 2026 | Infrastructure + posts 01–06           | —         | ✅ Closed      | 20 Apr 2026 | Completed ahead of schedule                               |
+| Sprint 1   | 06 May – 19 May 2026 | Foundation + Auth                      | 11        | ✅ Closed      | 20 Apr 2026 | Completed ahead of schedule — actual dates 18–20 Apr 2026 |
+| Sprint 2   | 20 May – 02 Jun 2026 | Core Pipeline                          | 9         | 🔲 Not started | —           | —                                                         |
+| Sprint 3   | 03 Jun – 16 Jun 2026 | Contacts + Reminders + Dashboard (MVP) | 9         | 🔲 Not started | —           | —                                                         |
+| Sprint 4   | 17 Jun – 30 Jun 2026 | Notes + Metrics + API Hardening        | 7         | 🔲 Not started | —           | —                                                         |
+| Sprint 5   | 01 Jul – 14 Jul 2026 | Resume Management + Email Reminders    | 5         | 🔲 Not started | —           | —                                                         |
+| Sprint 6   | 15 Jul – 28 Jul 2026 | Analytics + Export + OAuth + E2E       | 4         | 🔲 Not started | —           | —                                                         |
 
 **Status markers:** 🔲 Not started | 🔄 In progress | ✅ Closed | ⚠️ Overflow
 

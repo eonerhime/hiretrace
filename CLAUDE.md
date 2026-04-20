@@ -18,21 +18,21 @@ This file is the persistent project context for Claude Code. Read it at the star
 
 ## Tech Stack
 
-| Layer                       | Technology            | Version | Notes                                                 |
-| --------------------------- | --------------------- | ------- | ----------------------------------------------------- |
-| Framework                   | Next.js               | 15      | App Router only — never Pages Router                  |
-| Language                    | TypeScript            | 5.x     | Strict mode enforced — `"strict": true`               |
-| Styling                     | Tailwind CSS          | 4.x     | Utility classes only — no custom CSS files            |
-| ORM                         | Prisma                | 7.x     | Schema-first, singleton client in lib/prisma.ts → add |
+| Layer                       | Technology            | Version | Notes                                                        |
+| --------------------------- | --------------------- | ------- | ------------------------------------------------------------ |
+| Framework                   | Next.js               | 15.5.15 | PINNED — do not upgrade; v16 breaks Vercel deployment        |
+| Language                    | TypeScript            | 5.x     | Strict mode enforced — `"strict": true`                      |
+| Styling                     | Tailwind CSS          | 4.x     | Utility classes only — no custom CSS files                   |
+| ORM                         | Prisma                | 5.22.0  | PINNED — do not upgrade; v6/v7 WASM incompatible with Vercel |
 | Import from '@prisma/client |
-| Validation                  | Zod                   | 3.x     | Server and client — schemas in `lib/schemas/`         |
-| Forms                       | react-hook-form       | 7.x     | Always use `zodResolver` from `@hookform/resolvers`   |
-| Auth (tokens)               | jose                  | 5.x     | Edge-compatible JWT — NOT `jsonwebtoken`              |
-| Password hashing            | bcryptjs              | 2.x     | 10 salt rounds — never `bcrypt` (native)              |
-| Testing                     | React Testing Library | 14.x    | Component tests — spec AC drives test cases           |
-| Test runner                 | Jest                  | 29.x    | Config in `jest.config.ts`                            |
-| Database                    | Neon (PostgreSQL 17)  | —       | Pooled URL for runtime, direct URL for migrations     |
-| Deployment                  | Vercel                | —       | Hobby plan; `develop` → preview, `main` → production  |
+| Validation                  | Zod                   | 3.x     | Server and client — schemas in `lib/schemas/`                |
+| Forms                       | react-hook-form       | 7.x     | Always use `zodResolver` from `@hookform/resolvers`          |
+| Auth (tokens)               | jose                  | 5.x     | Edge-compatible JWT — NOT `jsonwebtoken`                     |
+| Password hashing            | bcryptjs              | 2.x     | 10 salt rounds — never `bcrypt` (native)                     |
+| Testing                     | React Testing Library | 14.x    | Component tests — spec AC drives test cases                  |
+| Test runner                 | Jest                  | 29.x    | Config in `jest.config.ts`                                   |
+| Database                    | Neon (PostgreSQL 17)  | —       | Pooled URL for runtime, direct URL for migrations            |
+| Deployment                  | Vercel                | —       | Hobby plan; `develop` → preview, `main` → production         |
 
 ---
 
@@ -291,30 +291,31 @@ These are documented lessons from setup — do not repeat these mistakes:
 1. **`develop` before first commit.** The `develop` branch must exist before any application code or docs are committed. Never commit directly to `main`.
 2. **`docs` folder must be named exactly `docs`.** Every cross-reference in every SDD document uses `/docs`. Any other name breaks all links.
 3. **Prisma creates a `.env` file on `init` — delete it.** This project uses `.env.local`. Delete the Prisma-generated `.env` immediately. Confirm `.env` is in `.gitignore`.
-4. **Neon requires two connection strings.** `DATABASE_URL` (pooled) for runtime. `DIRECT_URL` (direct) for migrations. Both must be in `.env.local` and Vercel.
+4. **Neon `DATABASE_URL` must use pooled string without `channel_binding=require`.** Remove that parameter from the connection string in both `.env.local` and Vercel environment variables — it causes authentication failures on Vercel serverless.
 5. **`useSearchParams()` requires a Suspense boundary** in Next.js App Router. Wrap any component using it in `<Suspense>`.
 6. **`secure: true` on cookies breaks localhost.** Use `secure: process.env.NODE_ENV === 'production'` on all cookie operations.
 7. **`JWT_SECRET` must be set before testing auth routes.** If missing, login returns 500 silently.
 8. **`bcryptjs` not `bcrypt`.** Never install `bcrypt` — it requires native compilation that fails on Vercel.
-9. **`jose` not `jsonwebtoken`.** `proxy.ts` runs on Edge Runtime which does not support Node.js built-ins that `jsonwebtoken` depends on.
+9. **`jose` in API routes only — never in `middleware.ts`.** Vercel's Edge Runtime rejects all jose import paths. Use `crypto.subtle` (Web Crypto API) for JWT verification in `middleware.ts`. jose is safe in `lib/jwt.ts` and API routes which run on Node.js runtime.
 10. **Tailwind v4 — use `@import "tailwindcss"` in `globals.css`.**
     The `@tailwind` directives are gone in v4. One line replaces all three.
+11. **Prisma is pinned to v5.22.0 — do not upgrade.** Prisma v6/v7 introduced WASM-based adapters incompatible with Vercel serverless. v5 uses the standard singleton pattern with no adapter. Import from `@prisma/client` — not `generated/prisma`. Run `npx prisma generate` after any schema change.
 
-11. **Prisma v6 — `prisma.config.ts` uses `DIRECT_URL` not `DATABASE_URL`.**
-    The pooled URL throws P1001 on all Prisma CLI commands.
-    Use `@next/env` `loadEnvConfig` to read `.env.local`.
+12. **Next.js is pinned to 15.5.15 — do not upgrade.** Next.js 16 deprecated `middleware.ts` in favour of `proxy.ts` which Vercel does not yet support. All routes returned 404 on Vercel with v16.
 
-12. **Prisma v6 — import from `@prisma/client`.**
-    Run `npx prisma generate` after any schema change.
+13. **`prisma.config.ts` does not exist in Prisma v5.** Delete it if auto-generated by any tooling. Prisma v5 reads `DATABASE_URL` directly from the environment via `schema.prisma` datasource block.
 
-13. **Both Neon connection strings are always required.**
-    `DATABASE_URL` (pooled) → runtime via `lib/prisma.ts`.
-    `DIRECT_URL` (direct) → Prisma CLI via `prisma.config.ts`.
+14. **`postinstall: prisma generate` is required in `package.json`.** Without it Vercel builds fail — the Prisma client is not generated before TypeScript type checking runs.
 
-14. **Prisma v7 requires an adapter — `new PrismaClient()` alone throws.**
-    Pass `PrismaNeon({ connectionString: process.env.DATABASE_URL })` as the
-    adapter. Install `@neondatabase/serverless` and `@prisma/adapter-neon`.
-    Do not pass a `Pool` instance or `neon()` function — use the config object.
+15. **Never use `@latest` when installing packages.** Always pin to specific versions. `@latest` installed Next.js 16 and Prisma v7 both of which broke Vercel deployment. Use `npx create-next-app@15` and `npm install prisma@5 @prisma/client@5`.
+
+16. **Vercel framework preset must be set to Next.js at project creation.** Wrong preset causes all routes to return 404 from static. Verify immediately — Settings → General → Framework Preset → Next.js.
+
+17. **Run `npm run build` locally before every Vercel push.** A passing local build does not guarantee Vercel success but a failing local build guarantees Vercel failure.
+
+18. **Remove `channel_binding=require` from `DATABASE_URL`.** Neon's default pooled connection string includes this parameter — remove it from both `.env.local` and Vercel environment variables.
+
+19. **`jose` cannot be used in `middleware.ts` on Vercel Edge Runtime.** Use `crypto.subtle` instead. jose is safe in API routes only.
 
 ---
 

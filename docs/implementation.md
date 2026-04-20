@@ -44,7 +44,7 @@
 | Framework        | Next.js               | 15      | Full-stack React framework — App Router        |
 | Language         | TypeScript            | 5.x     | Strict mode enforced from commit one           |
 | Styling          | Tailwind CSS          | 4.x     | Utility-first CSS — no custom CSS files        |
-| ORM              | Prisma                | 7.x     | Type-safe database access layer                |
+| ORM              | Prisma                | 5.x     | Type-safe database access layer                |
 | Validation       | Zod                   | 3.x     | Schema validation — server and client          |
 | Forms            | react-hook-form       | 7.x     | Form state management                          |
 | Form resolver    | @hookform/resolvers   | 3.x     | Connects Zod schemas to react-hook-form        |
@@ -511,20 +511,79 @@ object. Requires `@neondatabase/serverless` and `@prisma/adapter-neon`.
 
 ---
 
+### ADR-011 — Pin Next.js to 15.x
+
+**Date:** 20 April 2026
+**Status:** Accepted
+
+**Decision:** Pin Next.js to 15.5.15 — do not upgrade to v16.
+
+**Context:** Next.js 16 deprecated `middleware.ts` in favour of `proxy.ts`
+with a renamed export function. Vercel's infrastructure does not yet support
+the `proxy` convention — all routes returned 404. Downgrading to v15.5.15
+resolved the issue immediately.
+
+**Rule:** Do not run `npm install next@latest` at any point during this
+project. If Next.js must be updated, test on a branch first.
+
+---
+
+### ADR-012 — Pin Prisma to 5.x
+
+**Date:** 20 April 2026
+**Status:** Accepted
+
+**Decision:** Pin Prisma to 5.22.0 — do not upgrade to v6 or v7.
+
+**Context:** Prisma v6 and v7 introduced three breaking changes incompatible
+with this project's Vercel deployment:
+
+1. Database URL moved from `schema.prisma` to `prisma.config.ts`
+2. Client requires a database adapter — `new PrismaClient()` throws without one
+3. WASM-based adapter caused `undefined` module errors on Vercel serverless
+
+Prisma v5.22.0 works cleanly with the standard singleton pattern and no adapter.
+
+**Rule:** Do not run `npm install prisma@latest` at any point during this
+project.
+
+---
+
+### ADR-013 — Web Crypto API in Middleware Instead of jose
+
+**Date:** 20 April 2026
+**Status:** Accepted
+
+**Decision:** Use native Web Crypto API for JWT verification in `middleware.ts`.
+
+**Context:** `jose` imports Node.js APIs (`CompressionStream`,
+`DecompressionStream`) via its `webapi` entry point which are unavailable
+on Vercel's Edge Runtime. All jose import paths — including subpaths like
+`jose/jwt/verify` — were rejected by Vercel's Edge Function bundler.
+
+**Change:** `middleware.ts` uses `crypto.subtle` for JWT verification.
+`jose` is retained in `lib/jwt.ts` for token signing in API routes which
+run on Node.js runtime.'
+
+---
+
 ## 8. Known Trade-offs & Constraints
 
-| ID    | Area       | Constraint                                                                                                                   | Impact                                          | Sprint to Revisit         |
-| ----- | ---------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------- |
-| C-001 | Database   | Neon free tier: 0.5GB storage limit                                                                                          | Low — HireTrace data model is lightweight       | —                         |
-| C-002 | Database   | Neon compute pauses on inactivity — cold start ~1s                                                                           | Low — acceptable for portfolio                  | —                         |
-| C-003 | Database   | Single Neon instance used for both dev and production                                                                        | Medium — no environment isolation               | Sprint 4 if budget allows |
-| C-004 | Security   | CSP allows `unsafe-eval` and `unsafe-inline`                                                                                 | Medium — reduced XSS protection                 | Sprint 4                  |
-| C-005 | Deployment | Vercel Hobby plan: 100GB/month bandwidth                                                                                     | Low — portfolio traffic                         | —                         |
-| C-006 | Auth       | No refresh token — JWT expires after 7 days, requires re-login                                                               | Low — acceptable for this use case              | —                         |
-| C-007 | Testing    | No E2E tests until Sprint 6                                                                                                  | Medium — manual testing covers gap until then   | Sprint 6                  |
-| C-008 | Prisma     | Pooled `DATABASE_URL` throws P1001 on Prisma CLI — `DIRECT_URL` required in `prisma.config.ts`                               | Low — two env vars required, clearly documented | —                         |
-| C-009 | Prisma     | `dotenv/config` reads `.env` not `.env.local` — `@next/env` `loadEnvConfig` required in `prisma.config.ts`                   | Low — one additional dependency                 | —                         |
-| C-010 | Prisma     | v7 requires adapter for all client construction — adds `@neondatabase/serverless` and `@prisma/adapter-neon` as dependencies | Low — two additional packages, well documented  | —                         |
+| ID    | Area       | Constraint                                                                                                                   | Impact                                                            | Sprint to Revisit               |
+| ----- | ---------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------- |
+| C-001 | Database   | Neon free tier: 0.5GB storage limit                                                                                          | Low — HireTrace data model is lightweight                         | —                               |
+| C-002 | Database   | Neon compute pauses on inactivity — cold start ~1s                                                                           | Low — acceptable for portfolio                                    | —                               |
+| C-003 | Database   | Single Neon instance used for both dev and production                                                                        | Medium — no environment isolation                                 | Sprint 4 if budget allows       |
+| C-004 | Security   | CSP allows `unsafe-eval` and `unsafe-inline`                                                                                 | Medium — reduced XSS protection                                   | Sprint 4                        |
+| C-005 | Deployment | Vercel Hobby plan: 100GB/month bandwidth                                                                                     | Low — portfolio traffic                                           | —                               |
+| C-006 | Auth       | No refresh token — JWT expires after 7 days, requires re-login                                                               | Low — acceptable for this use case                                | —                               |
+| C-007 | Testing    | No E2E tests until Sprint 6                                                                                                  | Medium — manual testing covers gap until then                     | Sprint 6                        |
+| C-008 | Prisma     | Pooled `DATABASE_URL` throws P1001 on Prisma CLI — `DIRECT_URL` required in `prisma.config.ts`                               | Low — two env vars required, clearly documented                   | —                               |
+| C-009 | Prisma     | `dotenv/config` reads `.env` not `.env.local` — `@next/env` `loadEnvConfig` required in `prisma.config.ts`                   | Low — one additional dependency                                   | —                               |
+| C-010 | Prisma     | v7 requires adapter for all client construction — adds `@neondatabase/serverless` and `@prisma/adapter-neon` as dependencies | Low — two additional packages, well documented                    | —                               |
+| C-011 | Next.js    | Pinned to v15.5.15 — v16 proxy convention not supported on Vercel                                                            | Low — v15 is stable and fully featured                            | Sprint 6 if Vercel adds support |
+| C-012 | Prisma     | Pinned to v5.22.0 — v6/v7 WASM incompatible with Vercel serverless                                                           | Low — v5 is stable and fully featured                             | Sprint 6 if Vercel adds support |
+| C-013 | Middleware | jose replaced with Web Crypto API — custom JWT verification logic                                                            | Low — Web Crypto is a standard API available on all Edge Runtimes | —                               |
 
 ---
 
@@ -578,9 +637,33 @@ Record every significant technical change, decision, or milestone here. One entr
 
 ---
 
-### Sprint 1 — 06 May – 19 May 2026
+### Sprint 1 — Closed 20 April 2026
 
-_(to be completed at sprint close)_
+**Goal:** Foundation + Auth
+**Result:** All 11 PBIs complete. 0 carried over.
+
+**Stack versions confirmed and locked:**
+
+- Next.js 15.5.15 — v16 deprecated middleware in favour of proxy convention not yet supported on Vercel
+- Tailwind CSS 4.x — `@import "tailwindcss"` replaces three `@tailwind` directives
+- Prisma 5.22.0 — v6/v7 WASM incompatible with Vercel serverless functions
+- PostgreSQL 17 on Neon
+- jose 5.x — API routes only; middleware uses Web Crypto API
+
+**Vercel configuration confirmed:**
+
+- Framework preset must be explicitly set to Next.js at project creation
+- `develop` → Preview environment; `main` → Production environment
+- `postinstall: prisma generate` required in `package.json`
+- `DATABASE_URL` must use pooled Neon string without `channel_binding=require`
+- `prisma.config.ts` does not exist in Prisma v5 — delete if auto-generated
+
+**Development rules confirmed:**
+
+- Always run `npm run build` locally before pushing to Vercel
+- Never use `@latest` when installing packages — pin versions explicitly
+- `globals.css` uses `@import "tailwindcss"` — not `@tailwind` directives
+
 https://hiretrace-k1n5ipufc-e1rhyme.vercel.app/
 
 ---

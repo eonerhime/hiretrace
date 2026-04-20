@@ -270,14 +270,14 @@ Items are ordered by priority within each epic. Status reflects current state at
 
 | ID      | Item                                                | Size | Priority | Status |
 | ------- | --------------------------------------------------- | ---- | -------- | ------ |
-| PBI-001 | Next.js project scaffold with TypeScript + Tailwind | S    | 🔴       | [ ]    |
-| PBI-002 | PostgreSQL database setup on Neon                   | S    | 🔴       | [ ]    |
-| PBI-003 | Prisma ORM setup + initial schema                   | M    | 🔴       | [ ]    |
-| PBI-004 | User registration (email/password + bcrypt)         | M    | 🔴       | [ ]    |
-| PBI-005 | User login + JWT session management                 | M    | 🔴       | [ ]    |
-| PBI-006 | Protected route middleware                          | S    | 🔴       | [ ]    |
-| PBI-007 | GitHub repository + branch strategy                 | S    | 🔴       | [ ]    |
-| PBI-008 | Vercel deployment (dev environment)                 | S    | 🔴       | [ ]    |
+| PBI-001 | Next.js project scaffold with TypeScript + Tailwind | S    | 🔴       | [x]    |
+| PBI-002 | PostgreSQL database setup on Neon                   | S    | 🔴       | [x]    |
+| PBI-003 | Prisma ORM setup + initial schema                   | M    | 🔴       | [x]    |
+| PBI-004 | User registration (email/password + bcrypt)         | M    | 🔴       | [x]    |
+| PBI-005 | User login + JWT session management                 | M    | 🔴       | [x]    |
+| PBI-006 | Protected route middleware                          | S    | 🔴       | [x]    |
+| PBI-007 | GitHub repository + branch strategy                 | S    | 🔴       | [x]    |
+| PBI-008 | Vercel deployment (dev environment)                 | S    | 🔴       | [x]    |
 
 ---
 
@@ -362,9 +362,9 @@ Items are ordered by priority within each epic. Status reflects current state at
 
 | ID      | Item                                         | Size | Priority | Status |
 | ------- | -------------------------------------------- | ---- | -------- | ------ |
-| PBI-037 | Input validation (Zod — server and client)   | M    | 🔴       | [ ]    |
+| PBI-037 | Input validation (Zod — server and client)   | M    | 🔴       | [x]    |
 | PBI-038 | API rate limiting                            | M    | 🟠       | [ ]    |
-| PBI-039 | HTTPS + security headers (Next.js config)    | S    | 🔴       | [ ]    |
+| PBI-039 | HTTPS + security headers (Next.js config)    | S    | 🔴       | [x]    |
 | PBI-040 | React Testing Library — core component suite | L    | 🔴       | [ ]    |
 | PBI-041 | Integration tests — API routes               | L    | 🟠       | [ ]    |
 | PBI-042 | E2E tests — critical user journeys           | L    | 🟡       | [ ]    |
@@ -378,7 +378,7 @@ Items are ordered by priority within each epic. Status reflects current state at
 | PBI-043 | README.md (project overview, setup, architecture) | M    | 🔴       | [ ]    |
 | PBI-044 | API documentation (OpenAPI / inline comments)     | M    | 🟠       | [ ]    |
 | PBI-045 | LinkedIn post per sprint (see linkedin.md)        | S    | 🔴       | [ ]    |
-| PBI-046 | Notion workspace setup and public share           | S    | 🔴       | [ ]    |
+| PBI-046 | Notion workspace setup and public share           | S    | 🔴       | [x]    |
 
 ---
 

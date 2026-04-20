@@ -1664,12 +1664,18 @@ migrate, studio, and generate. `prisma.config.ts` must use `DIRECT_URL`
 (direct connection, no `-pooler` in hostname). `DATABASE_URL` (pooled) is
 used only in `lib/prisma.ts` for runtime queries.
 
-**11. `openssl rand` uses a space not an underscore**
+**11. Prisma v5 uses `@prisma/client` — do not change this import path**
+The correct import is `from '@prisma/client'`. Prisma v6/v7 briefly moved
+this to `from 'generated/prisma'` but since this project is pinned to
+v5.22.0 that path does not apply. If VS Code shows a module not found error
+after schema changes, run `npx prisma generate` to regenerate the client.
+
+**12. `openssl rand` uses a space not an underscore**
 The correct command is `openssl rand -base64 32` — not `openssl rand -base64_32`.
 On Windows Git Bash if `openssl` is not found, use:
 `node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"`
 
-**12. Prisma v7 requires a database adapter — no adapterless construction**
+**13. Prisma v7 requires a database adapter — no adapterless construction**
 `new PrismaClient()` without an adapter throws `PrismaClientInitializationError`
 in v7. Use `PrismaNeon` from `@prisma/adapter-neon` with a `connectionString`
 config object. Install both `@neondatabase/serverless` and `@prisma/adapter-neon`.
@@ -1682,6 +1688,35 @@ return new PrismaClient({ adapter });
 
 Do not pass a `Pool` instance or a `neon()` query function — both throw
 TypeScript errors. Pass the config object directly.
+
+**14. Never use `@latest` when installing packages**
+Always pin to a specific version. `create-next-app@latest` installed Next.js 16
+which broke Vercel deployment. `npm install prisma@latest` installed v7 which
+broke Vercel serverless. Specify versions explicitly:
+`npx create-next-app@15` and `npm install prisma@5 @prisma/client@5`.
+
+**15. Vercel framework preset must be set to Next.js at project creation**
+If the preset is wrong, all routes return 404 from static. Verify immediately
+after connecting the GitHub repo — Settings → General → Framework Preset → Next.js.
+
+**16. Run `npm run build` locally before every Vercel push**
+Catches type errors, missing modules, and build failures before consuming
+a Vercel deployment. A passing local build does not guarantee Vercel success
+but a failing local build guarantees Vercel failure.
+
+**17. `postinstall: prisma generate` is required in `package.json`**
+Without it, Vercel builds fail with a TypeScript error because the Prisma
+client is not generated before type checking runs.
+
+**18. `DATABASE_URL` must not include `channel_binding=require`**
+Neon's default pooled connection string includes this parameter. Remove it
+from both `.env.local` and Vercel environment variables — it causes
+authentication failures in Vercel's serverless environment.
+
+**19. jose cannot be used in `middleware.ts` on Vercel Edge Runtime**
+All jose import paths are rejected by Vercel's Edge Function bundler.
+Use the native Web Crypto API (`crypto.subtle`) for JWT verification
+in middleware. jose is safe to use in API routes which run on Node.js runtime.
 
 ---
 
