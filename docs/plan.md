@@ -1,11 +1,11 @@
 # HireTrace — Plan Document
 
 **Document Type:** Scrum Master Artifact
-**Version:** 1.0
-**Date:** April 17, 2026
+**Version:** 2.0
+**Date:** April 20, 2026
 **Status:** Active
 **Author:** Scrum Master
-**Repository:** _(to be added)_
+**Repository:** https://github.com/eonerhime/hiretrace
 
 ---
 
@@ -38,22 +38,26 @@
 
 ### Timeline Overview
 
-| Period           | Label                | Start Date      | End Date    | Duration |
-| ---------------- | -------------------- | --------------- | ----------- | -------- |
-| Pre-Sprint       | Week 1 (linkedin.md) | 22 Apr 2026     | 28 Apr 2026 | 1 week   |
-| Pre-Sprint       | Week 2 (linkedin.md) | 29 Apr 2026     | 05 May 2026 | 1 week   |
-| Sprint 1         | Weeks 3–4            | 06 May 2026     | 19 May 2026 | 2 weeks  |
-| Sprint 2         | Weeks 5–6            | 20 May 2026     | 02 Jun 2026 | 2 weeks  |
-| Sprint 3         | Weeks 7–8            | 03 Jun 2026     | 16 Jun 2026 | 2 weeks  |
-| Sprint 4         | Weeks 9–10           | 17 Jun 2026     | 30 Jun 2026 | 2 weeks  |
-| Sprint 5         | Weeks 11–12          | 01 Jul 2026     | 14 Jul 2026 | 2 weeks  |
-| Sprint 6         | Weeks 13–14          | 15 Jul 2026     | 28 Jul 2026 | 2 weeks  |
-| **Full Release** | **Week 14 Close**    | **28 Jul 2026** | —           | —        |
+| Period           | Label            | Start Date      | End Date    | Duration                 |
+| ---------------- | ---------------- | --------------- | ----------- | ------------------------ |
+| Pre-Sprint Posts | Weeks 1–2        | 21 Apr 2026     | 02 May 2026 | Concurrent with Sprint 2 |
+| Sprint 1         | Week 1           | 18 Apr 2026     | 20 Apr 2026 | 3 days ✅ Done           |
+| Sprint 2         | Week 2           | 21 Apr 2026     | 27 Apr 2026 | 1 week                   |
+| Sprint 3         | Week 3           | 28 Apr 2026     | 04 May 2026 | 1 week                   |
+| Sprint 4         | Week 4           | 05 May 2026     | 11 May 2026 | 1 week                   |
+| Sprint 5         | Week 5           | 12 May 2026     | 18 May 2026 | 1 week                   |
+| Sprint 6         | Week 6           | 19 May 2026     | 25 May 2026 | 1 week                   |
+| Buffer           | Week 7           | 26 May 2026     | 31 May 2026 | 5 days                   |
+| **Full Release** | **Week 6 Close** | **25 May 2026** | —           | —                        |
 
-**Project start:** April 22, 2026 (first Tuesday post slot — Post 01)
-**MVP target:** June 16, 2026 (Sprint 3 close)
-**Full release target:** July 28, 2026 (Sprint 6 close)
-**Total project duration:** 14 weeks (not counting pre-sprint setup week of April 17–21)
+**Project start:** 21 April 2026 (first Tuesday post slot — Post 01)
+**MVP target:** 04 May 2026 (Sprint 3 close)
+**Full release target:** 25 May 2026 (Sprint 6 close)
+**Capacity:** 8 hours/day, 7 days/week
+**Sprint duration:** 1 week each (Sprints 2–6)
+**Sprint 1 actual:** 18–20 April 2026 — completed ahead of schedule
+
+**Note on Pre-Sprint posts:** LinkedIn posts 01–06 run starting 21 April concurrently with Sprint 2 coding. Sprint 1 posts (07–12) are published weeks 5–6 — the audience does not know Sprint 1 completed ahead of schedule.
 
 ---
 
@@ -423,15 +427,14 @@ Before a sprint is marked Closed in `sprint-XX.md`:
 
 Track sprint status here. Update at each sprint close.
 
-| Sprint     | Dates                | Goal                                   | PBI Count | Status         | Close Date  | Notes                                                     |
-| ---------- | -------------------- | -------------------------------------- | --------- | -------------- | ----------- | --------------------------------------------------------- |
-| Pre-Sprint | 22 Apr – 05 May 2026 | Infrastructure + posts 01–06           | —         | ✅ Closed      | 20 Apr 2026 | Completed ahead of schedule                               |
-| Sprint 1   | 06 May – 19 May 2026 | Foundation + Auth                      | 11        | ✅ Closed      | 20 Apr 2026 | Completed ahead of schedule — actual dates 18–20 Apr 2026 |
-| Sprint 2   | 20 May – 02 Jun 2026 | Core Pipeline                          | 9         | 🔲 Not started | —           | —                                                         |
-| Sprint 3   | 03 Jun – 16 Jun 2026 | Contacts + Reminders + Dashboard (MVP) | 9         | 🔲 Not started | —           | —                                                         |
-| Sprint 4   | 17 Jun – 30 Jun 2026 | Notes + Metrics + API Hardening        | 7         | 🔲 Not started | —           | —                                                         |
-| Sprint 5   | 01 Jul – 14 Jul 2026 | Resume Management + Email Reminders    | 5         | 🔲 Not started | —           | —                                                         |
-| Sprint 6   | 15 Jul – 28 Jul 2026 | Analytics + Export + OAuth + E2E       | 4         | 🔲 Not started | —           | —                                                         |
+| Sprint   | Dates              | Goal                                   | PBI Count | Status         | Close Date  | Notes                       |
+| -------- | ------------------ | -------------------------------------- | --------- | -------------- | ----------- | --------------------------- |
+| Sprint 1 | 18–20 Apr 2026     | Foundation + Auth                      | 11        | ✅ Closed      | 20 Apr 2026 | Completed ahead of schedule |
+| Sprint 2 | 21–27 Apr 2026     | Core Pipeline                          | 9         | 🔄 In progress | —           | —                           |
+| Sprint 3 | 28 Apr–04 May 2026 | Contacts + Reminders + Dashboard (MVP) | 9         | 🔲 Not started | —           | —                           |
+| Sprint 4 | 05–11 May 2026     | Notes + Metrics + API Hardening        | 7         | 🔲 Not started | —           | —                           |
+| Sprint 5 | 12–18 May 2026     | Resume Management + Email Reminders    | 5         | 🔲 Not started | —           | —                           |
+| Sprint 6 | 19–25 May 2026     | Analytics + Export + OAuth + E2E       | 4         | 🔲 Not started | —           | —                           |
 
 **Status markers:** 🔲 Not started | 🔄 In progress | ✅ Closed | ⚠️ Overflow
 
@@ -441,7 +444,7 @@ Track sprint status here. Update at each sprint close.
 
 Phase gates are hard checkpoints. The next phase does not begin until the gate is cleared.
 
-### Phase 1 Gate — MVP (Sprint 3 Close: 16 Jun 2026)
+### Phase 1 Gate — MVP (Sprint 3 Close: 04 May 2026)
 
 | Gate Criterion                                                | Status |
 | ------------------------------------------------------------- | ------ |
@@ -457,7 +460,7 @@ Phase gates are hard checkpoints. The next phase does not begin until the gate i
 
 ---
 
-### Phase 2 Gate — Enhanced (Sprint 5 Close: 14 Jul 2026)
+### Phase 2 Gate — Enhanced (Sprint 5 Close: 18 May 2026)
 
 | Gate Criterion                                                 | Status |
 | -------------------------------------------------------------- | ------ |
@@ -471,7 +474,7 @@ Phase gates are hard checkpoints. The next phase does not begin until the gate i
 
 ---
 
-### Phase 3 Gate — Full Release (Sprint 6 Close: 28 Jul 2026)
+### Phase 3 Gate — Full Release (Sprint 6 Close: 25 May 2026)
 
 | Gate Criterion                                                 | Status |
 | -------------------------------------------------------------- | ------ |
@@ -501,5 +504,5 @@ Phase gates are hard checkpoints. The next phase does not begin until the gate i
 
 ---
 
-_plan.md v1.0 — April 17, 2026 — HireTrace_
-_This document is the authoritative sprint calendar and capacity model. Changes to sprint dates must be reflected in linkedin.md post schedule. Changes to PBI allocation must be approved against product.md and communicated to the active sprint-XX.md._
+_plan.md v2.0 — 20 April 2026 — HireTrace_
+_Revised: sprint duration compressed from 2 weeks to 1 week. Capacity 8hrs/day. MVP target: 04 May 2026. Full release: 25 May 2026. LinkedIn post calendar remapped in linkedin.md v3.0._

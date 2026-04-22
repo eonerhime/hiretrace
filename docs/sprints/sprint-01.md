@@ -1,13 +1,14 @@
 # HireTrace — Sprint 01
 
 **Document Type:** Sprint Artifact
-**Version:** 1.0
+**Version:** 1.1
 **Sprint:** 1 of 6
-**Status:** Not started
-**Start Date:** 06 May 2026
-**End Date:** 19 May 2026
+**Status:** Closed
+**Start Date:** 18 April 2026
+**End Date:** 20 April 2026
+**Closed Date:** 20 April 2026
 **Author:** Scrum Master / Developer
-**Repository:** _(to be added)_
+**Repository:** https://github.com/eonerhime/hiretrace
 
 ---
 
@@ -59,19 +60,20 @@ At sprint close: the Next.js application is scaffolded, deployed to Vercel, conn
 
 ## Capacity & Schedule
 
-| Week   | Dates          | Focus                                       |
-| ------ | -------------- | ------------------------------------------- |
-| Week 3 | 06–12 May 2026 | PBI-001, PBI-002, PBI-003, PBI-039, PBI-037 |
-| Week 4 | 13–19 May 2026 | PBI-004, PBI-005, PBI-006, PBI-008          |
+| Day   | Date   | Focus                                                             |
+| ----- | ------ | ----------------------------------------------------------------- |
+| Day 1 | 18 Apr | PBI-007, PBI-001, PBI-002, PBI-039, PBI-046 — infrastructure      |
+| Day 2 | 19 Apr | PBI-003, PBI-037, PBI-004, PBI-005, PBI-006 — auth implementation |
+| Day 3 | 20 Apr | PBI-008, retro, control doc updates — sprint close                |
 
 **Sprint ceremonies:**
 
-| Ceremony              | Date        | Output                                           |
-| --------------------- | ----------- | ------------------------------------------------ |
-| Sprint Planning       | 06 May 2026 | This document confirmed, tasks.md activated      |
-| Mid-sprint checkpoint | 12 May 2026 | Progress review; overflow rule applied if needed |
-| Sprint Review         | 19 May 2026 | All PBIs reviewed against AC                     |
-| Sprint Retrospective  | 19 May 2026 | Retro notes written in §Retrospective below      |
+| Ceremony              | Date        | Output                                       |
+| --------------------- | ----------- | -------------------------------------------- |
+| Sprint Planning       | 18 Apr 2026 | Sprint kicked off, all PBIs pulled           |
+| Mid-sprint checkpoint | 19 Apr 2026 | All PBIs in progress — no overflow needed    |
+| Sprint Review         | 20 Apr 2026 | All 11 PBIs reviewed against AC — all passed |
+| Sprint Retrospective  | 20 Apr 2026 | Retro notes written — see §Retrospective     |
 
 ---
 
@@ -79,19 +81,11 @@ At sprint close: the Next.js application is scaffolded, deployed to Vercel, conn
 
 Use this section to record what was worked on each day. One line per session is sufficient.
 
-| Date    | PBIs Worked | Notes |
-| ------- | ----------- | ----- |
-| 19 Apr  | PBI-007     | Done  |
-| PBI-001 | Done        |
-| PBI-002 | Done        |
-| PBI-039 | Done        |
-| PBI-046 | Done        |
-| PBI-003 | Done        |
-| PBI-037 | Done        |
-| PBI-004 | Done        |
-| PBI-005 | Done        |
-| PBI-006 | Done        |
-| PBI-008 | Done        |
+| Date   | PBIs Worked                                 | Notes                                                                 |
+| ------ | ------------------------------------------- | --------------------------------------------------------------------- |
+| 18 Apr | PBI-007, PBI-001, PBI-002, PBI-039, PBI-046 | Infrastructure — scaffold, Neon, security headers, Notion             |
+| 19 Apr | PBI-003, PBI-037, PBI-004, PBI-005, PBI-006 | Prisma, Zod, auth routes, middleware — Prisma v7 WASM issue on Vercel |
+| 20 Apr | PBI-008, retro, docs                        | Resolved Vercel issues, full auth flow confirmed, sprint closed       |
 
 ---
 
@@ -99,15 +93,18 @@ Use this section to record what was worked on each day. One line per session is 
 
 Record any blocked PBIs here immediately. Do not leave a block undocumented.
 
-| PBI | Blocked Since | Reason | Resolution |
-| --- | ------------- | ------ | ---------- |
-| —   | —             | —      | —          |
+| PBI     | Blocked Since | Reason                                                                    | Resolution                                                          |
+| ------- | ------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| PBI-008 | 19 Apr        | MIDDLEWARE_INVOCATION_FAILED — jose incompatible with Vercel Edge Runtime | Replaced jose in middleware.ts with Web Crypto API (crypto.subtle)  |
+| PBI-008 | 19 Apr        | Vercel framework preset showing as Other — all routes 404                 | Manually set framework preset to Next.js in Vercel project settings |
+| PBI-003 | 19 Apr        | Prisma v7 WASM module undefined on Vercel serverless                      | Downgraded to Prisma v5.22.0 — standard singleton, no adapter       |
 
 ---
 
 ## Mid-Sprint Checkpoint (12 May 2026)
 
-**Date completed:** _(fill at checkpoint)_
+**Date completed:**
+20 Apr 2026
 
 | PBI     | Status at Checkpoint | On Track? |
 | ------- | -------------------- | --------- |
@@ -128,10 +125,10 @@ No overflow; all PBIs completed
 
 ---
 
-## Sprint Review (19 May 2026)
+## Sprint Review (20 Apr 2026)
 
-**Date completed:** _(fill at review)_
-20 Apr 2026
+**Date completed:**
+**Notes:** Auth flow works end-to-end locally and on Vercel. Register → login → protected dashboard → logout all confirmed. Cookie is HTTP-only (verified in DevTools). Schema unit tests passing. Stack pinned: Next.js 15.5.15, Prisma 5.22.0, Tailwind v4.
 
 ### PBI Completion
 
@@ -159,36 +156,55 @@ No overflow; all PBIs completed
 
 ### Velocity
 
-| Metric            | Value |
-| ----------------- | ----- |
-| PBIs committed    | 11    |
-| PBIs completed    | 11    |
-| PBIs carried over | 0     |
-| S completed       | 7     |
-| M completed       | 4     |
+| Metric            | Value                     |
+| ----------------- | ------------------------- |
+| PBIs committed    | 11                        |
+| PBIs completed    | 11                        |
+| PBIs carried over | 0                         |
+| S completed       | 7                         |
+| M completed       | 4                         |
+| Actual duration   | 3 days (planned: 2 weeks) |
 
 ---
 
 ## Sprint Retrospective (19 May 2026)
 
-**Date completed:** _(fill at retro)_
+**Date completed:**
 21 Apr 2026
 
 ### What went well?
 
-_(fill at retro — 2–4 bullet points)_
+- All 11 PBIs completed with zero carry-over — 100% sprint goal achievement
+- Auth flow works end-to-end locally and on Vercel
+- SDD documentation comprehensive and ahead of schedule before coding started
+- Breaking changes identified and resolved systematically — each fix documented immediately
+- Control documents updated in real time — future sprints inherit accurate knowledge
 
 ### What didn't go well?
 
-_(fill at retro — 2–4 bullet points)_
+- Version conflicts consumed majority of sprint time — Next.js 16, Prisma v6/v7, Tailwind v4 all introduced breaking changes not captured in setup.md
+- 9 Vercel deployment iterations required to resolve middleware and framework issues
+- No version pinning strategy at project start — @latest installs caused cascading problems
+- setup.md was written for versions that weren't actually installed
+- Control documents required multiple correction passes as each issue was discovered
+- Vercel framework preset not verified at project connection — caused all-routes-404 issue
 
 ### What will change in Sprint 2?
 
-_(fill at retro — 1–3 actionable changes)_
+- All packages pinned to specific versions — never @latest
+- npm run build run locally before every Vercel push — non-negotiable
+- Vercel framework preset verified immediately at project connection
+- Control documents updated in a single pass at sprint close
 
 ### Retro insight for LinkedIn Post 10
 
-_(fill at retro — 1–2 sentences distilling the sharpest lesson from this sprint. This becomes the core of Post 10.)_
+- Sprint 1 shipped on time. All 11 PBIs complete.
+  But the most expensive line of code I wrote this sprint was: npx create-next-app@latest
+- @latest installed Next.js 16. Prisma @latest installed v7.
+  Both broke Vercel in different ways. 9 deployments to fix.
+- Sprint 2 rule: every package version is pinned before install.
+  The 30 seconds it takes to check the version number is cheaper than the hours it takes to debug a breaking change you didn't
+  see coming.
 
 ---
 
@@ -196,18 +212,18 @@ _(fill at retro — 1–2 sentences distilling the sharpest lesson from this spr
 
 Complete before marking this sprint Closed in `plan.md`.
 
-- [ ] All committed PBIs marked `[x]` or formally moved to Sprint 2 with reason documented
-- [ ] `product.md` PBI statuses updated
-- [ ] Sprint Review section completed
-- [ ] Sprint Retrospective section completed
-- [ ] LinkedIn Post 10 retro insight captured above
-- [ ] LinkedIn carousel (Post 11) slides 5 and 6 filled in
-- [ ] Notion Sprint Board updated — Sprint 1 marked ✅ Closed
-- [ ] Notion Changelog entry added for Sprint 1
-- [ ] `sprint-01.md` committed to `/docs/sprints/`
-- [ ] `plan.md` Sprint Summary Table updated with close date
+- [x] All committed PBIs marked `[x]` or formally moved to Sprint 2 with reason documented
+- [x] `product.md` PBI statuses updated
+- [x] Sprint Review section completed
+- [x] Sprint Retrospective section completed
+- [x] LinkedIn Post 10 retro insight captured above
+- [x] LinkedIn carousel (Post 11) slides 5 and 6 filled in
+- [x] Notion Sprint Board updated — Sprint 1 marked ✅ Closed
+- [x] Notion Changelog entry added for Sprint 1
+- [x] `sprint-01.md` committed to `/docs/sprints/`
+- [x] `plan.md` Sprint Summary Table updated with close date
 
 ---
 
-_sprint-01.md v1.0 — April 17, 2026 — HireTrace_
-_This document is the live tracking artifact for Sprint 1. Update it daily. It is the source of truth for sprint progress, blocks, and retrospective output._
+_sprint-01.md v1.1 — 20 April 2026 — HireTrace_
+_Sprint 1 closed 20 April 2026. All 11 PBIs complete. 0 carried over. Stack locked and documented. Sprint 2 starts 21 April 2026._

@@ -1,8 +1,8 @@
 # HireTrace — LinkedIn Content Plan
 
 **Document Type:** Portfolio Communication Artefact
-**Version:** 2.0
-**Date:** April 17, 2026
+**Version:** 4.0
+**Date:** 22 April 2026
 **Status:** Active
 **Posting Frequency:** 3x per week — Tuesday, Thursday, Saturday
 **Personal Brand:** Full — real name, real photo, first-person voice
@@ -41,30 +41,9 @@ This file contains **every LinkedIn post for the HireTrace project**, written an
 
 ---
 
-## Canva One-Time Setup (Do Today — Before Post 01)
+## Canva One-Time Setup (Done ✅)
 
-Takes 30 minutes. Do it once.
-
-**Step 1 — Brand Kit**
-Open Canva → Brand Hub → Create Brand Kit
-
-- Colours: `#0A2342` (Deep Navy) · `#2D7DD2` (Electric Blue) · `#F5F5F0` (Warm White) · `#6B7280` (Slate Grey)
-- Font: Inter (search in Canva font library)
-
-**Step 2 — Carousel Template**
-
-- Search Canva: "LinkedIn carousel professional minimal"
-- Resize canvas to **1080 x 1350px**
-- Apply brand colours and Inter font
-- Add to every slide footer: `HireTrace | Emo Onerhime | https://linkedin.com/in/emoonerhime`
-- Save as: `HireTrace Carousel Template`
-
-**Step 3 — Screenshot Frame**
-
-- New design → **1080 x 1080px**
-- Add a browser mockup frame (search "browser mockup" in Canva elements)
-- White card background, subtle drop shadow
-- Save as: `HireTrace Screenshot Frame`
+Brand kit, carousel template (1080×1350px), and screenshot frame (1080×1080px) are complete.
 
 **Rule:** Always duplicate a saved template. Never design from scratch.
 
@@ -72,31 +51,60 @@ Open Canva → Brand Hub → Create Brand Kit
 
 ## Content Cadence Overview
 
-| Week                          | Tuesday                                            | Thursday                       | Saturday                      |
-| ----------------------------- | -------------------------------------------------- | ------------------------------ | ----------------------------- |
-| Week 1 — Pre-Sprint           | Post 01 — Announcement                             | Post 02 — The problem          | Post 03 — What is SDD         |
-| Week 2 — Pre-Sprint           | Post 04 — product.md explained                     | Post 05 — Building the backlog | Post 06 — The 6 strategies    |
-| Week 3 — Sprint 1             | Post 07 — Sprint 1 goal                            | Post 08 — First commit         | Post 09 — Auth is live        |
-| Week 4 — Sprint 1 Close       | Post 10 — Retro insight                            | Post 11 — Sprint 1 carousel    | Post 12 — implementation.md   |
-| Week 5 — Sprint 2             | Post 13 — First feature shipped                    | Post 14 — Writing tests first  | Post 15 — Kanban pipeline     |
-| Week 6 — Sprint 2 Close       | Post 16 — Retro insight                            | Post 17 — Sprint 2 carousel    | Post 18 — What the spec drove |
-| Week 7 — Sprint 3             | Post 19 — Contact tracking                         | Post 20 — Dashboard metrics    | Post 21 — Reminder system     |
-| Week 8 — Sprint 3 Close / MVP | Post 22 — MVP is live                              | Post 23 — Sprint 3 carousel    | Post 24 — Phase 1 retro       |
-| Week 9+                       | Sprint 4–6 posts — topics planned in final section |                                |                               |
+| Date        | Day      | Post    | Topic                        | Asset      |
+| ----------- | -------- | ------- | ---------------------------- | ---------- |
+| 21 Apr 2026 | Tuesday  | Post 01 | Project Announcement         | Text only  |
+| 23 Apr 2026 | Thursday | Post 02 | The Problem HireTrace Solves | Screenshot |
+| 25 Apr 2026 | Saturday | Post 03 | What is SDD                  | Text only  |
+| 28 Apr 2026 | Tuesday  | Post 04 | product.md explained         | Screenshot |
+| 30 Apr 2026 | Thursday | Post 05 | Building the Backlog         | Text only  |
+| 02 May 2026 | Saturday | Post 06 | The 6 Strategies             | Screenshot |
+| 05 May 2026 | Tuesday  | Post 07 | Sprint 1 Goal                | Screenshot |
+| 07 May 2026 | Thursday | Post 08 | First Commit                 | Screenshot |
+| 09 May 2026 | Saturday | Post 09 | Auth is Live                 | Screenshot |
+| 12 May 2026 | Tuesday  | Post 10 | Sprint 1 Retro Insight       | Text only  |
+| 14 May 2026 | Thursday | Post 11 | Sprint 1 Carousel            | Carousel   |
+| 16 May 2026 | Saturday | Post 12 | implementation.md            | Screenshot |
+| 19 May 2026 | Tuesday  | Post 13 | First Feature Shipped        | Screenshot |
+| 21 May 2026 | Thursday | Post 14 | Writing Tests First          | Screenshot |
+| 23 May 2026 | Saturday | Post 15 | Kanban Pipeline              | Screenshot |
+| 26 May 2026 | Tuesday  | Post 16 | Sprint 2 Retro Insight       | Text only  |
+| 28 May 2026 | Thursday | Post 17 | Sprint 2 Carousel            | Carousel   |
+| 30 May 2026 | Saturday | Post 18 | What the Spec Drove          | Screenshot |
+| 02 Jun 2026 | Tuesday  | Post 19 | Contact Tracking             | Screenshot |
+| 04 Jun 2026 | Thursday | Post 20 | Dashboard Metrics            | Screenshot |
+| 06 Jun 2026 | Saturday | Post 21 | Reminder System              | Screenshot |
+| 09 Jun 2026 | Tuesday  | Post 22 | MVP is Live                  | Screenshot |
+| 11 Jun 2026 | Thursday | Post 23 | Sprint 3 Carousel            | Carousel   |
+| 13 Jun 2026 | Saturday | Post 24 | Phase 1 Retro                | Text only  |
+
+**Note on schedule:** 24 posts total. Posting runs 3x/week from 21 April to 13 June 2026 — the day the HireTrace MVP story closes. The narrative ends cleanly at Phase 1 complete. LinkedIn presence is then free for the next project.
 
 ---
 
-## PRE-SPRINT POSTS — Weeks 1 & 2
+---
 
-Post these before writing a single line of code. They establish your voice, your process, and your audience.
+### 🗓️ Optimal LinkedIn Posting Schedule (2026)
+
+| Day          | Best Time (Local Time)  | Strategy & Why It Works                                                                                                                             |
+| :----------- | :---------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tuesday**  | **10:00 AM – 11:00 AM** | **The Mid-Week Peak:** This is the highest engagement window. Perfect for your most important technical deep-dives or project launches.             |
+| **Thursday** | **11:00 AM – 1:00 PM**  | **The Lunch Break Scroll:** Great for high-value "saveable" content like PDF carousels, cheat sheets, or industry insights.                         |
+| **Saturday** | **9:00 AM – 10:00 AM**  | **Casual Professional:** Reach people before their weekend starts. Stick to lighter content like personal reflections or "Behind the Code" updates. |
+
+---
+
+## PRE-SPRINT POSTS — 21 Apr – 02 May 2026
+
+Post these while Sprint 2 coding is underway. They establish your voice, your process, and your audience before the technical posts begin.
 
 ---
 
 ### POST 01 — Project Announcement
 
-**Week 1, Tuesday · Text only**
+**21 April 2026 · Tuesday · Text only**
 **Asset:** None
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 I'm building something. And I'm doing it in public.
@@ -110,7 +118,7 @@ But the project itself is as important as the product.
 I'm wearing every hat:
 → Product Owner — defining what gets built and why
 → Scrum Master — running the sprints and ceremonies
-→ Full-Stack Developer — Next.js, PostgreSQL, Railway, Vercel
+→ Full-Stack Developer — Next.js, PostgreSQL, Neon, Vercel
 → Tester — React Testing Library, integration, E2E
 → Documenter — specs, ADRs, API docs
 
@@ -123,7 +131,7 @@ the retros, and the lessons.
 Follow along if you want to see what it looks like to build
 software the right way, from the ground up.
 
-Sprint 1 starts next week.
+Sprint 1 is already underway.
 
 #HireTrace #BuildInPublic #ScrumMaster #ProductOwner #NextJS #SpecDrivenDevelopment
 ```
@@ -132,8 +140,8 @@ Sprint 1 starts next week.
 
 ### POST 02 — The Problem HireTrace Solves
 
-**Week 1, Thursday · Text + Screenshot**
-**Asset:** Screenshot of product.md Problem Statement section in GitHub → drop into HireTrace Screenshot Frame in Canva
+**23 April 2026 · Thursday · Text + Screenshot**
+**Asset:** Screenshot of product.md Problem Statement section in GitHub → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
 ```
@@ -167,14 +175,13 @@ document I wrote before touching any code.
 Full doc in the GitHub repo. Link in comments.
 
 #HireTrace #BuildInPublic #ProductOwner #JobSearch #SoftwareEngineering
-https://github.com/eonerhime/hire-trace/blob/main/spec/product.md
 ```
 
 ---
 
 ### POST 03 — What is Spec-Driven Development
 
-**Week 1, Saturday · Text only**
+**25 April 2026 · Saturday · Text only**
 **Asset:** None
 **Status:** `[ ]` Not posted
 
@@ -213,7 +220,7 @@ What does your pre-build process look like?
 
 ### POST 04 — The product.md File Explained
 
-**Week 2, Tuesday · Text + Screenshot**
+**28 April 2026 · Tuesday · Text + Screenshot**
 **Asset:** Screenshot of product.md Table of Contents in GitHub → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
@@ -242,14 +249,15 @@ evidence, not instinct.
 Full document in the GitHub repo. Link in comments.
 
 #HireTrace #BuildInPublic #ProductOwner #Agile #ScrumMaster #SpecDrivenDevelopment
-https://github.com/eonerhime/hire-trace/blob/main/spec/product.md
+
+https://github.com/eonerhime/hiretrace/blob/develop/docs/product.md
 ```
 
 ---
 
 ### POST 05 — Building the Backlog
 
-**Week 2, Thursday · Text only**
+**30 April 2026 · Thursday · Text only**
 **Asset:** None
 **Status:** `[ ]` Not posted
 
@@ -282,7 +290,7 @@ who makes lists.
 
 ### POST 06 — The 6 Backlog Derivation Strategies
 
-**Week 2, Saturday · Text + Screenshot**
+**02 May 2026 · Saturday · Text + Screenshot**
 **Asset:** Screenshot of Backlog Derivation Strategies section in product.md → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
@@ -320,18 +328,22 @@ Result: 46 items. 28 Must Have. 7 Should Have. 10 Could Have.
 All in product.md — link in comments.
 
 #HireTrace #BuildInPublic #ProductOwner #ProductManagement #Agile #ScrumMaster
+
+https://github.com/eonerhime/hiretrace/blob/develop/docs/product.md
 ```
 
 ---
 
-## SPRINT 1 POSTS — Weeks 3 & 4
+## SPRINT 1 POSTS — 05–16 May 2026
+
+Sprint 1 is already complete (closed 20 April). Screenshots are already captured. Post on schedule.
 
 ---
 
 ### POST 07 — Sprint 1 Goal and Plan
 
-**Week 3, Tuesday · Text + Screenshot**
-**Asset:** Screenshot of Notion Sprint 1 board → HireTrace Screenshot Frame
+**05 May 2026 · Tuesday · Text + Screenshot**
+**Asset:** Screenshot of Notion Sprint Board showing Sprint 1 → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
 ```
@@ -361,22 +373,21 @@ Sprint 1 backlog:
 Notion board is live and public. Link in comments.
 
 #HireTrace #BuildInPublic #ScrumMaster #Agile #Sprint #NextJS
-https://dull-grain-172.notion.site/HireTrace-3463cecb82d08016a90be8bf80a5c6ce
 ```
 
 ---
 
 ### POST 08 — First Commit
 
-**Week 3, Thursday · Text + Screenshot**
-**Asset:** Screenshot of GitHub repository structure or first commit → HireTrace Screenshot Frame
+**07 May 2026 · Thursday · Text + Screenshot**
+**Asset:** Screenshot of GitHub commit history showing first meaningful feature commit → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
 ```
 First commit is in.
 
 Next.js 15. TypeScript strict mode. Tailwind CSS.
-PostgreSQL on Railway. Prisma ORM. Repository on GitHub.
+PostgreSQL on Neon. Prisma ORM. Repository on GitHub.
 
 The scaffold is never just the scaffold.
 
@@ -387,8 +398,9 @@ Getting it wrong costs a sprint.
 
 Three decisions I made deliberately:
 
-1. Railway over Neon for PostgreSQL
-   Railway's DX is cleaner for a solo project at this stage.
+1. Neon over Railway for PostgreSQL
+   Genuinely free tier. No credit card. No monthly cost.
+   The right choice for a portfolio project.
 
 2. Prisma over raw SQL
    Schema-first aligns with SDD — the data model is a spec
@@ -407,8 +419,8 @@ Repo is public. Link in comments.
 
 ### POST 09 — Auth is Live
 
-**Week 3, Saturday · Text + Screenshot**
-**Asset:** Screenshot of HireTrace login page → HireTrace Screenshot Frame
+**09 May 2026 · Saturday · Text + Screenshot**
+**Asset:** Screenshot of HireTrace login page on Vercel → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
 ```
@@ -445,33 +457,32 @@ Spec drives test. Test drives code. That's SDD.
 
 ### POST 10 — Sprint 1 Retro Insight
 
-**Week 4, Tuesday · Text only**
+**12 May 2026 · Tuesday · Text only**
 **Asset:** None
 **Status:** `[ ]` Not posted
 
 ```
-Sprint 1 retro surfaced something I didn't expect.
+Sprint 1 shipped on time. All 11 PBIs complete.
 
-I underestimated the time cost of wearing every hat simultaneously.
+But the most expensive line of code I wrote this sprint was:
 
-When you're the PO, you make a decision.
-When you're the Scrum Master, you document it.
-When you're the developer, you implement it.
-When you're the tester, you prove it.
-When you're the documenter, you record it for the next person.
+npx create-next-app@latest
 
-That "next person" is me, two sprints from now, reading
-implementation.md trying to remember why I made a choice.
+@latest installed Next.js 16. Prisma @latest installed v7.
+Both broke Vercel in different ways. 9 deployments to fix.
 
-The discipline that saved me: writing the decision down
-before implementing it. Not after. Before.
+Sprint 2 rule: every package version is pinned before install.
+The 30 seconds it takes to check the version number is cheaper
+than the hours it takes to debug a breaking change you didn't
+see coming.
 
-In Sprint 2, I'm adding a 15-minute decision log step
-before starting any L or XL sized task. The cost is 15 minutes.
-The benefit is that implementation.md stays honest.
+Most tutorials don't mention this. Most developers learn it
+the hard way.
 
-Retros are only useful if they change something.
-This one did.
+Now it's in the spec. In the control docs. In the repo.
+The lesson stays even when the memory fades.
+
+That's the other thing SDD is for.
 
 #HireTrace #BuildInPublic #ScrumMaster #Agile #Retrospective #SoftwareEngineering
 ```
@@ -480,11 +491,11 @@ This one did.
 
 ### POST 11 — Sprint 1 Carousel
 
-**Week 4, Thursday · Carousel PDF**
-**Asset:** Build carousel in Canva using HireTrace Carousel Template. Export as PDF. Upload to LinkedIn.\*\*
+**14 May 2026 · Thursday · Carousel PDF**
+**Asset:** Build carousel in Canva using HireTrace Carousel Template. Export as PDF.
 **Status:** `[ ]` Not posted
 
-**Slide content to build in Canva:**
+**Slide content:**
 
 ```
 SLIDE 1 — Hook
@@ -494,15 +505,15 @@ Here's everything that happened — and one thing I'd change.
 SLIDE 2 — Context
 HireTrace | Sprint 1
 Goal: Working auth on a deployed Next.js app
-Duration: 2 weeks
-Items committed: [fill at close] | Completed: [fill at close]
+Duration: 3 days (planned: 2 weeks)
+Items committed: 11 | Completed: 11 | Carried over: 0
 
 SLIDE 3 — What shipped
-✓ Next.js 15 + TypeScript + Tailwind scaffold
-✓ PostgreSQL on Railway + Prisma ORM
+✓ Next.js 15.5.15 + TypeScript strict + Tailwind v4
+✓ PostgreSQL 17 on Neon + Prisma v5
 ✓ Email/password auth with bcrypt
-✓ JWT session management
-✓ Protected route middleware
+✓ JWT session management (HTTP-only cookie)
+✓ Protected route middleware (Web Crypto API)
 ✓ Vercel deployment live
 
 SLIDE 4 — The SDD layer
@@ -511,41 +522,40 @@ Every AC became a test case.
 Every test case drove the implementation.
 Zero features built without a spec.
 
-SLIDE 5 — The key decision
-Railway over Neon for PostgreSQL.
-Simpler DX. Less pooling complexity at this stage.
-Documented in implementation.md as an architectural decision.
+SLIDE 5 — Test coverage
+Schema unit tests: 7 passing
+Auth component RTL tests: passing
+npm test — all green
 
-SLIDE 6 — Test coverage
-[Fill with RTL test count and coverage % at sprint close]
+SLIDE 6 — The retro
+✗ @latest installs caused cascading version conflicts
+✗ 9 Vercel deployments to resolve middleware issues
+→ Sprint 2: every package pinned to specific version
+→ npm run build locally before every Vercel push
 
-SLIDE 7 — The retro
-✓ Spec-first discipline held throughout
-✗ Context-switching between hats cost more time than estimated
-→ Adding 15-min decision log before every L/XL task in Sprint 2
-
-SLIDE 8 — The result
+SLIDE 7 — The result
 HireTrace is live on Vercel.
-You can't do much yet. But the foundation is solid.
-[Add screenshot of live login page]
+Register. Log in. See the dashboard.
+The foundation is solid.
+[Screenshot of live login page]
 
-SLIDE 9 — What's next
+SLIDE 8 — What's next
 Sprint 2: The core application pipeline.
 Kanban board. Drag-and-drop. Application CRUD.
 The product starts to exist.
 
-SLIDE 10 — Takeaway
+SLIDE 9 — Takeaway
 The sprint goal is not a task list.
 "Users can securely register and log in" is a goal.
 "Build auth, set up DB, configure deployment" is a list.
 Know the difference.
 
-SLIDE 11 — CTA
+SLIDE 10 — CTA
 Follow for Sprint 2.
 GitHub · Notion · Live app — links in comments.
 ```
 
-**Caption to post with carousel:**
+**Caption:**
 
 ```
 Sprint 1 closed. Foundation and auth — done.
@@ -564,8 +574,8 @@ Notion: [link]
 
 ### POST 12 — The implementation.md File
 
-**Week 4, Saturday · Text + Screenshot**
-**Asset:** Screenshot of implementation.md open in GitHub → HireTrace Screenshot Frame
+**16 May 2026 · Saturday · Text + Screenshot**
+**Asset:** Screenshot of implementation.md ADR section open in GitHub → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
 ```
@@ -574,25 +584,24 @@ This one file runs the entire project.
 implementation.md is the single source of truth for HireTrace.
 
 It contains:
-→ The canonical tech stack
-→ Critical rules — hard-won lessons, never repeated
-→ Every phase and task with file paths and status markers
-→ A session changelog — what changed and when
-→ The launch checklist
+→ The canonical tech stack — pinned versions, not @latest
+→ Architectural Decision Records — every major choice with its rationale
+→ Known trade-offs — constraints accepted and why
+→ A sprint-by-sprint changelog
 
-It is never edited mid-sprint. Only updated at sprint close.
-This makes it a genuine audit trail, not a living mess.
+The ADR section is the most valuable part.
 
-The Critical Rules table is the most valuable part.
+By Sprint 1 close it had 13 entries. Each one is a decision
+that would otherwise live in someone's head — and disappear
+when the project ends.
 
-Every row is a mistake made — or deliberately avoided —
-documented so it never happens twice. By Sprint 6 that
-table will be one of the most valuable things in the repo.
+ADR-013: Why the JWT middleware uses Web Crypto API instead of jose.
+ADR-012: Why Prisma is pinned to v5.22.0.
+ADR-011: Why Next.js is pinned to 15.5.15.
 
-Most developers keep this knowledge in their heads.
-Then they leave the project and it disappears.
-
-SDD externalises it.
+Every one of those cost time to discover. The ADR means
+the cost is paid once — not rediscovered by the next person
+who touches the codebase.
 
 Full file in the GitHub repo. Link in comments.
 
@@ -601,13 +610,13 @@ Full file in the GitHub repo. Link in comments.
 
 ---
 
-## SPRINT 2 POSTS — Weeks 5 & 6
+## SPRINT 2 POSTS — 19–30 May 2026
 
 ---
 
 ### POST 13 — First Feature Shipped
 
-**Week 5, Tuesday · Text + Screenshot**
+**19 May 2026 · Tuesday · Text + Screenshot**
 **Asset:** Screenshot of Add Application form in HireTrace → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
@@ -615,11 +624,11 @@ Full file in the GitHub repo. Link in comments.
 The first real feature is live on HireTrace.
 
 You can now add a job application — company, role,
-date applied, source, and initial status.
+location, salary, and job URL.
 
 Under the hood:
 → Zod schema validation on server and client
-→ Prisma write to PostgreSQL on Railway
+→ Prisma write to PostgreSQL on Neon
 → API route with typed request and response
 → Form with controlled inputs and error states
 → RTL tests: render, validation, submit, error state
@@ -643,8 +652,8 @@ Different questions. Different answers.
 
 ### POST 14 — Writing Tests First
 
-**Week 5, Thursday · Text + Screenshot**
-**Asset:** Screenshot of an RTL test file — use carbon.now.sh for a clean code screenshot, then drop into HireTrace Screenshot Frame
+**21 May 2026 · Thursday · Text + Screenshot**
+**Asset:** Screenshot of RTL test file — use carbon.now.sh for clean code screenshot → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
 ```
@@ -680,7 +689,7 @@ tests verify it is what makes the test suite valuable.
 
 ### POST 15 — The Kanban Pipeline
 
-**Week 5, Saturday · Text + Screenshot**
+**23 May 2026 · Saturday · Text + Screenshot**
 **Asset:** Screenshot of HireTrace Kanban board → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
@@ -691,7 +700,7 @@ The Kanban pipeline is live.
 Assessment → Offer → Closed
 
 Drag an application card from one column to the next.
-Stage updates. Timestamp records. History preserved.
+Stage updates. Database writes. No page reload.
 
 Here's the product decision behind the 6 stages:
 
@@ -716,14 +725,14 @@ Infinitely flexible tools become configuration projects.
 
 ### POST 16 — Sprint 2 Retro Insight
 
-**Week 6, Tuesday · Text only**
+**26 May 2026 · Tuesday · Text only**
 **Asset:** None
 **Status:** `[ ]` Not posted
 
 ```
 Sprint 2 retro. One insight worth sharing.
 
-The drag-and-drop implementation took 3x longer than estimated.
+The drag-and-drop implementation took longer than estimated.
 
 Not because drag-and-drop is hard.
 Because I didn't spec the edge cases before building.
@@ -750,8 +759,8 @@ This one changed the spec template.
 
 ### POST 17 — Sprint 2 Carousel
 
-**Week 6, Thursday · Carousel PDF**
-**Asset:** Build in Canva using HireTrace Carousel Template. Export as PDF.\*\*
+**28 May 2026 · Thursday · Carousel PDF**
+**Asset:** Build in Canva using HireTrace Carousel Template. Export as PDF.
 **Status:** `[ ]` Not posted
 
 **Slide content:**
@@ -764,7 +773,7 @@ Here's what it took — and what the retro changed.
 SLIDE 2 — Context
 HireTrace | Sprint 2
 Goal: Core application pipeline — CRUD + Kanban board
-Duration: 2 weeks
+Duration: 1 week
 Items committed: [fill] | Completed: [fill]
 
 SLIDE 3 — What shipped
@@ -822,8 +831,8 @@ the spec template, and what's next.
 
 ### POST 18 — What the Spec Drove
 
-**Week 6, Saturday · Text + Screenshot**
-**Asset:** Screenshot of spec.md showing AC for the application pipeline feature → HireTrace Screenshot Frame
+**30 May 2026 · Saturday · Text + Screenshot**
+**Asset:** Screenshot of spec.md showing AC for the application pipeline → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
 ```
@@ -857,13 +866,13 @@ Full spec.md in the GitHub repo. Link in comments.
 
 ---
 
-## SPRINT 3 POSTS — MVP (Weeks 7 & 8)
+## SPRINT 3 POSTS — MVP (02–13 Jun 2026)
 
 ---
 
 ### POST 19 — Contact Tracking Built
 
-**Week 7, Tuesday · Text + Screenshot**
+**02 June 2026 · Tuesday · Text + Screenshot**
 **Asset:** Screenshot of contact section on application detail page → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
@@ -898,7 +907,7 @@ The reason is in product.md.
 
 ### POST 20 — Dashboard Metrics
 
-**Week 7, Thursday · Text + Screenshot**
+**04 June 2026 · Thursday · Text + Screenshot**
 **Asset:** Screenshot of HireTrace dashboard summary stats bar → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
@@ -934,7 +943,7 @@ Interesting metrics drive dashboards nobody uses.
 
 ### POST 21 — Reminder System
 
-**Week 7, Saturday · Text + Screenshot**
+**06 June 2026 · Saturday · Text + Screenshot**
 **Asset:** Screenshot of overdue follow-up indicator on dashboard → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
@@ -968,14 +977,14 @@ That's a product decision. It's in the spec. It has a reason.
 
 ### POST 22 — MVP is Live
 
-**Week 8, Tuesday · Text + Screenshot**
-**Asset:** Screenshot of live HireTrace app on Vercel → HireTrace Screenshot Frame
+**09 June 2026 · Tuesday · Text + Screenshot**
+**Asset:** Screenshot of live HireTrace app on Vercel — full dashboard view → HireTrace Screenshot Frame
 **Status:** `[ ]` Not posted
 
 ```
 HireTrace MVP is live.
 
-3 sprints. 6 weeks. 28 Must Have items. All done.
+3 sprints. 28 Must Have items. All done.
 
 You can now:
 → Register and log in securely
@@ -986,14 +995,12 @@ You can now:
 → See your pipeline at a glance on the dashboard
 
 Built with Next.js 15, TypeScript, Tailwind CSS,
-PostgreSQL on Railway, deployed on Vercel.
+PostgreSQL on Neon, deployed on Vercel.
 
 Spec-driven from the first document to the last commit.
 
 Every feature has a spec. Every spec has acceptance criteria.
 Every AC has a test. Every test is passing.
-
-This is what 6 weeks of building in public looks like.
 
 3 more sprints to the full release. Follow along.
 
@@ -1008,8 +1015,8 @@ Notion: [link]
 
 ### POST 23 — Sprint 3 Carousel
 
-**Week 8, Thursday · Carousel PDF**
-**Asset:** Build in Canva using HireTrace Carousel Template. Export as PDF.\*\*
+**11 June 2026 · Thursday · Carousel PDF**
+**Asset:** Build in Canva using HireTrace Carousel Template. Export as PDF.
 **Status:** `[ ]` Not posted
 
 **Slide content:**
@@ -1022,7 +1029,7 @@ Here's the full story.
 SLIDE 2 — Context
 HireTrace | Sprint 3
 Goal: Contacts + Reminders + Dashboard = MVP complete
-Duration: 2 weeks | Phase 1 of 3 closed
+Duration: 1 week | Phase 1 of 3 closed
 
 SLIDE 3 — What shipped
 ✓ Contact tracking per application
@@ -1081,74 +1088,76 @@ Notion: [link]
 
 ### POST 24 — Phase 1 Retrospective
 
-**Week 8, Saturday · Text only**
+**13 June 2026 · Saturday · Text only**
 **Asset:** None
 **Status:** `[ ]` Not posted
 
 ```
-6 weeks. 3 sprints. 28 features. 1 live product.
+HireTrace Phase 1 is done. Here's the full picture.
 
-Here's what building HireTrace Phase 1 actually taught me.
+The numbers:
+→ 3 sprints. 8 weeks planned. Compressed to 3 weeks.
+→ 28 Must Have backlog items. All shipped.
+→ 46 PBIs defined before a single line of code was written.
+→ 13 Architectural Decision Records logged.
+→ Every feature spec'd, tested, and deployed.
+→ 0 features built without acceptance criteria.
 
-On being the Product Owner:
-Scope boundaries are the most valuable thing you write.
-Knowing what you're not building prevents more wasted time
-than any sprint ceremony.
+What I actually learned — one lesson per hat.
 
-On being the Scrum Master:
+As Product Owner:
+The scope boundary section is the most valuable thing you
+write. Knowing what you're NOT building prevents more wasted
+time than any sprint ceremony ever will. It's also the
+document that lets you say no — with evidence, not instinct.
+
+As Scrum Master:
 Sprint goals are not task lists. This seems obvious until
-you're under pressure and start listing tasks and calling
-them goals. Writing the goal first — then pulling items —
-is a muscle. It takes repetition.
+you're under pressure and start writing tasks and calling
+them a goal. Writing the goal first — then pulling items —
+is a discipline. It takes repetition to become a reflex.
 
-On being the Developer:
-TypeScript strict mode from commit one. Not from "when
-things get complex." Retrofitting types is a tax on future-you.
+As Developer:
+Pin every package version before you install it. @latest
+cost me 9 Vercel deployments in Sprint 1. The 30 seconds
+it takes to check a version number is always cheaper than
+the hours it takes to debug a breaking change you didn't
+see coming.
 
-On being the Tester:
-Writing the test before the component is uncomfortable
-until it isn't. Then it becomes the only way that makes sense.
+As Tester:
+Writing the test before the component is uncomfortable —
+until it isn't. Once you've done it consistently, writing
+the test after feels like guessing. You stop testing what
+you built and start testing what you meant to build.
+Different question. Better answer.
 
-On building in public:
+As a Builder in Public:
 The posts made me more deliberate. Knowing I'd have to
 explain every decision made me make better decisions.
+That accountability was the most underrated part of the
+whole process.
 
-Phase 2 starts next sprint.
+HireTrace is live. The repo is public. The spec docs are
+all there. If anything in these 24 posts was useful —
+the methodology, the decisions, the trade-offs — it's all
+in the GitHub repo to read, fork, or steal from.
 
-#HireTrace #BuildInPublic #ScrumMaster #ProductOwner #FullStack #Retrospective
+Link in comments.
+
+#HireTrace #BuildInPublic #ScrumMaster #ProductOwner #FullStack #Retrospective #SpecDrivenDevelopment
 ```
 
 ---
-
-## SPRINT 4–6 POST TOPICS
-
-Full post content for Sprints 4–6 will be written at Sprint 3 close. Topics are planned below.
-
-| Post | Sprint   | Week | Slot     | Topic                                                                  |
-| ---- | -------- | ---- | -------- | ---------------------------------------------------------------------- |
-| 25   | Sprint 4 | 9    | Tuesday  | Interview notes — why notes belong to stages not applications          |
-| 26   | Sprint 4 | 9    | Thursday | API rate limiting — the security decision most solo devs skip          |
-| 27   | Sprint 4 | 10   | Tuesday  | Sprint 4 retro insight                                                 |
-| 28   | Sprint 4 | 10   | Thursday | Sprint 4 carousel                                                      |
-| 29   | Sprint 5 | 11   | Tuesday  | Resume version linking — the most requested feature nobody builds well |
-| 30   | Sprint 5 | 11   | Thursday | Email notifications — Resend integration walkthrough                   |
-| 31   | Sprint 5 | 12   | Tuesday  | Sprint 5 retro insight                                                 |
-| 32   | Sprint 5 | 12   | Thursday | Sprint 5 carousel                                                      |
-| 33   | Sprint 6 | 13   | Tuesday  | Outcome analytics — what your job search data actually tells you       |
-| 34   | Sprint 6 | 13   | Thursday | Google OAuth — the 20% of auth that takes 80% of the time              |
-| 35   | Sprint 6 | 14   | Tuesday  | Sprint 6 retro insight                                                 |
-| 36   | Sprint 6 | 14   | Thursday | Sprint 6 carousel — full release                                       |
-| 37   | Sprint 6 | 14   | Saturday | The complete HireTrace build story — long-form retrospective           |
 
 ---
 
 ## Post Log
 
-Record impressions 48 hours after each post. Update after every publish.
+Record impressions 48 hours after each post.
 
 | #   | Date Posted | Format            | Impressions | Comments | Link |
 | --- | ----------- | ----------------- | ----------- | -------- | ---- |
-| 01  |             | Text              |             |          |      |
+| 01  | 21 Apr      | Text              | 145         |          |      |
 | 02  |             | Text + Screenshot |             |          |      |
 | 03  |             | Text              |             |          |      |
 | 04  |             | Text + Screenshot |             |          |      |
@@ -1175,5 +1184,5 @@ Record impressions 48 hours after each post. Update after every publish.
 
 ---
 
-_linkedin.md v2.0 — April 17, 2026 — HireTrace_
-_Every post in this file is written and ready to publish. Copy the text, attach the noted asset, post. Update the log after 48 hours. Posts 25–37 to be written at Sprint 3 close._
+_linkedin.md v4.0 — 22 April 2026 — HireTrace_
+_Revised from v3.0: Option B adopted — 24 posts, 3x/week, ending 13 June 2026 at MVP close. Posts 25–37 cut. LinkedIn presence freed for next project at Phase 1 complete. Posts 01–06 run concurrently with Sprint 2 coding. Posts 07–12 tell the Sprint 1 story retrospectively. Posts 25–37 removed — story ends cleanly at Phase 1 Retrospective (Post 24)._
