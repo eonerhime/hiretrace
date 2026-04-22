@@ -3,14 +3,56 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           String        @id @default(cuid())
+  email        String        @unique
+  password     String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  applications Application[]
+}
+
+model Application {
+  id           String            @id @default(cuid())
+  userId       String
+  user         User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Job details
+  company      String
+  role         String
+  location     String?
+  salary       String?
+  jobUrl       String?
+
+  // Pipeline stage
+  stage        ApplicationStage  @default(APPLIED)
+
+  // Tracking
+  appliedAt    DateTime          @default(now())
+  followUpAt   DateTime?
+  notes        String?
+
+  // Soft delete
+  deletedAt    DateTime?
+
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  @@index([userId])
+  @@index([userId, stage])
+  @@index([userId, deletedAt])
+}
+
+enum ApplicationStage {
+  APPLIED
+  SCREENING
+  INTERVIEW
+  ASSESSMENT
+  OFFER
+  CLOSED
 }

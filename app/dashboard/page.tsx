@@ -1,12 +1,41 @@
-export default function DashboardPage() {
+import { cookies } from "next/headers";
+import { jwtVerify } from "jose";
+import { redirect } from "next/navigation";
+import { prisma } from "@/lib/prisma";
+import DashboardClient from "@/components/DashboardClient";
+
+async function getCurrentUserId(): Promise<string> {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("hiretrace-token")?.value;
+  if (!token) redirect("/login");
+  try {
+    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+    const { payload } = await jwtVerify(token, secret);
+    return payload.userId as string;
+  } catch {
+    redirect("/login");
+  }
+}
+
+interface DashboardPageProps {
+  searchParams: Promise<{ from?: string }>;
+}
+
+export default async function DashboardPage({
+  searchParams,
+}: DashboardPageProps) {
+  const { from } = await searchParams;
+  const userId = await getCurrentUserId();
+
+  const applications = await prisma.application.findMany({
+    where: { userId, deletedAt: null },
+    orderBy: { updatedAt: "desc" },
+  });
+
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-        <p className="mt-2 text-gray-600">
-          Sprint 1 complete. Pipeline coming in Sprint 2.
-        </p>
-      </div>
-    </main>
+    <DashboardClient
+      initialApplications={applications}
+      initialView={from === "kanban" ? "kanban" : "list"}
+    />
   );
 }

@@ -567,6 +567,19 @@ run on Node.js runtime.'
 
 ---
 
+### ADR-014 — @hello-pangea/dnd pinned to 18.0.1
+
+**Date:** 22 April 2026
+**Status:** Accepted
+
+**Decision:** Use @hello-pangea/dnd@18.0.1 instead of the planned 16.6.0.
+
+**Context:** 16.6.0 declares peer dependency on React ^16 || ^17 || ^18.
+Project is on React 19.2.4. npm install fails with ERESOLVE.
+18.0.1 explicitly declares React ^18 || ^19 support.
+
+## **Rule:** Do not downgrade to 16.6.0 or use --legacy-peer-deps.
+
 ## 8. Known Trade-offs & Constraints
 
 | ID    | Area       | Constraint                                                                                                                   | Impact                                                            | Sprint to Revisit               |
