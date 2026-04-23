@@ -5,7 +5,7 @@
 **Date:** April 16, 2026
 **Status:** Active
 **Author:** Product Owner
-**Repository:** _(to be added)_
+**Repository:** https://github.com/eonerhime/hiretrace
 
 ---
 
