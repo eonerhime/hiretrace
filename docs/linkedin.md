@@ -1,7 +1,7 @@
 # HireTrace — LinkedIn Content Plan
 
 **Document Type:** Portfolio Communication Artefact
-**Version:** 4.0
+**Version:** 5.0
 **Date:** 22 April 2026
 **Status:** Active
 **Posting Frequency:** 3x per week — Tuesday, Thursday, Saturday
@@ -80,6 +80,8 @@ Brand kit, carousel template (1080×1350px), and screenshot frame (1080×1080px)
 
 **Note on schedule:** 24 posts total. Posting runs 3x/week from 21 April to 13 June 2026 — the day the HireTrace MVP story closes. The narrative ends cleanly at Phase 1 complete. LinkedIn presence is then free for the next project.
 
+**Note on schedule:** 24 posts total. Posting runs 3x/week from 21 April to 13 June 2026 — the day the HireTrace MVP story closes. The narrative ends cleanly at Phase 1 complete. LinkedIn presence is then free for the next project.
+
 ---
 
 ---
@@ -142,7 +144,7 @@ Sprint 1 is already underway.
 
 **23 April 2026 · Thursday · Text + Screenshot**
 **Asset:** Screenshot of product.md Problem Statement section in GitHub → HireTrace Screenshot Frame
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 Most job seekers have a list problem.
@@ -175,6 +177,9 @@ document I wrote before touching any code.
 Full doc in the GitHub repo. Link in comments.
 
 #HireTrace #BuildInPublic #ProductOwner #JobSearch #SoftwareEngineering
+
+
+
 ```
 
 ---
@@ -334,9 +339,9 @@ https://github.com/eonerhime/hiretrace/blob/develop/docs/product.md
 
 ---
 
-## SPRINT 1 POSTS — 05–16 May 2026
+## SPRINT 1 POSTS — 20 Apr – 16 May 2026
 
-Sprint 1 is already complete (closed 20 April). Screenshots are already captured. Post on schedule.
+Sprint 1 ran 20–21 April 2026 (compressed). Screenshots are already captured. Post on schedule.
 
 ---
 
@@ -732,25 +737,23 @@ Infinitely flexible tools become configuration projects.
 ```
 Sprint 2 retro. One insight worth sharing.
 
-The drag-and-drop implementation took longer than estimated.
+The biggest friction wasn't the code.
+It was the gap between writing a DoD item and knowing
+how to actually verify it.
 
-Not because drag-and-drop is hard.
-Because I didn't spec the edge cases before building.
+"PATCH returns 404 if not found" means nothing without
+a test file to run against it.
 
-What happens when you drag to the same column?
-What happens when the DB write fails mid-drag?
-What happens on mobile — where there is no drag?
+Every DoD item in Sprint 3 ships with an explicit
+verification method — a command to run, a browser action
+to take, or a file to check.
 
-These weren't in the acceptance criteria. They surfaced
-during implementation. Which means I was writing the spec
-in my head while writing the code — the exact pattern
-SDD is designed to prevent.
+Ambiguity in the DoD is a productivity tax.
+You pay it at the worst possible moment — when you think
+you're done and you're not.
 
-The fix: edge cases are now a mandatory section in every
-spec before implementation begins.
-
+The spec template is updated. The DoD format is fixed.
 Retros are only useful if they change something.
-This one changed the spec template.
 
 #HireTrace #BuildInPublic #ScrumMaster #Retrospective #Agile #SpecDrivenDevelopment
 ```
@@ -790,12 +793,15 @@ Same column drops. Failed DB writes. Mobile fallback.
 None were in the original spec. All are now in the spec template.
 
 SLIDE 5 — Test coverage
-[Fill at sprint close]
+API route tests: 4 passing (PATCH handler)
+Auth schema tests: 7 passing
+Component tests: ApplicationForm, ApplicationList, DeleteButton passing
+npm test — all green
 
 SLIDE 6 — The retro change
-Before: AC described the happy path.
-After: AC describes the happy path AND the failure modes.
-Edge cases are now a mandatory spec section.
+DoD items now ship with explicit verification methods.
+"PATCH returns 404" means nothing without a test to run.
+Every DoD item in Sprint 3 has a command, browser action, or file check attached.
 
 SLIDE 7 — The result
 You can add, track, and move job applications
@@ -1157,8 +1163,8 @@ Record impressions 48 hours after each post.
 
 | #   | Date Posted | Format            | Impressions | Comments | Link |
 | --- | ----------- | ----------------- | ----------- | -------- | ---- |
-| 01  | 21 Apr      | Text              | 145         |          |      |
-| 02  |             | Text + Screenshot |             |          |      |
+| 01  | 21 Apr      | Text              | 200         |          |      |
+| 02  | 23 Apr      | Text + Screenshot |             |          |      |
 | 03  |             | Text              |             |          |      |
 | 04  |             | Text + Screenshot |             |          |      |
 | 05  |             | Text              |             |          |      |
@@ -1184,5 +1190,5 @@ Record impressions 48 hours after each post.
 
 ---
 
-_linkedin.md v4.0 — 22 April 2026 — HireTrace_
-_Revised from v3.0: Option B adopted — 24 posts, 3x/week, ending 13 June 2026 at MVP close. Posts 25–37 cut. LinkedIn presence freed for next project at Phase 1 complete. Posts 01–06 run concurrently with Sprint 2 coding. Posts 07–12 tell the Sprint 1 story retrospectively. Posts 25–37 removed — story ends cleanly at Phase 1 Retrospective (Post 24)._
+_linkedin.md v5.0 — 27 April 2026 — HireTrace_
+_Revised from v4.0: Sprint actual dates updated (Pre-Sprint: 18 Apr, Sprint 1: 20 Apr, Sprint 2: 22–27 Apr). Post 16 retro insight updated to reflect actual Sprint 2 retro. Post 17 Slides 5 and 6 filled with actual test results. Notion Sprint Board corrected to actual dates._

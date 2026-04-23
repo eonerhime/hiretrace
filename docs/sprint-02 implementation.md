@@ -2045,11 +2045,11 @@ Merge to `develop`. Vercel will auto-deploy the preview. Test the live preview U
 
 After the PR is merged to `develop`:
 
-- [ ] Mark all 9 PBIs `[x]` in `sprint-02.md`
-- [ ] Mark all 9 PBIs `[x]` in `product.md`
-- [ ] Complete `sprint-02.md` Sprint Review and Retrospective sections
-- [ ] Fill LinkedIn Post 16 retro insight in `sprint-02.md`
-- [ ] Fill Sprint 2 Carousel (Post 17) slides 5 and 6
+- [x] Mark all 9 PBIs `[x]` in `sprint-02.md`
+- [x] Mark all 9 PBIs `[x]` in `product.md`
+- [x] Complete `sprint-02.md` Sprint Review and Retrospective sections
+- [x] Fill LinkedIn Post 16 retro insight in `sprint-02.md`
+- [x] Fill Sprint 2 Carousel (Post 17) slides 5 and 6
 - [ ] Commit updated docs directly to `develop`: `git commit -m "[DOCS] Sprint 2 close — update sprint-02.md, product.md"`
 - [ ] Update Notion Sprint Board: Sprint 2 → ✅ Closed, Sprint 3 → 🔄 In progress
 - [ ] Add Sprint 2 Changelog entry to Notion
