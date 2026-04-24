@@ -7,6 +7,8 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import DeleteButton from "@/components/DeleteButton";
 import { ApplicationStage } from "@prisma/client";
+import ContactList from "@/components/ContactList";
+import ContactForm from "@/components/ContactForm";
 
 const stageLabels: Record<ApplicationStage, string> = {
   APPLIED: "Applied",
@@ -60,6 +62,7 @@ export default async function ApplicationDetailPage({
 
   const application = await prisma.application.findFirst({
     where: { id, userId, deletedAt: null },
+    include: { contacts: { orderBy: { createdAt: "asc" } } },
   });
 
   if (!application) notFound();
@@ -166,6 +169,17 @@ export default async function ApplicationDetailPage({
         )}
       </div>
 
+      {/* Contacts section */}
+      <div className="mt-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+        <h2 className="mb-4 text-sm font-semibold text-gray-900">Contacts</h2>
+        <ContactList contacts={application.contacts} />
+        <div className="mt-4 border-t border-gray-100 pt-4">
+          <h3 className="mb-3 text-sm font-medium text-gray-700">
+            Add Contact
+          </h3>
+          <ContactForm applicationId={id} />
+        </div>
+      </div>
       {/* Actions */}
       <div className="mt-4 flex items-center gap-3">
         <Link
