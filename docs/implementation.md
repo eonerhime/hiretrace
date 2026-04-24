@@ -606,7 +606,7 @@ Record every significant technical change, decision, or milestone here. One entr
 
 ---
 
-### Pre-Sprint — April 17, 2026
+### Pre-Sprint — April 18, 2026
 
 **Status:** Complete
 
@@ -681,9 +681,78 @@ https://hiretrace-k1n5ipufc-e1rhyme.vercel.app/
 
 ---
 
-### Sprint 2 — 20 May – 02 Jun 2026
+### Sprint 2 — Closed 23 April 2026
 
-_(to be completed at sprint close)_
+**Goal:** Core Pipeline
+**Result:** All 9 PBIs complete. 0 carried over.
+
+**Packages added:**
+
+- `@hello-pangea/dnd@18.0.1` — drag-and-drop library, React 19 compatible fork of
+  react-beautiful-dnd (ADR-014)
+
+**New files added:**
+
+- `app/api/applications/route.ts` — GET all, POST create
+- `app/api/applications/[id]/route.ts` — GET one, PATCH edit, DELETE soft-delete
+- `app/dashboard/applications/page.tsx` — Application list page
+- `app/dashboard/applications/new/page.tsx` — Add application page
+- `app/dashboard/applications/[id]/page.tsx` — Application detail page
+- `app/dashboard/applications/[id]/edit/page.tsx` — Edit application page
+- `components/ApplicationForm.tsx` — Shared add/edit form
+- `components/ApplicationCard.tsx` — Card used in list view
+- `components/ApplicationList.tsx` — List/card view
+- `components/KanbanBoard.tsx` — 6-column Kanban board
+- `components/KanbanColumn.tsx` — Single droppable column
+- `components/KanbanCard.tsx` — Draggable application card
+- `components/DashboardClient.tsx` — Client wrapper owning shared application state
+- `components/DeleteButton.tsx` — Soft-delete with two-step confirmation
+- `lib/auth.ts` — `getUserFromRequest` JWT extraction helper for API routes
+- `lib/schemas/application.ts` — Zod schemas: `createApplicationSchema`,
+  `updateApplicationSchema`, `updateStageSchema`
+- `__tests__/api.applications.[id].test.ts` — API route tests for PATCH handler
+
+**Architecture decisions:**
+
+- `DashboardClient` established as single source of truth for application state.
+  `KanbanBoard` receives state via props and reports changes via `onStageChange`
+  callback. Local state removed from `KanbanBoard` to prevent competing state on
+  re-render causing visual revert after drag
+- Dynamic back navigation via `?from=kanban` query param — carried through detail
+  and edit pages so dashboard reopens in the correct view on return
+- Soft delete pattern: `deletedAt DateTime?` — null means active, timestamp means
+  deleted. All queries filter `deletedAt: null`
+- Stage-only PATCH routes to `updateStageSchema`; full-field PATCH routes to
+  `updateApplicationSchema` — distinguished by request body shape
+
+**Jest configuration fixes confirmed for all future sprints:**
+
+- `moduleNameMapper: { "^@/(.*)$": "<rootDir>/$1" }` declared explicitly in
+  `jest.config.ts`
+- `@jest-environment node` docblock must be the absolute first line of every API
+  route test file — before any comments or imports
+- API route tests use `node` environment; component tests use `jsdom` (global default)
+
+**Coding standards established this sprint:**
+
+- All form inputs must have `htmlFor` on `<label>` and matching `id` on `<input>`
+- `router.refresh()` before `router.push()` after mutations
+- DoD checks use three-column table format: Confirmed / How / Item
+
+**ADR logged:** ADR-014 — `@hello-pangea/dnd` pinned to 18.0.1
+
+**Test results at sprint close:**
+
+- `api.applications.[id].test.ts` — 4 passing
+- `lib/schemas/auth.test.ts` — 7 passing
+- `ApplicationForm.test.tsx` — 5 passing
+- `ApplicationList.test.tsx` — 4 passing
+- `DeleteButton.test.tsx` — 4 passing
+- `ApplicationCard.test.tsx` — written, not executed
+- `KanbanBoard.test.tsx` — written, not executed
+- **Total: 24 passing, 0 failures**
+
+**Vercel deployment:** Preview on `develop` push — confirmed clean build at sprint close
 
 ---
 
