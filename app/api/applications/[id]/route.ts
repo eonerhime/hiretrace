@@ -6,6 +6,7 @@ import {
   updateStageSchema,
 } from "@/lib/schemas/application";
 import { getUserFromRequest } from "@/lib/auth";
+import { revalidatePath } from "next/cache";
 
 // Shared ownership check
 async function getOwnedApplication(userId: string, id: string) {
@@ -135,6 +136,9 @@ export async function DELETE(
       where: { id },
       data: { deletedAt: new Date() },
     });
+
+    // Revalidate the dashboard page to reflect the deletion immediately
+    revalidatePath("/dashboard");
 
     return NextResponse.json({ message: "Application deleted" });
   } catch (error) {
