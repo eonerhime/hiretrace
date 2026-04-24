@@ -1163,8 +1163,8 @@ Record impressions 48 hours after each post.
 
 | #   | Date Posted | Format            | Impressions | Comments | Link |
 | --- | ----------- | ----------------- | ----------- | -------- | ---- |
-| 01  | 21 Apr      | Text              | 200         |          |      |
-| 02  | 23 Apr      | Text + Screenshot |             |          |      |
+| 01  | 21 Apr      | Text              | 272         |          |      |
+| 02  | 23 Apr      | Text + Screenshot | 107         |          |      |
 | 03  |             | Text              |             |          |      |
 | 04  |             | Text + Screenshot |             |          |      |
 | 05  |             | Text              |             |          |      |
