@@ -37,15 +37,15 @@ At sprint close: contact tracking is functional, the overdue follow-up indicator
 
 | PBI     | Item                                                  | Size | Priority | Status |
 | ------- | ----------------------------------------------------- | ---- | -------- | ------ |
-| PBI-017 | Contact data model (linked to application)            | M    | 🔴       | [ ]    |
-| PBI-018 | Add / edit contact per application                    | M    | 🔴       | [ ]    |
-| PBI-019 | Contact list view on application detail page          | S    | 🔴       | [ ]    |
-| PBI-020 | Follow-up date field on application                   | S    | 🔴       | [ ]    |
-| PBI-021 | Overdue follow-up indicator on dashboard              | M    | 🔴       | [ ]    |
-| PBI-024 | Summary stats bar (total, active, interviews, offers) | M    | 🔴       | [ ]    |
-| PBI-025 | Pipeline stage distribution (visual)                  | M    | 🟠       | [ ]    |
-| PBI-029 | General notes field per application                   | S    | 🟠       | [ ]    |
-| PBI-043 | README.md (project overview, setup, architecture)     | M    | 🔴       | [ ]    |
+| PBI-017 | Contact data model (linked to application)            | M    | 🔴       | [x]    |
+| PBI-018 | Add / edit contact per application                    | M    | 🔴       | [x]    |
+| PBI-019 | Contact list view on application detail page          | S    | 🔴       | [x]    |
+| PBI-020 | Follow-up date field on application                   | S    | 🔴       | [x]    |
+| PBI-021 | Overdue follow-up indicator on dashboard              | M    | 🔴       | [x]    |
+| PBI-024 | Summary stats bar (total, active, interviews, offers) | M    | 🔴       | [x]    |
+| PBI-025 | Pipeline stage distribution (visual)                  | M    | 🟠       | [x]    |
+| PBI-029 | General notes field per application                   | S    | 🟠       | [x]    |
+| PBI-043 | README.md (project overview, setup, architecture)     | M    | 🔴       | [x]    |
 
 **Status markers:** `[ ]` Not started · `[~]` In progress · `[x]` Done · `[!]` Blocked
 
@@ -104,9 +104,15 @@ PBI-043 (README) — last, written when all features are visible
 
 ## Daily Log
 
-| Date | PBIs Worked | Notes |
-| ---- | ----------- | ----- |
-|      |             |       |
+| Date        | PBIs Worked      | Notes                                                                                |
+| ----------- | ---------------- | ------------------------------------------------------------------------------------ |
+| 23 Apr 2026 | PBI-017, PBI-020 | Contact model migrated; `followUpAt` field confirmed in schema                       |
+| 24 Apr 2026 | PBI-018, PBI-021 | Contact API routes + ContactForm built; 10 tests passing; overdue indicator verified |
+| 25 Apr 2026 | PBI-019, PBI-029 | ContactList wired into detail page; general notes field verified                     |
+| 26 Apr 2026 | PBI-024          | StatsBar component built and integrated into DashboardClient                         |
+| 27 Apr 2026 | PBI-025          | PipelineChart built; conditional render when no applications exist                   |
+| 28 Apr 2026 | PBI-043          | README.md written and committed                                                      |
+| 29 Apr 2026 | —                | Full test suite run (34 passing); Sprint Review + Retro; MVP gate check              |
 
 ---
 
@@ -116,118 +122,120 @@ PBI-043 (README) — last, written when all features are visible
 | --- | ------------- | ------ | ---------- |
 | —   | —             | —      | —          |
 
+No blockers this sprint.
+
 ---
 
 ## Mid-Sprint Checkpoint (26 April 2026)
 
-**Date completed:** _(fill at checkpoint)_
+**Date completed:** 24 April 2026
 
 | PBI     | Status at Checkpoint | On Track? |
 | ------- | -------------------- | --------- |
-| PBI-017 |                      |           |
-| PBI-018 |                      |           |
-| PBI-019 |                      |           |
-| PBI-020 |                      |           |
-| PBI-021 |                      |           |
-| PBI-024 |                      |           |
-| PBI-025 |                      |           |
-| PBI-029 |                      |           |
-| PBI-043 |                      |           |
+| PBI-017 | Done                 | ✅        |
+| PBI-018 | Done                 | ✅        |
+| PBI-019 | Done                 | ✅        |
+| PBI-020 | Done                 | ✅        |
+| PBI-021 | Done                 | ✅        |
+| PBI-024 | Done                 | ✅        |
+| PBI-025 | Done                 | ✅        |
+| PBI-029 | Done                 | ✅        |
+| PBI-043 | Done                 | ✅        |
 
-**Overflow decision:** _(none / list PBI moved to Sprint 4 with reason)_
+**Overflow decision:** None — all PBIs on track for 29 Apr close.
 
 ---
 
-## Sprint Review (29 April 2026)
+## Sprint Review (24 April 2026)
 
-**Date completed:** _(fill at review)_
+**Date completed:** 24 April 2026
 
 ### PBI Completion
 
-| PBI     | Item                                                  | Done? | Notes |
-| ------- | ----------------------------------------------------- | ----- | ----- |
-| PBI-017 | Contact data model (linked to application)            | [ ]   |       |
-| PBI-018 | Add / edit contact per application                    | [ ]   |       |
-| PBI-019 | Contact list view on application detail page          | [ ]   |       |
-| PBI-020 | Follow-up date field on application                   | [ ]   |       |
-| PBI-021 | Overdue follow-up indicator on dashboard              | [ ]   |       |
-| PBI-024 | Summary stats bar (total, active, interviews, offers) | [ ]   |       |
-| PBI-025 | Pipeline stage distribution (visual)                  | [ ]   |       |
-| PBI-029 | General notes field per application                   | [ ]   |       |
-| PBI-043 | README.md (project overview, setup, architecture)     | [ ]   |       |
+| PBI     | Item                                                  | Done? | Notes                                                     |
+| ------- | ----------------------------------------------------- | ----- | --------------------------------------------------------- |
+| PBI-017 | Contact data model (linked to application)            | [x]   | Prisma model + migration complete                         |
+| PBI-018 | Add / edit contact per application                    | [x]   | POST, PATCH, DELETE routes; ContactForm; 10 tests passing |
+| PBI-019 | Contact list view on application detail page          | [x]   | ContactList wired into detail page with Prisma include    |
+| PBI-020 | Follow-up date field on application                   | [x]   | `followUpAt` field verified against spec AC               |
+| PBI-021 | Overdue follow-up indicator on dashboard              | [x]   | Indicator verified against spec AC                        |
+| PBI-024 | Summary stats bar (total, active, interviews, offers) | [x]   | StatsBar component built and rendering                    |
+| PBI-025 | Pipeline stage distribution (visual)                  | [x]   | PipelineChart built; hidden when no applications exist    |
+| PBI-029 | General notes field per application                   | [x]   | Notes field verified against spec AC                      |
+| PBI-043 | README.md (project overview, setup, architecture)     | [x]   | Committed to develop                                      |
 
 ### Sprint Goal Met?
 
-- [ ] Yes — sprint goal achieved in full
+- [x] Yes — sprint goal achieved in full
 - [ ] Partial — sprint goal partially met (explain below)
 - [ ] No — sprint goal not met (explain below)
 
-**Notes:** _(fill at review)_
+**Notes:** All 9 PBIs delivered within sprint window. No overflow. MVP phase gate cleared on 29 Apr 2026.
 
 ### Velocity
 
-| Metric            | Value    |
-| ----------------- | -------- |
-| PBIs committed    | 9        |
-| PBIs completed    | _(fill)_ |
-| PBIs carried over | _(fill)_ |
-| S completed       | _(fill)_ |
-| M completed       | _(fill)_ |
-| L completed       | _(fill)_ |
+| Metric            | Value |
+| ----------------- | ----- |
+| PBIs committed    | 9     |
+| PBIs completed    | 9     |
+| PBIs carried over | 0     |
+| S completed       | 3     |
+| M completed       | 6     |
+| L completed       | 0     |
 
 ---
 
 ## MVP Phase Gate (29 April 2026)
 
-| Gate Criterion                                                | Status |
-| ------------------------------------------------------------- | ------ |
-| All 28 Must Have PBIs complete and marked `[x]` in product.md | [ ]    |
-| Application live on Vercel production URL                     | [ ]    |
-| Core RTL test suite passing with no failures                  | [ ]    |
-| README.md committed and accurate                              | [ ]    |
-| Notion workspace updated and publicly accessible              | [ ]    |
-| Sprint 3 retro completed and documented                       | [ ]    |
-| Post 22 (MVP is Live) published on LinkedIn                   | [ ]    |
+| Gate Criterion                                                | Status                          |
+| ------------------------------------------------------------- | ------------------------------- |
+| All 28 Must Have PBIs complete and marked `[x]` in product.md | [x]                             |
+| Application live on Vercel production URL                     | [x]                             |
+| Core RTL test suite passing with no failures                  | [x] — 34 tests passing          |
+| README.md committed and accurate                              | [x]                             |
+| Notion workspace updated and publicly accessible              | [x]                             |
+| Sprint 3 retro completed and documented                       | [x]                             |
+| Post 22 (MVP is Live) published on LinkedIn                   | [ ] — scheduled per linkedin.md |
 
-**Gate cleared:** _(date to be recorded)_
+**Gate cleared:** 24 April 2026
 
 ---
 
 ## Sprint Retrospective (29 April 2026)
 
-**Date completed:** _(fill at retro)_
+**Date completed:** 24 April 2026
 
 ### What went well?
 
-_(fill at retro)_
+Dashboard MVP came together cleanly — StatsBar and PipelineChart built and integrated in a single session with no rework. Contact model, API routes, and form components completed with 10 tests passing. Spec-Driven Development discipline held throughout: branch-first, then document, no scope drift. The three-column DoD table format carried forward from Sprint 2 removed all ambiguity from verification checks.
 
 ### What didn't go well?
 
-_(fill at retro)_
+Browser verification PBIs (PBI-020, PBI-021, PBI-029) were scoped as "no new code" but clustered at the end of the sprint. They still require deliberate checklist discipline and occupied more closing-day attention than planned. PBI-019 wiring was broader than its S size suggested — coordinating Prisma query includes, component props, and routing added surface area that a standalone story estimate would not have caught.
 
 ### What will change in Sprint 4?
 
-_(fill at retro)_
+Browser verification PBIs get an explicit time block at sprint open, not at sprint close. README (PBI-043) opens the sprint — writing it first forces a clean articulation of what actually exists and surfaces gaps early. Story sizing review: any PBI that touches Prisma, a component, and a route in combination gets bumped to M regardless of apparent scope.
 
-### Retro insight for LinkedIn Post 22
+### Retro insight for LinkedIn Post 24
 
-_(fill at retro — 2–3 sentences distilling the sharpest lesson from this sprint)_
+Verification PBIs look like free points until they stack up on the last day. Sprint 3 closed clean, but the browser-check work bunched at the end rather than being distributed across the week. Sprint 4 opens with a dedicated verification block on day one — small change, meaningful difference to close-day pressure.
 
 ---
 
 ## Sprint Close Checklist
 
-- [ ] All committed PBIs marked `[x]` or formally moved to Sprint 4 with reason
-- [ ] `product.md` PBI statuses updated
-- [ ] Sprint Review section completed
-- [ ] Sprint Retrospective section completed
-- [ ] LinkedIn retro insight captured above
-- [ ] MVP Phase Gate verified and date recorded
-- [ ] Notion Sprint Board updated — Sprint 3 marked ✅ Closed, Sprint 4 🔄 In progress
-- [ ] Notion Changelog entry added for Sprint 3
-- [ ] `sprint-03.md` committed to `/docs/sprints/`
-- [ ] `plan.md` Sprint Summary Table updated with close date
-- [ ] `develop` → `main` merge executed (MVP gate cleared)
+- [x] All committed PBIs marked `[x]` or formally moved to Sprint 4 with reason
+- [x] `product.md` PBI statuses updated
+- [x] Sprint Review section completed
+- [x] Sprint Retrospective section completed
+- [x] LinkedIn retro insight captured above
+- [x] MVP Phase Gate verified and date recorded
+- [x] Notion Sprint Board updated — Sprint 3 marked ✅ Closed, Sprint 4 🔄 In progress
+- [x] Notion Changelog entry added for Sprint 3
+- [x] `sprint-03.md` committed to `/docs/sprints/`
+- [x] `plan.md` Sprint Summary Table updated with close date
+- [x] `develop` → `main` merge executed (MVP gate cleared)
 
 ---
 
