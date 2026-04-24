@@ -285,14 +285,14 @@ Items are ordered by priority within each epic. Status reflects current state at
 
 | ID      | Item                                             | Size | Priority | Status |
 | ------- | ------------------------------------------------ | ---- | -------- | ------ |
-| PBI-009 | Application data model (schema + migration)      | M    | 🔴       | [ ]    |
-| PBI-010 | Add new application (form + API + DB write)      | M    | 🔴       | [ ]    |
-| PBI-011 | View all applications (dashboard list/card view) | M    | 🔴       | [ ]    |
-| PBI-012 | Edit application details                         | M    | 🔴       | [ ]    |
-| PBI-013 | Delete application (soft delete)                 | S    | 🔴       | [ ]    |
-| PBI-014 | 6-stage Kanban pipeline view                     | L    | 🔴       | [ ]    |
-| PBI-015 | Drag-and-drop stage progression                  | L    | 🔴       | [ ]    |
-| PBI-016 | Application detail page                          | M    | 🔴       | [ ]    |
+| PBI-009 | Application data model (schema + migration)      | M    | 🔴       | [x]    |
+| PBI-010 | Add new application (form + API + DB write)      | M    | 🔴       | [x]    |
+| PBI-011 | View all applications (dashboard list/card view) | M    | 🔴       | [x]    |
+| PBI-012 | Edit application details                         | M    | 🔴       | [x]    |
+| PBI-013 | Delete application (soft delete)                 | S    | 🔴       | [x]    |
+| PBI-014 | 6-stage Kanban pipeline view                     | L    | 🔴       | [x]    |
+| PBI-015 | Drag-and-drop stage progression                  | L    | 🔴       | [x]    |
+| PBI-016 | Application detail page                          | M    | 🔴       | [x]    |
 
 ---
 
@@ -300,9 +300,9 @@ Items are ordered by priority within each epic. Status reflects current state at
 
 | ID      | Item                                         | Size | Priority | Status |
 | ------- | -------------------------------------------- | ---- | -------- | ------ |
-| PBI-017 | Contact data model (linked to application)   | M    | 🔴       | [ ]    |
-| PBI-018 | Add / edit contact per application           | M    | 🔴       | [ ]    |
-| PBI-019 | Contact list view on application detail page | S    | 🔴       | [ ]    |
+| PBI-017 | Contact data model (linked to application)   | M    | 🔴       | [x]    |
+| PBI-018 | Add / edit contact per application           | M    | 🔴       | [x]    |
+| PBI-019 | Contact list view on application detail page | S    | 🔴       | [x]    |
 
 ---
 
@@ -310,8 +310,8 @@ Items are ordered by priority within each epic. Status reflects current state at
 
 | ID      | Item                                     | Size | Priority | Status |
 | ------- | ---------------------------------------- | ---- | -------- | ------ |
-| PBI-020 | Follow-up date field on application      | S    | 🔴       | [ ]    |
-| PBI-021 | Overdue follow-up indicator on dashboard | M    | 🔴       | [ ]    |
+| PBI-020 | Follow-up date field on application      | S    | 🔴       | [x]    |
+| PBI-021 | Overdue follow-up indicator on dashboard | M    | 🔴       | [x]    |
 | PBI-022 | Reminder list / upcoming actions view    | M    | 🟠       | [ ]    |
 | PBI-023 | Email notification for due reminders     | L    | 🟡       | [ ]    |
 
@@ -321,8 +321,8 @@ Items are ordered by priority within each epic. Status reflects current state at
 
 | ID      | Item                                                  | Size | Priority | Status |
 | ------- | ----------------------------------------------------- | ---- | -------- | ------ |
-| PBI-024 | Summary stats bar (total, active, interviews, offers) | M    | 🔴       | [ ]    |
-| PBI-025 | Pipeline stage distribution (visual)                  | M    | 🟠       | [ ]    |
+| PBI-024 | Summary stats bar (total, active, interviews, offers) | M    | 🔴       | [x]    |
+| PBI-025 | Pipeline stage distribution (visual)                  | M    | 🟠       | [x]    |
 | PBI-026 | Conversion rate metric (applied → interview → offer)  | M    | 🟡       | [ ]    |
 | PBI-027 | Time-in-stage metric per application                  | L    | 🟡       | [ ]    |
 | PBI-028 | Source effectiveness metric                           | M    | 🔵       | [ ]    |
@@ -333,7 +333,7 @@ Items are ordered by priority within each epic. Status reflects current state at
 
 | ID      | Item                                | Size | Priority | Status |
 | ------- | ----------------------------------- | ---- | -------- | ------ |
-| PBI-029 | General notes field per application | S    | 🟠       | [ ]    |
+| PBI-029 | General notes field per application | S    | 🟠       | [x]    |
 | PBI-030 | Interview notes per stage           | M    | 🟠       | [ ]    |
 | PBI-031 | Notes history / timeline view       | M    | 🟡       | [ ]    |
 
@@ -375,7 +375,7 @@ Items are ordered by priority within each epic. Status reflects current state at
 
 | ID      | Item                                              | Size | Priority | Status |
 | ------- | ------------------------------------------------- | ---- | -------- | ------ |
-| PBI-043 | README.md (project overview, setup, architecture) | M    | 🔴       | [ ]    |
+| PBI-043 | README.md (project overview, setup, architecture) | M    | 🔴       | [x]    |
 | PBI-044 | API documentation (OpenAPI / inline comments)     | M    | 🟠       | [ ]    |
 | PBI-045 | LinkedIn post per sprint (see linkedin.md)        | S    | 🔴       | [ ]    |
 | PBI-046 | Notion workspace setup and public share           | S    | 🔴       | [x]    |
@@ -438,5 +438,5 @@ Items are ordered by priority within each epic. Status reflects current state at
 
 ---
 
-_product.md v1.0 — April 16, 2026 — HireTrace_
+_product.md v1.1 — 24 April 2026 — HireTrace_
 _This document is the upstream source for all downstream SDD artefacts. Changes here must be reflected in plan.md and communicated to sprint-XX.md at the next sprint planning session._

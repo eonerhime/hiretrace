@@ -1197,16 +1197,16 @@ Merge to `develop`. Verify the Vercel preview. Then merge `develop → main` —
 
 After the PR is merged to `develop`:
 
-- [ ] Mark all 9 PBIs `[x]` in `sprint-03.md`
-- [ ] Mark all 9 PBIs `[x]` in `product.md`
-- [ ] Complete `sprint-03.md` Sprint Review and Retrospective sections
-- [ ] Fill retro insight in `sprint-03.md` for LinkedIn
-- [ ] Commit updated docs directly to `develop`: `git commit -m "[DOCS] Sprint 3 close — update sprint-03.md, product.md"`
-- [ ] Update Notion Sprint Board: Sprint 3 → ✅ Closed, Sprint 4 → 🔄 In progress
-- [ ] Add Sprint 3 Changelog entry to Notion
-- [ ] MVP Phase Gate verified and date recorded in `sprint-03.md`
-- [ ] Merge `develop` → `main` (MVP gate cleared)
-- [ ] `plan.md` Sprint Summary Table updated with close date
+- [x] Mark all 9 PBIs `[x]` in `sprint-03.md`
+- [x] Mark all 9 PBIs `[x]` in `product.md`
+- [x] Complete `sprint-03.md` Sprint Review and Retrospective sections
+- [x] Fill retro insight in `sprint-03.md` for LinkedIn
+- [x] Commit updated docs directly to `develop`: `git commit -m "[DOCS] Sprint 3 close — update sprint-03.md, product.md"`
+- [x] Update Notion Sprint Board: Sprint 3 → ✅ Closed, Sprint 4 → 🔄 In progress
+- [x] Add Sprint 3 Changelog entry to Notion
+- [x] MVP Phase Gate verified and date recorded in `sprint-03.md`
+- [x] Merge `develop` → `main` (MVP gate cleared)
+- [x] `plan.md` Sprint Summary Table updated with close date
 
 ---
 

@@ -428,10 +428,10 @@ Before a sprint is marked Closed in `sprint-XX.md`:
 Track sprint status here. Update at each sprint close.
 
 | Sprint   | Dates              | Goal                                   | PBI Count | Status         | Close Date  | Notes                       |
-| -------- | ------------------ | -------------------------------------- | --------- | -------------- | ----------- | --------------------------- |
+| -------- | ------------------ | -------------------------------------- | --------- | -------------- | ----------- | --------------------------- | --- |
 | Sprint 1 | 18–20 Apr 2026     | Foundation + Auth                      | 11        | ✅ Closed      | 20 Apr 2026 | Completed ahead of schedule |
-| Sprint 2 | 21–27 Apr 2026     | Core Pipeline                          | 9         | ✅ Closed      | 22 Apr 2026 | Completed ahead of schedule |                           |
-| Sprint 3 | 28 Apr–04 May 2026 | Contacts + Reminders + Dashboard (MVP) | 9         | 🔲 Not started | —           | —                           |
+| Sprint 2 | 21–27 Apr 2026     | Core Pipeline                          | 9         | ✅ Closed      | 22 Apr 2026 | Completed ahead of schedule |     |
+| Sprint 3 | 28 Apr–04 May 2026 | Contacts + Reminders + Dashboard (MVP) | 9         | ✅ Closed      | 24 Apr 2026 | Completed ahead of schedule |
 | Sprint 4 | 05–11 May 2026     | Notes + Metrics + API Hardening        | 7         | 🔲 Not started | —           | —                           |
 | Sprint 5 | 12–18 May 2026     | Resume Management + Email Reminders    | 5         | 🔲 Not started | —           | —                           |
 | Sprint 6 | 19–25 May 2026     | Analytics + Export + OAuth + E2E       | 4         | 🔲 Not started | —           | —                           |
