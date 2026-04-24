@@ -5,6 +5,8 @@ import { Application, ApplicationStage } from "@prisma/client";
 import Link from "next/link";
 import ApplicationList from "./ApplicationList";
 import KanbanBoard from "./KanbanBoard";
+import StatsBar from "./StatsBar";
+import PipelineChart from "./PipelineChart";
 
 interface DashboardClientProps {
   initialApplications: Application[];
@@ -27,11 +29,13 @@ export default function DashboardClient({
   };
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-8">
+    <main className="mx-auto max-w-7xl px-4 py-8 space-y-6">
       {/* Header */}
-      <div className="mb-6 flex items-center justify-between">
+      <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900">Applications</h1>
+          <h1 className="text-2xl font-semibold text-gray-900 mr-6">
+            Applications
+          </h1>
           <p className="mt-1 text-sm text-gray-500">
             {applications.length === 0
               ? "No applications yet"
@@ -75,12 +79,18 @@ export default function DashboardClient({
         </div>
       </div>
 
+      {/* Stats bar — always visible */}
+      <StatsBar applications={applications} />
+
+      {/* Pipeline chart — only shown when applications exist */}
+      {applications.length > 0 && <PipelineChart applications={applications} />}
+
       {/* View */}
       {view === "list" ? (
         <ApplicationList applications={applications} />
       ) : (
         <KanbanBoard
-          initialApplications={applications}
+          applications={applications}
           onStageChange={handleStageChange}
         />
       )}

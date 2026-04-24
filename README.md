@@ -1,97 +1,43 @@
 # HireTrace
 
-A job application pipeline tracker — built for job seekers who need clarity, control, and confidence over their search.
+A job application pipeline tracker built in public using Spec-Driven Development.
 
-Built in public using **Spec-Driven Development** as a portfolio showcase project.
+Track applications, contacts, and follow-up reminders across a 6-stage Kanban pipeline.
 
----
-
-## What is HireTrace?
-
-Most job seekers manage their search in spreadsheets — tools that were never designed for the non-linear, relationship-driven process of finding work. HireTrace replaces that friction with a purpose-built pipeline tracker that surfaces what matters: where you stand, what needs attention, and what's working.
-
-**Core features (MVP):**
-
-- 6-stage Kanban pipeline — Applied → Screening → Interview → Assessment → Offer → Closed
-- Contact tracking per application (recruiter, hiring manager)
-- Follow-up reminder system with overdue flagging
-- Dashboard with summary metrics and pipeline distribution
-- Secure authentication (email/password)
+**Live:** [hiretrace-7lt5ilepl-e1rhyme.vercel.app](https://hiretrace-7lt5ilepl-e1rhyme.vercel.app)
+**LinkedIn build series:** [Posts 01–24](https://linkedin.com/in/emoonerhime)
 
 ---
 
 ## Tech Stack
 
-| Layer      | Technology                   |
-| ---------- | ---------------------------- |
-| Framework  | Next.js 15 (App Router)      |
-| Language   | TypeScript (strict mode)     |
-| Styling    | Tailwind CSS                 |
-| Database   | PostgreSQL via Neon          |
-| ORM        | Prisma                       |
-| Validation | Zod                          |
-| Deployment | Vercel                       |
-| Testing    | React Testing Library + Jest |
+| Layer      | Technology            | Version     |
+| ---------- | --------------------- | ----------- |
+| Framework  | Next.js               | 15.5.15     |
+| Language   | TypeScript            | strict      |
+| Styling    | Tailwind CSS          | 4.x         |
+| ORM        | Prisma                | 5.22.0      |
+| Database   | PostgreSQL 17         | Neon        |
+| Auth       | jose + bcryptjs       | 5.x / 2.x   |
+| Validation | Zod + react-hook-form | 3.x / 7.x   |
+| Testing    | RTL + Jest            | 14.x / 29.x |
+| Deployment | Vercel                | Hobby       |
 
 ---
 
-## Project Status
-
-**Current phase:** Pre-Sprint — documentation complete, Sprint 1 starts 06 May 2026
-
-**Release plan:**
-
-- Phase 1 — MVP (Sprints 1–3) — target: 16 June 2026
-- Phase 2 — Enhanced (Sprints 4–5) — target: 14 July 2026
-- Phase 3 — Full Release (Sprint 6) — target: 28 July 2026
-
----
-
-## Methodology — Spec-Driven Development
-
-Every feature in HireTrace starts as a specification before it becomes code. The development sequence is:
-
-```
-product.md → plan.md → spec.md → features.md → tasks.md → implementation → testing
-```
-
-All SDD documents are public and committed to this repository. This project is as much a demonstration of process as it is of code.
-
----
-
-## SDD Documents
-
-All project documents live in the `/docs` directory.
-
-| Document                                            | Purpose                                             |
-| --------------------------------------------------- | --------------------------------------------------- |
-| [`product.md`](docs/product.md)                     | Mission, personas, 46-item backlog, release plan    |
-| [`plan.md`](docs/plan.md)                           | Sprint calendar, capacity model, Definition of Done |
-| [`spec.md`](docs/spec.md)                           | Feature specs, acceptance criteria, API contracts   |
-| [`features.md`](docs/features.md)                   | Feature breakdown per PBI                           |
-| [`tasks.md`](docs/tasks.md)                         | Atomic dev tasks per feature                        |
-| [`implementation.md`](docs/implementation.md)       | Stack decisions, architecture, ADRs, changelog      |
-| [`testing.md`](docs/testing.md)                     | Test philosophy, suites, cases, results log         |
-| [`linkedin.md`](docs/linkedin.md)                   | Content strategy and post log                       |
-| [`sprints/sprint-01.md`](docs/sprints/sprint-01.md) | Sprint 1 tracking document                          |
-
----
-
-## Local Development Setup
-
-> ⚠️ Sprint 1 starts 06 May 2026. Setup instructions will be completed and verified at that point. The steps below reflect the planned setup — update this section at PBI-043 (Sprint 3).
+## Local Setup
 
 ### Prerequisites
 
-- Node.js 20+
-- npm 10+
-- A Neon account (free at neon.tech)
+- Node.js 18.17+
+- npm 9+
+- A [Neon](https://neon.tech) account (free)
 
 ### Steps
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/[username]/hiretrace.git
+git clone https://github.com/eonerhime/hiretrace.git
 cd hiretrace
 
 # 2. Install dependencies
@@ -99,53 +45,75 @@ npm install
 
 # 3. Set up environment variables
 cp .env.example .env.local
-# Fill in .env.local with your Neon connection strings and JWT secret
+# run in your terminal: openssl rand -base64 32 or node -e "console.log(require('crypto').randomBytes(32).toString('base64'))" for your JWT_SECRET
+# Fill in DATABASE_URL, DIRECT_URL, JWT_SECRET in .env.local
 
-# 4. Run database migrations
+# 4. Run migrations
 npx prisma migrate dev
 
-# 5. Start the development server
+# 5. Start the dev server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
-### Running Tests
+---
 
-```bash
-npm test              # run all tests
-npm test -- --watch   # watch mode
-npm test -- --coverage # with coverage report
+## Environment Variables
+
+`run in your terminal: openssl rand -base64 32 or node -e "console.log(require('crypto').randomBytes(32).toString('base64'))" for your JWT_SECRET`
+
+| Variable       | Description                        |
+| -------------- | ---------------------------------- |
+| `DATABASE_URL` | Neon pooled connection string      |
+| `DIRECT_URL`   | Neon direct connection string      |
+| `JWT_SECRET`   | Min 32-char secret for JWT signing |
+
+---
+
+## Architecture
+
 ```
+Browser → Vercel Edge → middleware.ts (JWT) → App Router → Prisma → Neon PostgreSQL
+```
+
+- **Auth:** HTTP-only JWT cookie. `middleware.ts` uses Web Crypto API (Edge compatible). API routes use `jose`.
+- **Rendering:** Server Components by default. Client Components only where interactivity is required.
+- **State:** `DashboardClient` owns application state shared between list and Kanban views.
+- **Soft delete:** Applications are never hard deleted — `deletedAt` timestamp marks deletion.
 
 ---
 
 ## Branch Strategy
 
-| Branch                 | Purpose                                                    |
-| ---------------------- | ---------------------------------------------------------- |
-| `main`                 | Protected — production-ready code only. No direct commits. |
-| `develop`              | Integration branch — all feature branches merge here       |
-| `feature/PBI-XXX-desc` | One branch per PBI — opened from `develop`                 |
+```
+main (production) ← develop (integration) ← feature/sprint-XX-desc
+```
 
-All commits go to `develop` or a `feature/` branch. `main` receives merges only at sprint close or phase gates.
-
----
-
-## Follow the Build
-
-This project is built in public. Follow along on LinkedIn for sprint updates, technical decisions, and retrospectives — 3 posts per week throughout the build.
-
-- **LinkedIn:** [Emo Onerhime](https://linkedin.com/in/emoonerhime)
-- **Notion workspace:** _(link added at Sprint 1 close)_
-- **Live app:** _(link added at MVP launch — 16 June 2026)_
+- All application code on feature branches
+- Control docs committed directly to `develop`
+- `develop` → `main` merged at MVP gate only
 
 ---
 
-## Licence
+## Running Tests
 
-MIT
+```bash
+npm test
+```
 
 ---
 
-_HireTrace — Built in public using Spec-Driven Development — 2026_
+## Project Documentation
+
+All SDD documents live in `/docs`:
+
+- `product.md` — backlog and PBI definitions
+- `plan.md` — sprint plan and capacity model
+- `spec.md` — acceptance criteria per PBI
+- `implementation.md` — ADR log and technical decisions
+- `sprints/` — per-sprint artifacts
+
+---
+
+_Built in public. Documented with Spec-Driven Development._

@@ -15,18 +15,19 @@ const STAGES: ApplicationStage[] = [
 ];
 
 interface KanbanBoardProps {
-  initialApplications: Application[];
+  applications: Application[];
   onStageChange: (id: string, newStage: ApplicationStage) => void;
 }
 
 export default function KanbanBoard({
-  initialApplications,
+  applications: initialApplications,
   onStageChange,
 }: KanbanBoardProps) {
-  const [applications, setApplications] = useState(initialApplications);
+  const [localApps, setLocalApps] =
+    useState<Application[]>(initialApplications);
 
   const getByStage = (stage: ApplicationStage) =>
-    applications.filter((a) => a.stage === stage);
+    localApps.filter((a) => a.stage === stage);
 
   const onDragEnd = useCallback(
     async (result: DropResult) => {
@@ -40,9 +41,10 @@ export default function KanbanBoard({
         return;
 
       const newStage = destination.droppableId as ApplicationStage;
+      const oldStage = source.droppableId as ApplicationStage;
 
-      // Optimistic update — local state
-      setApplications((prev) =>
+      // Optimistic update
+      setLocalApps((prev) =>
         prev.map((app) =>
           app.id === draggableId ? { ...app, stage: newStage } : app,
         ),
@@ -56,25 +58,20 @@ export default function KanbanBoard({
         });
 
         if (res.ok) {
-          // Propagate to DashboardClient so list view stays in sync
           onStageChange(draggableId, newStage);
         } else {
-          // Revert local state on failure
-          setApplications((prev) =>
+          // Revert on failure
+          setLocalApps((prev) =>
             prev.map((app) =>
-              app.id === draggableId
-                ? { ...app, stage: source.droppableId as ApplicationStage }
-                : app,
+              app.id === draggableId ? { ...app, stage: oldStage } : app,
             ),
           );
         }
       } catch {
         // Revert on network error
-        setApplications((prev) =>
+        setLocalApps((prev) =>
           prev.map((app) =>
-            app.id === draggableId
-              ? { ...app, stage: source.droppableId as ApplicationStage }
-              : app,
+            app.id === draggableId ? { ...app, stage: oldStage } : app,
           ),
         );
       }
