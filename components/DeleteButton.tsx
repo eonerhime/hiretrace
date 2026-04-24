@@ -22,9 +22,10 @@ export default function DeleteButton({
     const res = await fetch(`/api/applications/${applicationId}`, {
       method: "DELETE",
     });
+
     if (res.ok) {
       router.refresh();
-      router.push("/dashboard");
+      setTimeout(() => router.push("/dashboard"), 100); // Redirect after a short delay to show the updated state
     } else {
       setLoading(false);
       setConfirming(false);
