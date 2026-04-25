@@ -84,9 +84,7 @@ Brand kit, carousel template (1080×1350px), and screenshot frame (1080×1080px)
 
 ---
 
----
-
-### 🗓️ Optimal LinkedIn Posting Schedule (2026)
+## Optimal LinkedIn Posting Schedule (2026)
 
 | Day          | Best Time (Local Time)  | Strategy & Why It Works                                                                                                                             |
 | :----------- | :---------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -188,7 +186,7 @@ Full doc in the GitHub repo. Link in comments.
 
 **25 April 2026 · Saturday · Text only**
 **Asset:** None
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 Spec-Driven Development changed how I build software.
