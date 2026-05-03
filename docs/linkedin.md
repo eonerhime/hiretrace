@@ -225,7 +225,7 @@ What does your pre-build process look like?
 
 **28 April 2026 · Tuesday · Text + Screenshot**
 **Asset:** Screenshot of product.md Table of Contents in GitHub → HireTrace Screenshot Frame
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 I wrote 600 words before opening my code editor.
@@ -262,7 +262,7 @@ https://github.com/eonerhime/hiretrace/blob/develop/docs/product.md
 
 **30 April 2026 · Thursday · Text only**
 **Asset:** None
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 A backlog is not a wish list.
@@ -295,7 +295,7 @@ who makes lists.
 
 **02 May 2026 · Saturday · Text + Screenshot**
 **Asset:** Screenshot of Backlog Derivation Strategies section in product.md → HireTrace Screenshot Frame
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 Here are the 6 strategies I used to build the HireTrace
@@ -332,7 +332,7 @@ All in product.md — link in comments.
 
 #HireTrace #BuildInPublic #ProductOwner #ProductManagement #Agile #ScrumMaster
 
-https://github.com/eonerhime/hiretrace/blob/develop/docs/product.md
+https://github.com/eonerhime/hiretrace/blob/develop/docs/product.md#6-backlog-derivation-strategies
 ```
 
 ---
@@ -375,6 +375,9 @@ Sprint 1 backlog:
 
 Notion board is live and public. Link in comments.
 
+How do you decide what goes into a sprint — gut feel or a system?
+Tell me what works for you 👇
+
 #HireTrace #BuildInPublic #ScrumMaster #Agile #Sprint #NextJS
 ```
 
@@ -415,6 +418,9 @@ Three decisions I made deliberately:
 
 Repo is public. Link in comments.
 
+What's the hardest part of setting up auth from scratch?
+Share your war stories below 👇
+
 #HireTrace #BuildInPublic #NextJS #TypeScript #Prisma #PostgreSQL
 ```
 
@@ -453,6 +459,9 @@ Every criterion has a corresponding RTL test.
 
 Spec drives test. Test drives code. That's SDD.
 
+What feature do you always build first in a new app — and why?
+Let me know below 👇
+
 #HireTrace #BuildInPublic #Auth #NextJS #SpecDrivenDevelopment #ReactTestingLibrary
 ```
 
@@ -486,6 +495,9 @@ Now it's in the spec. In the control docs. In the repo.
 The lesson stays even when the memory fades.
 
 That's the other thing SDD is for.
+
+At what point does a side project start feeling like a real product to you?
+Share your moment below 👇
 
 #HireTrace #BuildInPublic #ScrumMaster #Agile #Retrospective #SoftwareEngineering
 ```
@@ -569,6 +581,9 @@ and the one thing I'm changing in Sprint 2.
 GitHub: [link]
 Live app: [link]
 Notion: [link]
+
+What metric would you add to a job tracker that no tool currently shows?
+I'm listening 👇
 
 #HireTrace #BuildInPublic #ScrumMaster #NextJS #Agile #Sprint
 ```

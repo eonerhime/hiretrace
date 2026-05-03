@@ -7,12 +7,13 @@ import { useRouter } from "next/navigation";
 import {
   createApplicationSchema,
   CreateApplicationInput,
+  CreateApplicationFormInput,
 } from "@/lib/schemas/application";
 
 interface ApplicationFormProps {
   mode: "create" | "edit";
   applicationId?: string;
-  defaultValues?: Partial<CreateApplicationInput>;
+  defaultValues?: Partial<CreateApplicationFormInput>;
   onSuccess?: () => void;
 }
 
@@ -28,12 +29,12 @@ export default function ApplicationForm({
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<CreateApplicationInput>({
+  } = useForm<CreateApplicationFormInput>({
     resolver: zodResolver(createApplicationSchema),
     defaultValues,
   });
 
-  const onSubmit = async (data: CreateApplicationInput) => {
+  const onSubmit = async (data: CreateApplicationFormInput) => {
     const url =
       mode === "create"
         ? "/api/applications"
@@ -186,6 +187,29 @@ export default function ApplicationForm({
                      focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Recruiter name, interview format, anything relevant..."
         />
+      </div>
+
+      {/* Source */}
+      <div>
+        <label
+          htmlFor="source"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
+          Source
+        </label>
+        <select
+          id="source"
+          {...register("source")}
+          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm
+               focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        >
+          <option value="">— Select source —</option>
+          <option value="LINKEDIN">LinkedIn</option>
+          <option value="REFERRAL">Referral</option>
+          <option value="COLD_APPLY">Cold Apply</option>
+          <option value="JOB_BOARD">Job Board</option>
+          <option value="OTHER">Other</option>
+        </select>
       </div>
 
       {/* Actions */}

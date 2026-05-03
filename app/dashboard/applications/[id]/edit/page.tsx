@@ -56,8 +56,14 @@ export default async function EditApplicationPage({
       ? application.followUpAt.toISOString().split("T")[0]
       : undefined,
     notes: application.notes ?? undefined,
+    source:
+      (application.source as
+        | "LINKEDIN"
+        | "REFERRAL"
+        | "COLD_APPLY"
+        | "JOB_BOARD"
+        | "OTHER") ?? undefined,
   };
-
   return (
     <main className="mx-auto max-w-2xl px-4 py-8">
       <Link

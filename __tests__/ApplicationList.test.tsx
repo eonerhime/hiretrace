@@ -17,6 +17,8 @@ const mockApp = (overrides?: Partial<Application>): Application => ({
   deletedAt: null,
   createdAt: new Date(),
   updatedAt: new Date(),
+  source: null,
+  stageEnteredAt: new Date(),
   ...overrides,
 });
 

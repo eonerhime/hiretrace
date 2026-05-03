@@ -17,6 +17,8 @@ const mockApp = (stage: ApplicationStage): Application => ({
   deletedAt: null,
   createdAt: new Date(),
   updatedAt: new Date(),
+  source: null,
+  stageEnteredAt: new Date(),
 });
 
 describe("PipelineChart", () => {

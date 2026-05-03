@@ -1,14 +1,15 @@
 // app/dashboard/applications/[id]/page.tsx
-import { notFound } from "next/navigation";
-import { cookies } from "next/headers";
-import { jwtVerify } from "jose";
-import { redirect } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import Link from "next/link";
-import DeleteButton from "@/components/DeleteButton";
-import { ApplicationStage } from "@prisma/client";
-import ContactList from "@/components/ContactList";
 import ContactForm from "@/components/ContactForm";
+import ContactList from "@/components/ContactList";
+import DeleteButton from "@/components/DeleteButton";
+import { prisma } from "@/lib/prisma";
+import { ApplicationStage } from "@prisma/client";
+import { jwtVerify } from "jose";
+import { cookies } from "next/headers";
+import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
+// ADD to imports
+import NoteViewToggle from "@/components/NoteViewToggle";
 
 const stageLabels: Record<ApplicationStage, string> = {
   APPLIED: "Applied",
@@ -62,7 +63,10 @@ export default async function ApplicationDetailPage({
 
   const application = await prisma.application.findFirst({
     where: { id, userId, deletedAt: null },
-    include: { contacts: { orderBy: { createdAt: "asc" } } },
+    include: {
+      contacts: { orderBy: { createdAt: "asc" } },
+      interviewNotes: { orderBy: { createdAt: "desc" } },
+    },
   });
 
   if (!application) notFound();
@@ -169,6 +173,17 @@ export default async function ApplicationDetailPage({
         )}
       </div>
 
+      {/* Interview Notes section */}
+      <div className="mt-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+        <NoteViewToggle
+          notes={application.interviewNotes}
+          applicationId={id}
+          currentStage={application.stage}
+          stageLabels={stageLabels}
+          stageColours={stageColours}
+        />
+      </div>
+
       {/* Contacts section */}
       <div className="mt-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
         <h2 className="mb-4 text-sm font-semibold text-gray-900">Contacts</h2>
@@ -180,6 +195,7 @@ export default async function ApplicationDetailPage({
           <ContactForm applicationId={id} />
         </div>
       </div>
+
       {/* Actions */}
       <div className="mt-4 flex items-center gap-3">
         <Link

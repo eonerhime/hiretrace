@@ -1,3 +1,4 @@
+// components/DashboardClient.tsx
 "use client";
 
 import { useState } from "react";
@@ -7,6 +8,9 @@ import ApplicationList from "./ApplicationList";
 import KanbanBoard from "./KanbanBoard";
 import StatsBar from "./StatsBar";
 import PipelineChart from "./PipelineChart";
+import ConversionChart from "./ConversionChart";
+import TimeInStageChart from "./TimeInStageChart";
+import SourceChart from "./SourceChart";
 
 interface DashboardClientProps {
   initialApplications: Application[];
@@ -84,6 +88,19 @@ export default function DashboardClient({
 
       {/* Pipeline chart — only shown when applications exist */}
       {applications.length > 0 && <PipelineChart applications={applications} />}
+
+      {/* Conversion rates — only shown when applications exist */}
+      {applications.length > 0 && (
+        <ConversionChart applications={applications} />
+      )}
+
+      {/* Time in stage chart — only shown when applications exist */}
+      {applications.length > 0 && (
+        <TimeInStageChart applications={applications} />
+      )}
+
+      {/* Source chart — only shown when applications exist */}
+      {applications.length > 0 && <SourceChart applications={applications} />}
 
       {/* View */}
       {view === "list" ? (

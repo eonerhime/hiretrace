@@ -12,8 +12,12 @@ export const createApplicationSchema = z.object({
     .url("Please enter a valid URL")
     .optional()
     .or(z.literal("")),
-  followUpAt: z.string().optional(), // ISO date string from date input
+  followUpAt: z.string().optional(),
   notes: z.string().optional(),
+  source: z
+    .enum(["LINKEDIN", "REFERRAL", "COLD_APPLY", "JOB_BOARD", "OTHER", ""])
+    .optional()
+    .transform((val) => (val === "" ? undefined : val)),
 });
 
 export const updateApplicationSchema = createApplicationSchema.extend({
@@ -24,6 +28,15 @@ export const updateStageSchema = z.object({
   stage: z.nativeEnum(ApplicationStage),
 });
 
+// Output types (post-transform) — used for API payloads
 export type CreateApplicationInput = z.infer<typeof createApplicationSchema>;
 export type UpdateApplicationInput = z.infer<typeof updateApplicationSchema>;
 export type UpdateStageInput = z.infer<typeof updateStageSchema>;
+
+// Input types (pre-transform) — used for useForm generic
+export type CreateApplicationFormInput = z.input<
+  typeof createApplicationSchema
+>;
+export type UpdateApplicationFormInput = z.input<
+  typeof updateApplicationSchema
+>;
