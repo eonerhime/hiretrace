@@ -312,8 +312,8 @@ Items are ordered by priority within each epic. Status reflects current state at
 | ------- | ---------------------------------------- | ---- | -------- | ------ |
 | PBI-020 | Follow-up date field on application      | S    | 🔴       | [x]    |
 | PBI-021 | Overdue follow-up indicator on dashboard | M    | 🔴       | [x]    |
-| PBI-022 | Reminder list / upcoming actions view    | M    | 🟠       | [ ]    |
-| PBI-023 | Email notification for due reminders     | L    | 🟡       | [ ]    |
+| PBI-022 | Reminder list / upcoming actions view    | M    | 🟠       | [x]    |
+| PBI-023 | Email notification for due reminders     | L    | 🟡       | [x]    |
 
 ---
 
@@ -343,9 +343,9 @@ Items are ordered by priority within each epic. Status reflects current state at
 
 | ID      | Item                                        | Size | Priority | Status |
 | ------- | ------------------------------------------- | ---- | -------- | ------ |
-| PBI-032 | Resume version label field per application  | S    | 🟡       | [ ]    |
-| PBI-033 | Resume file upload and storage              | L    | 🟡       | [ ]    |
-| PBI-034 | Link specific resume version to application | M    | 🟡       | [ ]    |
+| PBI-032 | Resume version label field per application  | S    | 🟡       | [x]    |
+| PBI-033 | Resume file upload and storage              | L    | 🟡       | [x]    |
+| PBI-034 | Link specific resume version to application | M    | 🟡       | [x]    |
 
 ---
 

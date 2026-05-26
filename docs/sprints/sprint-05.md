@@ -3,7 +3,7 @@
 **Document Type:** Scrum Master Artifact
 **Sprint:** 5 — Resume Management + Email Reminders
 **Dates:** 04 May 2026 – 11 May 2026
-**Status:** 🔄 In progress
+**Status:** ✅ Closed
 **Branch:** `feature/sprint-05-resume-reminders`
 **Author:** Scrum Master
 **Repository:** https://github.com/eonerhime/hiretrace
@@ -137,32 +137,32 @@ Log the decision in `implementation.md` before the first task is started.
 
 | Task     | Description                                                                                                  | Status |
 | -------- | ------------------------------------------------------------------------------------------------------------ | ------ |
-| T-022-01 | Add `GET /api/reminders` route — query `Application` where `followUpAt` is not null and user matches session | [ ]    |
-| T-022-02 | Sort results ascending by `followUpAt`                                                                       | [ ]    |
-| T-022-03 | Return fields: `id`, `company`, `role`, `followUpAt`, `stage`                                                | [ ]    |
-| T-022-04 | Validate session — return 401 if unauthenticated                                                             | [ ]    |
-| T-022-05 | Return 200 with array (empty array is valid — not 404)                                                       | [ ]    |
-| T-022-06 | Add `revalidatePath("/dashboard/reminders")` to any mutating route that touches `followUpAt`                 | [ ]    |
-| T-022-07 | Write integration test: GET returns 401 when unauthenticated                                                 | [ ]    |
-| T-022-08 | Write integration test: GET returns sorted list for authenticated user                                       | [ ]    |
+| T-022-01 | Add `GET /api/reminders` route — query `Application` where `followUpAt` is not null and user matches session | [x]    |
+| T-022-02 | Sort results ascending by `followUpAt`                                                                       | [x]    |
+| T-022-03 | Return fields: `id`, `company`, `role`, `followUpAt`, `stage`                                                | [x]    |
+| T-022-04 | Validate session — return 401 if unauthenticated                                                             | [x]    |
+| T-022-05 | Return 200 with array (empty array is valid — not 404)                                                       | [x]    |
+| T-022-06 | Add `revalidatePath("/dashboard/reminders")` to any mutating route that touches `followUpAt`                 | [x]    |
+| T-022-07 | Write integration test: GET returns 401 when unauthenticated                                                 | [x]    |
+| T-022-08 | Write integration test: GET returns sorted list for authenticated user                                       | [x]    |
 
 #### UI
 
 | Task     | Description                                                                               | Status |
 | -------- | ----------------------------------------------------------------------------------------- | ------ |
-| T-022-09 | Create `app/dashboard/reminders/page.tsx` — server component, fetch from `/api/reminders` | [ ]    |
-| T-022-10 | Create `components/ReminderList.tsx` — renders list of upcoming reminders                 | [ ]    |
-| T-022-11 | Each item shows: company, role, stage badge, follow-up date formatted as "DD MMM YYYY"    | [ ]    |
-| T-022-12 | Overdue items (followUpAt < today) shown with red indicator                               | [ ]    |
-| T-022-13 | Empty state: "No upcoming reminders" message                                              | [ ]    |
-| T-022-14 | Link each item to `/dashboard/applications/[id]`                                          | [ ]    |
-| T-022-15 | Add "Reminders" link to dashboard nav                                                     | [ ]    |
-| T-022-16 | Mobile responsive at 375px                                                                | [ ]    |
-| T-022-17 | Write RTL test: renders list of reminders                                                 | [ ]    |
-| T-022-18 | Write RTL test: overdue indicator appears for past dates                                  | [ ]    |
-| T-022-19 | Write RTL test: empty state renders when list is empty                                    | [ ]    |
-| T-022-20 | `npm test` — all tests pass                                                               | [ ]    |
-| T-022-21 | `npm run build` — no errors                                                               | [ ]    |
+| T-022-09 | Create `app/dashboard/reminders/page.tsx` — server component, fetch from `/api/reminders` | [x]    |
+| T-022-10 | Create `components/ReminderList.tsx` — renders list of upcoming reminders                 | [x]    |
+| T-022-11 | Each item shows: company, role, stage badge, follow-up date formatted as "DD MMM YYYY"    | [x]    |
+| T-022-12 | Overdue items (followUpAt < today) shown with red indicator                               | [x]    |
+| T-022-13 | Empty state: "No upcoming reminders" message                                              | [x]    |
+| T-022-14 | Link each item to `/dashboard/applications/[id]`                                          | [x]    |
+| T-022-15 | Add "Reminders" link to dashboard nav                                                     | [x]    |
+| T-022-16 | Mobile responsive at 375px                                                                | [x]    |
+| T-022-17 | Write RTL test: renders list of reminders                                                 | [x]    |
+| T-022-18 | Write RTL test: overdue indicator appears for past dates                                  | [x]    |
+| T-022-19 | Write RTL test: empty state renders when list is empty                                    | [x]    |
+| T-022-20 | `npm test` — all tests pass                                                               | [x]    |
+| T-022-21 | `npm run build` — no errors                                                               | [x]    |
 
 ---
 
@@ -174,23 +174,23 @@ Log the decision in `implementation.md` before the first task is started.
 
 | Task     | Description                                                                                                | Status |
 | -------- | ---------------------------------------------------------------------------------------------------------- | ------ |
-| T-032-01 | Add `resumeVersionLabel String?` to `Application` in `schema.prisma`                                       | [ ]    |
-| T-032-02 | Run `npx prisma migrate dev --name add_resume_version_label`                                               | [ ]    |
-| T-032-03 | Update all three mock factories: `ApplicationList.test.tsx`, `PipelineChart.test.tsx`, `StatsBar.test.tsx` | [ ]    |
-| T-032-04 | Add `resumeVersionLabel` to `PATCH /api/applications/[id]` — include in Zod schema and Prisma update       | [ ]    |
-| T-032-05 | Return `resumeVersionLabel` in `GET /api/applications/[id]` response                                       | [ ]    |
+| T-032-01 | Add `resumeVersionLabel String?` to `Application` in `schema.prisma`                                       | [x]    |
+| T-032-02 | Run `npx prisma migrate dev --name add_resume_version_label`                                               | [x]    |
+| T-032-03 | Update all three mock factories: `ApplicationList.test.tsx`, `PipelineChart.test.tsx`, `StatsBar.test.tsx` | [x]    |
+| T-032-04 | Add `resumeVersionLabel` to `PATCH /api/applications/[id]` — include in Zod schema and Prisma update       | [x]    |
+| T-032-05 | Return `resumeVersionLabel` in `GET /api/applications/[id]` response                                       | [x]    |
 
 #### UI
 
 | Task     | Description                                                              | Status |
 | -------- | ------------------------------------------------------------------------ | ------ |
-| T-032-06 | Add `resumeVersionLabel` text input to `ApplicationForm` (create + edit) | [ ]    |
-| T-032-07 | Placeholder: "e.g. Product Manager v3"                                   | [ ]    |
-| T-032-08 | Display `resumeVersionLabel` on application detail page if set           | [ ]    |
-| T-032-09 | Write RTL test: label field renders in form                              | [ ]    |
-| T-032-10 | Write RTL test: label value displays on detail page when set             | [ ]    |
-| T-032-11 | `npm test` — all tests pass                                              | [ ]    |
-| T-032-12 | `npm run build` — no errors                                              | [ ]    |
+| T-032-06 | Add `resumeVersionLabel` text input to `ApplicationForm` (create + edit) | [x]    |
+| T-032-07 | Placeholder: "e.g. Product Manager v3"                                   | [x]    |
+| T-032-08 | Display `resumeVersionLabel` on application detail page if set           | [x]    |
+| T-032-09 | Write RTL test: label field renders in form                              | [x]    |
+| T-032-10 | Write RTL test: label value displays on detail page when set             | [x]    |
+| T-032-11 | `npm test` — all tests pass                                              | [x]    |
+| T-032-12 | `npm run build` — no errors                                              | [x]    |
 
 ---
 
@@ -202,48 +202,48 @@ Log the decision in `implementation.md` before the first task is started.
 
 | Task     | Description                                                                                                                           | Status |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| T-033-00 | Log storage provider ADR in `implementation.md` — Cloudinary vs Supabase Storage                                                      | [ ]    |
-| T-033-01 | Install chosen SDK (e.g. `npm install cloudinary@2` — pin version)                                                                    | [ ]    |
-| T-033-02 | Add environment variables to `.env.local` and Vercel (CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET or equivalent) | [ ]    |
+| T-033-00 | Log storage provider ADR in `implementation.md` — Cloudinary vs Supabase Storage                                                      | [x]    |
+| T-033-01 | Install chosen SDK (e.g. `npm install cloudinary@2` — pin version)                                                                    | [x]    |
+| T-033-02 | Add environment variables to `.env.local` and Vercel (CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET or equivalent) | [x]    |
 
 #### Schema + API
 
 | Task     | Description                                                                                                               | Status |
 | -------- | ------------------------------------------------------------------------------------------------------------------------- | ------ |
-| T-033-03 | Add `Resume` model to `schema.prisma` (id, userId, label, fileUrl, fileKey, uploadedAt, relation to User and Application) | [ ]    |
-| T-033-04 | Add `resumeId String?` and `resume Resume? @relation(...)` to `Application`                                               | [ ]    |
-| T-033-05 | Run `npx prisma migrate dev --name add_resume_model`                                                                      | [ ]    |
-| T-033-06 | Update all three mock factories for new `Application` fields                                                              | [ ]    |
-| T-033-07 | Create `POST /api/resumes` — accept multipart/form-data, validate: PDF only, max 5 MB                                     | [ ]    |
-| T-033-08 | Upload file to storage provider server-side (never expose API secret to client)                                           | [ ]    |
-| T-033-09 | Store `fileUrl` and `fileKey` in `Resume` record                                                                          | [ ]    |
-| T-033-10 | Return 201 `{ id, label, fileUrl }`                                                                                       | [ ]    |
-| T-033-11 | Create `GET /api/resumes` — return all resumes for authenticated user                                                     | [ ]    |
-| T-033-12 | Create `DELETE /api/resumes/[id]` — delete from storage provider and DB                                                   | [ ]    |
-| T-033-13 | All routes return 401 if unauthenticated                                                                                  | [ ]    |
-| T-033-14 | Validate request body BEFORE DB lookup — fail fast with 400                                                               | [ ]    |
-| T-033-15 | Add `revalidatePath("/dashboard/resumes")` in POST and DELETE handlers                                                    | [ ]    |
-| T-033-16 | Write integration test: POST returns 401 when unauthenticated                                                             | [ ]    |
-| T-033-17 | Write integration test: POST returns 400 for non-PDF file                                                                 | [ ]    |
-| T-033-18 | Write integration test: DELETE returns 404 for non-existent resume                                                        | [ ]    |
+| T-033-03 | Add `Resume` model to `schema.prisma` (id, userId, label, fileUrl, fileKey, uploadedAt, relation to User and Application) | [x]    |
+| T-033-04 | Add `resumeId String?` and `resume Resume? @relation(...)` to `Application`                                               | [x]    |
+| T-033-05 | Run `npx prisma migrate dev --name add_resume_model`                                                                      | [x]    |
+| T-033-06 | Update all three mock factories for new `Application` fields                                                              | [x]    |
+| T-033-07 | Create `POST /api/resumes` — accept multipart/form-data, validate: PDF only, max 5 MB                                     | [x]    |
+| T-033-08 | Upload file to storage provider server-side (never expose API secret to client)                                           | [x]    |
+| T-033-09 | Store `fileUrl` and `fileKey` in `Resume` record                                                                          | [x]    |
+| T-033-10 | Return 201 `{ id, label, fileUrl }`                                                                                       | [x]    |
+| T-033-11 | Create `GET /api/resumes` — return all resumes for authenticated user                                                     | [x]    |
+| T-033-12 | Create `DELETE /api/resumes/[id]` — delete from storage provider and DB                                                   | [x]    |
+| T-033-13 | All routes return 401 if unauthenticated                                                                                  | [x]    |
+| T-033-14 | Validate request body BEFORE DB lookup — fail fast with 400                                                               | [x]    |
+| T-033-15 | Add `revalidatePath("/dashboard/resumes")` in POST and DELETE handlers                                                    | [x]    |
+| T-033-16 | Write integration test: POST returns 401 when unauthenticated                                                             | [x]    |
+| T-033-17 | Write integration test: POST returns 400 for non-PDF file                                                                 | [x]    |
+| T-033-18 | Write integration test: DELETE returns 404 for non-existent resume                                                        | [x]    |
 
 #### UI
 
 | Task     | Description                                                                                       | Status |
 | -------- | ------------------------------------------------------------------------------------------------- | ------ |
-| T-033-19 | Create `app/dashboard/resumes/page.tsx` — list uploaded resumes                                   | [ ]    |
-| T-033-20 | Create `components/ResumeUploadForm.tsx` — file input (PDF only, 5 MB limit), label field, submit | [ ]    |
-| T-033-21 | Show upload progress indicator during POST                                                        | [ ]    |
-| T-033-22 | Display uploaded resumes: label, upload date, download link                                       | [ ]    |
-| T-033-23 | Inline delete confirmation using `confirmingDelete` state pattern (not `window.confirm()`)        | [ ]    |
-| T-033-24 | Empty state: "No resumes uploaded yet"                                                            | [ ]    |
-| T-033-25 | Add "Resumes" link to dashboard nav                                                               | [ ]    |
-| T-033-26 | Mobile responsive at 375px                                                                        | [ ]    |
-| T-033-27 | Write RTL test: upload form renders file input and label field                                    | [ ]    |
-| T-033-28 | Write RTL test: resume list renders uploaded resumes                                              | [ ]    |
-| T-033-29 | Write RTL test: empty state renders when no resumes                                               | [ ]    |
-| T-033-30 | `npm test` — all tests pass                                                                       | [ ]    |
-| T-033-31 | `npm run build` — no errors                                                                       | [ ]    |
+| T-033-19 | Create `app/dashboard/resumes/page.tsx` — list uploaded resumes                                   | [x]    |
+| T-033-20 | Create `components/ResumeUploadForm.tsx` — file input (PDF only, 5 MB limit), label field, submit | [x]    |
+| T-033-21 | Show upload progress indicator during POST                                                        | [x]    |
+| T-033-22 | Display uploaded resumes: label, upload date, download link                                       | [x]    |
+| T-033-23 | Inline delete confirmation using `confirmingDelete` state pattern (not `window.confirm()`)        | [x]    |
+| T-033-24 | Empty state: "No resumes uploaded yet"                                                            | [x]    |
+| T-033-25 | Add "Resumes" link to dashboard nav                                                               | [x]    |
+| T-033-26 | Mobile responsive at 375px                                                                        | [x]    |
+| T-033-27 | Write RTL test: upload form renders file input and label field                                    | [x]    |
+| T-033-28 | Write RTL test: resume list renders uploaded resumes                                              | [x]    |
+| T-033-29 | Write RTL test: empty state renders when no resumes                                               | [x]    |
+| T-033-30 | `npm test` — all tests pass                                                                       | [x]    |
+| T-033-31 | `npm run build` — no errors                                                                       | [x]    |
 
 ---
 
@@ -255,25 +255,25 @@ Log the decision in `implementation.md` before the first task is started.
 
 | Task     | Description                                                                       | Status |
 | -------- | --------------------------------------------------------------------------------- | ------ |
-| T-034-01 | Add `resumeId` to `PATCH /api/applications/[id]` Zod schema (optional string)     | [ ]    |
-| T-034-02 | Validate that `resumeId` belongs to the authenticated user before linking         | [ ]    |
-| T-034-03 | Return linked `resume { id, label, fileUrl }` in `GET /api/applications/[id]`     | [ ]    |
-| T-034-04 | Write integration test: PATCH with valid resumeId links resume                    | [ ]    |
-| T-034-05 | Write integration test: PATCH with resumeId belonging to another user returns 403 | [ ]    |
+| T-034-01 | Add `resumeId` to `PATCH /api/applications/[id]` Zod schema (optional string)     | [x]    |
+| T-034-02 | Validate that `resumeId` belongs to the authenticated user before linking         | [x]    |
+| T-034-03 | Return linked `resume { id, label, fileUrl }` in `GET /api/applications/[id]`     | [x]    |
+| T-034-04 | Write integration test: PATCH with valid resumeId links resume                    | [x]    |
+| T-034-05 | Write integration test: PATCH with resumeId belonging to another user returns 403 | [x]    |
 
 #### UI
 
 | Task     | Description                                                                             | Status |
 | -------- | --------------------------------------------------------------------------------------- | ------ |
-| T-034-06 | Add resume selector dropdown to application detail page (lists user's resumes by label) | [ ]    |
-| T-034-07 | On selection: PATCH the application with chosen `resumeId`                              | [ ]    |
-| T-034-08 | Display linked resume name + download link on application detail page                   | [ ]    |
-| T-034-09 | Allow unlinking (set resumeId to null)                                                  | [ ]    |
-| T-034-10 | `router.refresh()` after link/unlink — stay on same page                                | [ ]    |
-| T-034-11 | Write RTL test: selector renders list of resumes                                        | [ ]    |
-| T-034-12 | Write RTL test: linked resume label and link render on detail page                      | [ ]    |
-| T-034-13 | `npm test` — all tests pass                                                             | [ ]    |
-| T-034-14 | `npm run build` — no errors                                                             | [ ]    |
+| T-034-06 | Add resume selector dropdown to application detail page (lists user's resumes by label) | [x]    |
+| T-034-07 | On selection: PATCH the application with chosen `resumeId`                              | [x]    |
+| T-034-08 | Display linked resume name + download link on application detail page                   | [x]    |
+| T-034-09 | Allow unlinking (set resumeId to null)                                                  | [x]    |
+| T-034-10 | `router.refresh()` after link/unlink — stay on same page                                | [x]    |
+| T-034-11 | Write RTL test: selector renders list of resumes                                        | [x]    |
+| T-034-12 | Write RTL test: linked resume label and link render on detail page                      | [x]    |
+| T-034-13 | `npm test` — all tests pass                                                             | [x]    |
+| T-034-14 | `npm run build` — no errors                                                             | [x]    |
 
 ---
 
@@ -286,39 +286,39 @@ Log the decision in `implementation.md` before the first task is started.
 
 | Task     | Description                                                                  | Status |
 | -------- | ---------------------------------------------------------------------------- | ------ |
-| T-023-01 | Evaluate Resend free tier (100 emails/day, 3,000/month) — confirm sufficient | [ ]    |
-| T-023-02 | Install `resend` npm package — pin version (`npm install resend@<version>`)  | [ ]    |
-| T-023-03 | Add `RESEND_API_KEY` to `.env.local` and Vercel                              | [ ]    |
-| T-023-04 | Verify sending domain or use Resend sandbox `onboarding@resend.dev` for dev  | [ ]    |
+| T-023-01 | Evaluate Resend free tier (100 emails/day, 3,000/month) — confirm sufficient | [x]    |
+| T-023-02 | Install `resend` npm package — pin version (`npm install resend@<version>`)  | [x]    |
+| T-023-03 | Add `RESEND_API_KEY` to `.env.local` and Vercel                              | [x]    |
+| T-023-04 | Verify sending domain or use Resend sandbox `onboarding@resend.dev` for dev  | [x]    |
 
 #### API
 
 | Task     | Description                                                                                               | Status |
 | -------- | --------------------------------------------------------------------------------------------------------- | ------ |
-| T-023-05 | Create `POST /api/reminders/send` — internal route (secured with cron secret header)                      | [ ]    |
-| T-023-06 | Query all applications where `followUpAt` is today or earlier and `stage` is not Closed                   | [ ]    |
-| T-023-07 | Group by user — send one email per user listing all due reminders                                         | [ ]    |
-| T-023-08 | Email content: subject "You have [N] follow-ups due today — HireTrace", body lists company + role + stage | [ ]    |
-| T-023-09 | Use Resend SDK to send — log send errors but do not throw (non-blocking)                                  | [ ]    |
-| T-023-10 | Return 200 `{ sent: N }`                                                                                  | [ ]    |
-| T-023-11 | Validate cron secret header — return 401 if missing or wrong                                              | [ ]    |
+| T-023-05 | Create `POST /api/reminders/send` — internal route (secured with cron secret header)                      | [x]    |
+| T-023-06 | Query all applications where `followUpAt` is today or earlier and `stage` is not Closed                   | [x]    |
+| T-023-07 | Group by user — send one email per user listing all due reminders                                         | [x]    |
+| T-023-08 | Email content: subject "You have [N] follow-ups due today — HireTrace", body lists company + role + stage | [x]    |
+| T-023-09 | Use Resend SDK to send — log send errors but do not throw (non-blocking)                                  | [x]    |
+| T-023-10 | Return 200 `{ sent: N }`                                                                                  | [x]    |
+| T-023-11 | Validate cron secret header — return 401 if missing or wrong                                              | [x]    |
 
 #### Vercel Cron
 
 | Task     | Description                                                                                                        | Status |
 | -------- | ------------------------------------------------------------------------------------------------------------------ | ------ |
-| T-023-12 | Create `vercel.json` with cron config: `{ "crons": [{ "path": "/api/reminders/send", "schedule": "0 8 * * *" }] }` | [ ]    |
-| T-023-13 | Add `CRON_SECRET` to `.env.local` and Vercel                                                                       | [ ]    |
-| T-023-14 | Test by calling endpoint manually with correct header                                                              | [ ]    |
+| T-023-12 | Create `vercel.json` with cron config: `{ "crons": [{ "path": "/api/reminders/send", "schedule": "0 8 * * *" }] }` | [x]    |
+| T-023-13 | Add `CRON_SECRET` to `.env.local` and Vercel                                                                       | [x]    |
+| T-023-14 | Test by calling endpoint manually with correct header                                                              | [x]    |
 
 #### Testing
 
 | Task     | Description                                                                | Status |
 | -------- | -------------------------------------------------------------------------- | ------ |
-| T-023-15 | Write integration test: POST returns 401 without cron secret               | [ ]    |
-| T-023-16 | Write integration test: POST returns 200 with sent count (mock Resend SDK) | [ ]    |
-| T-023-17 | `npm test` — all tests pass                                                | [ ]    |
-| T-023-18 | `npm run build` — no errors                                                | [ ]    |
+| T-023-15 | Write integration test: POST returns 401 without cron secret               | [x]    |
+| T-023-16 | Write integration test: POST returns 200 with sent count (mock Resend SDK) | [x]    |
+| T-023-17 | `npm test` — all tests pass                                                | [x]    |
+| T-023-18 | `npm run build` — no errors                                                | [x]    |
 
 ---
 
@@ -326,22 +326,22 @@ Log the decision in `implementation.md` before the first task is started.
 
 Before marking any PBI `[x]`:
 
-- [ ] All tasks for the PBI are marked `[x]`
-- [ ] `npx tsc --noEmit` — zero TypeScript errors
-- [ ] `npm run lint` — zero warnings
-- [ ] `npm test` — all tests pass (no regressions)
-- [ ] `npm run build` — clean build
-- [ ] Pushed to `feature/sprint-05-resume-reminders` — Vercel preview deployment passes
-- [ ] PBI marked `[x]` in `product.md`
+- [x] All tasks for the PBI are marked `[x]`
+- [x] `npx tsc --noEmit` — zero TypeScript errors
+- [x] `npm run lint` — zero warnings
+- [x] `npm test` — all tests pass (no regressions)
+- [x] `npm run build` — clean build
+- [x] Pushed to `feature/sprint-05-resume-reminders` — Vercel preview deployment passes
+- [x] PBI marked `[x]` in `product.md`
 
 ---
 
 ## Sprint Setup Checklist
 
-- [ ] Create branch: `git checkout develop && git pull && git checkout -b feature/sprint-05-resume-reminders`
-- [ ] Push branch: `git push -u origin feature/sprint-05-resume-reminders`
-- [ ] Confirm branch appears in GitHub
-- [ ] Log storage provider ADR in `implementation.md` before touching PBI-033
+- [x] Create branch: `git checkout develop && git pull && git checkout -b feature/sprint-05-resume-reminders`
+- [x] Push branch: `git push -u origin feature/sprint-05-resume-reminders`
+- [x] Confirm branch appears in GitHub
+- [x] Log storage provider ADR in `implementation.md` before touching PBI-033
 
 ---
 
@@ -360,51 +360,72 @@ Before marking any PBI `[x]`:
 
 ---
 
-## Sprint Review
+## Sprint Review (26 May 2026)
 
-_To be completed at sprint close._
+**Date completed:** 26 May 2026
 
-**Sprint close date:** _(record here)_
+### PBI Completion
 
-**PBIs delivered:**
+| PBI     | Item                                        | Done? | Notes                                                                                                                              |
+| ------- | ------------------------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| PBI-022 | Reminder list / upcoming actions view       | [x]   | GET /api/reminders route, ReminderList component, overdue indicator, back navigation with ?from=reminders param wired through      |
+| PBI-023 | Email notification for due reminders        | [x]   | Resend SDK integrated, POST /api/reminders/send secured with Authorization header, Vercel cron configured at 0 8 * * *             |
+| PBI-032 | Resume version label field per application  | [x]   | resumeVersionLabel added to schema, ApplicationForm, edit page defaultValues, and application detail page                         |
+| PBI-033 | Resume file upload and storage              | [x]   | Cloudinary ADR logged, server-side upload route, ResumeUploadForm, ResumeList with inline delete confirm, /dashboard/resumes page  |
+| PBI-034 | Link specific resume version to application | [x]   | ResumePicker component, ownership check in PATCH handler, resume relation included in GET, linked resume label and download link   |
 
-| ID      | Title                                       | Status |
-| ------- | ------------------------------------------- | ------ |
-| PBI-022 | Reminder list / upcoming actions view       | [ ]    |
-| PBI-023 | Email notification for due reminders        | [ ]    |
-| PBI-032 | Resume version label field per application  | [ ]    |
-| PBI-033 | Resume file upload and storage              | [ ]    |
-| PBI-034 | Link specific resume version to application | [ ]    |
+### Sprint Goal Met?
 
-**PBIs not delivered (if any):** _(record here with reason)_
+- [x] Yes — sprint goal achieved in full
 
-**Demo notes:** _(record here)_
+**Notes:** All 5 committed PBIs delivered. Significant debugging effort on the PATCH route — the full field update was overwriting unrelated fields with null when only resumeId was sent, resolved by converting the data block to conditional spreads. The router.refresh() + setTimeout push pattern was required to force server component re-render after resume linking. 95 tests passing across 23 suites. TypeScript strict mode clean.
+
+### Velocity
+
+| Metric            | Value |
+| ----------------- | ----- |
+| PBIs committed    | 5     |
+| PBIs completed    | 5     |
+| PBIs carried over | 0     |
+| S completed       | 1     |
+| M completed       | 2     |
+| L completed       | 2     |
 
 ---
 
-## Sprint Retrospective
+## Sprint Retrospective (26 May 2026)
 
-_To be completed at sprint close._
+**Date completed:** 26 May 2026
 
-**What went well:**
+### What went well?
 
-**What could be improved:**
+All 5 PBIs delivered with no overflow. The decision to build PBI-032 (resume version label) before PBI-033 (file upload) paid off — it validated the Application model shape early and made the larger migration cleaner. The Cloudinary server-side upload pattern worked on the first attempt with no auth issues. The inline `confirmingDelete` state pattern on `ResumeList` was straightforward to implement and consistent with the pattern established in Sprint 4. Test discipline held — every new route and component was covered before moving to the next PBI.
 
-**Action items for Sprint 6:**
+### What didn't go well?
+
+The PATCH route bug cost significant time — sending `{ resumeId: "..." }` triggered the full field update path which overwrote `company`, `role`, `location`, `salary`, and `jobUrl` with null because the data block spread all fields unconditionally. The fix (conditional spreads using `...(field !== undefined && { field })`) was straightforward once diagnosed but should have been the default pattern from the start. The `router.refresh()` alone was also insufficient to force a server component re-render after resume linking — the `setTimeout(() => router.push(...), 100)` pattern was needed, which was already a documented carry-forward rule from Sprint 4 but was not applied initially.
+
+### What will change in Sprint 6?
+
+Any PATCH handler that accepts a partial update body must use conditional spreads in the Prisma data block from the point of authoring — never unconditional field assignment with `?? null`. The `router.refresh()` + `setTimeout(() => router.push(...), 100)` pattern is now mandatory for all client mutations that depend on server-rendered relation data being visible after the update.
+
+### Retro insight for LinkedIn
+
+A PATCH route that accepts partial updates needs to only write what it receives — not overwrite every field with null. Sending `{ resumeId: "..." }` to update a resume link should not blank out the company name. Conditional spreads in the Prisma data block (`...(field !== undefined && { field })`) are now a hard rule in this project. One data loss bug at sprint close is one too many when the pattern is a one-line change.
 
 ---
 
 ## Phase 2 Gate — Status at Sprint 5 Close
 
-| Criterion                                                      | Status         |
-| -------------------------------------------------------------- | -------------- |
-| All 7 Should Have PBIs complete and marked `[x]` in product.md | [ ]            |
-| Integration tests passing for all critical API routes          | [x] (Sprint 4) |
-| API documentation committed                                    | [x] (Sprint 4) |
-| Notion workspace updated                                       | [ ]            |
-| Sprint 5 retro completed and documented                        | [ ]            |
+| Criterion                                                      | Status |
+| -------------------------------------------------------------- | ------ |
+| All 7 Should Have PBIs complete and marked `[x]` in product.md | [x]    |
+| Integration tests passing for all critical API routes          | [x]    |
+| API documentation committed                                    | [x]    |
+| Notion workspace updated                                       | [x]    |
+| Sprint 5 retro completed and documented                        | [x]    |
 
-_Gate cleared: (date to be recorded)_
+_Gate cleared: 26 May 2026_
 
 ---
 

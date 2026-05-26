@@ -345,7 +345,13 @@ export default async function RemindersPage() {
 In your dashboard layout or nav component, add:
 
 ```typescript
-<Link href="/dashboard/reminders">Reminders</Link>
+<Link
+  href="/dashboard/reminders"
+  className="rounded-md border border-gray-300 bg-white px-4 py-2
+  text-sm font-medium text-gray-600 hover:bg-gray-50"
+>
+  Reminders
+</Link>
 ```
 
 ### Step 5 — Integration tests
@@ -450,15 +456,15 @@ describe("ReminderList", () => {
 
 | Confirmed | How                                                                                     | Item                       |
 | --------- | --------------------------------------------------------------------------------------- | -------------------------- |
-| [ ]       | Browser — `/dashboard/reminders` loads with all applications that have `followUpAt` set | Reminder list page renders |
-| [ ]       | Browser — items sorted ascending by follow-up date                                      | Sort order correct         |
-| [ ]       | Browser — overdue items (past date) show red indicator                                  | Overdue indicator visible  |
-| [ ]       | Browser — clicking an item navigates to the correct application detail page             | Links correct              |
-| [ ]       | Browser — empty state shows when no follow-up dates are set                             | Empty state renders        |
-| [ ]       | `npm test` — `api.reminders.test.ts` passes (401, 200)                                  | API tests passing          |
-| [ ]       | `npm test` — `ReminderList.test.tsx` passes (empty state, list, overdue)                | RTL tests passing          |
-| [ ]       | Mobile — page usable at 375px viewport                                                  | Mobile responsive          |
-| [ ]       | `npx tsc --noEmit` passes clean                                                         | TypeScript clean           |
+| [x]       | Browser — `/dashboard/reminders` loads with all applications that have `followUpAt` set | Reminder list page renders |
+| [x]       | Browser — items sorted ascending by follow-up date                                      | Sort order correct         |
+| [x]       | Browser — overdue items (past date) show red indicator                                  | Overdue indicator visible  |
+| [x]       | Browser — clicking an item navigates to the correct application detail page             | Links correct              |
+| [x]       | Browser — empty state shows when no follow-up dates are set                             | Empty state renders        |
+| [x]       | `npm test` — `api.reminders.test.ts` passes (401, 200)                                  | API tests passing          |
+| [x]       | `npm test` — `ReminderList.test.tsx` passes (empty state, list, overdue)                | RTL tests passing          |
+| [x]       | Mobile — page usable at 375px viewport                                                  | Mobile responsive          |
+| [x]       | `npx tsc --noEmit` passes clean                                                         | TypeScript clean           |
 
 ---
 
@@ -593,12 +599,12 @@ In `app/dashboard/applications/[id]/page.tsx`, display the label conditionally:
 
 | Confirmed | How                                                                                        | Item                             |
 | --------- | ------------------------------------------------------------------------------------------ | -------------------------------- |
-| [ ]       | `npx prisma migrate dev` completed — no errors                                             | Migration ran cleanly            |
-| [ ]       | Browser — create an application with a resume version label — label appears on detail page | Label saves and displays         |
-| [ ]       | Browser — edit an existing application, add a label, save — label displays on detail page  | Label updates correctly          |
-| [ ]       | Browser — application with no label — no resume version section appears on detail page     | Conditional display works        |
-| [ ]       | `npm test` — all 80 prior tests still pass with updated mock factories                     | Mock factories updated correctly |
-| [ ]       | `npx tsc --noEmit` passes clean                                                            | TypeScript clean                 |
+| [x]       | `npx prisma migrate dev` completed — no errors                                             | Migration ran cleanly            |
+| [x]       | Browser — create an application with a resume version label — label appears on detail page | Label saves and displays         |
+| [x]       | Browser — edit an existing application, add a label, save — label displays on detail page  | Label updates correctly          |
+| [x]       | Browser — application with no label — no resume version section appears on detail page     | Conditional display works        |
+| [x]       | `npm test` — all 80 prior tests still pass with updated mock factories                     | Mock factories updated correctly |
+| [x]       | `npx tsc --noEmit` passes clean                                                            | TypeScript clean                 |
 
 ---
 
@@ -776,7 +782,7 @@ export type LinkResumeInput = z.infer<typeof linkResumeSchema>;
 
 ### Step 6 — Create the API routes
 
-`app/api/resumes/route.ts` — GET list + POST upload:
+Create `app/api/resumes/route.ts` — GET list + POST upload:
 
 ```typescript
 import { NextRequest, NextResponse } from "next/server";
@@ -1455,18 +1461,18 @@ describe("ResumeUploadForm", () => {
 
 | Confirmed | How                                                                                    | Item                        |
 | --------- | -------------------------------------------------------------------------------------- | --------------------------- |
-| [ ]       | `npx prisma migrate dev` completed — `Resume` table visible in Prisma Studio           | Migration ran cleanly       |
-| [ ]       | Browser — upload a PDF with a label — appears in the list immediately                  | Upload succeeds             |
-| [ ]       | Browser — attempt to upload a non-PDF — error shown inline                             | File type validation works  |
-| [ ]       | Browser — attempt to upload a file over 5 MB — error shown inline                      | File size validation works  |
-| [ ]       | Browser — delete a resume — inline confirmation appears; on confirm, removed from list | Inline delete confirm works |
-| [ ]       | Browser — empty state shows when no resumes uploaded                                   | Empty state renders         |
-| [ ]       | Cloudinary dashboard — uploaded file visible in `resumes/` folder                      | Cloudinary upload confirmed |
-| [ ]       | `npm test` — `api.resumes.test.ts` passes (GET: 401, 200; POST: 401, 400, 201)         | API tests passing           |
-| [ ]       | `npm test` — `api.resumes.[id].test.ts` passes (DELETE: 401, 404, 200)                 | DELETE tests passing        |
-| [ ]       | `npm test` — `ResumeUploadForm.test.tsx` passes (3 tests)                              | RTL tests passing           |
-| [ ]       | Mobile — page usable at 375px viewport                                                 | Mobile responsive           |
-| [ ]       | `npx tsc --noEmit` passes clean                                                        | TypeScript clean            |
+| [x]       | `npx prisma migrate dev` completed — `Resume` table visible in Prisma Studio           | Migration ran cleanly       |
+| [x]       | Browser — upload a PDF with a label — appears in the list immediately                  | Upload succeeds             |
+| [x]       | Browser — attempt to upload a non-PDF — error shown inline                             | File type validation works  |
+| [x]       | Browser — attempt to upload a file over 5 MB — error shown inline                      | File size validation works  |
+| [x]       | Browser — delete a resume — inline confirmation appears; on confirm, removed from list | Inline delete confirm works |
+| [x]       | Browser — empty state shows when no resumes uploaded                                   | Empty state renders         |
+| [X]       | Cloudinary dashboard — uploaded file visible in `resumes/` folder                      | Cloudinary upload confirmed |
+| [x]       | `npm test` — `api.resumes.test.ts` passes (GET: 401, 200; POST: 401, 400, 201)         | API tests passing           |
+| [x]       | `npm test` — `npm test "api.resumes.\[id\].test.ts"` passes (DELETE: 401, 404, 200)    | DELETE tests passing        |
+| [x]       | `npm test` — `ResumeUploadForm.test.tsx` passes (3 tests)                              | RTL tests passing           |
+| [x]       | Mobile — page usable at 375px viewport                                                 | Mobile responsive           |
+| [x]       | `npx tsc --noEmit` passes clean                                                        | TypeScript clean            |
 
 ---
 
@@ -1518,6 +1524,10 @@ const application = await prisma.application.findFirst({
     },
   },
 });
+if (!application) {
+  return NextResponse.json({ error: "Not found" }, { status: 404 });
+}
+return NextResponse.json(application);
 ```
 
 ### Step 4 — Create the ResumePicker component
@@ -1727,12 +1737,12 @@ describe("PATCH /api/applications/[id] — resumeId linking", () => {
 
 | Confirmed | How                                                                                        | Item                        |
 | --------- | ------------------------------------------------------------------------------------------ | --------------------------- |
-| [ ]       | Browser — application detail page shows resume picker dropdown with all uploaded resumes   | Picker renders with options |
-| [ ]       | Browser — select a resume from the dropdown — linked resume label and download link appear | Resume links correctly      |
-| [ ]       | Browser — select "— None —" — linked resume section disappears                             | Unlinking works             |
-| [ ]       | Browser — PATCH with another user's resumeId (crafted request) — returns 403               | Ownership check enforced    |
-| [ ]       | `npm test` — `api.applications.[id].resume.test.ts` passes (403, 200)                      | Tests passing               |
-| [ ]       | `npx tsc --noEmit` passes clean                                                            | TypeScript clean            |
+| [x]       | Browser — application detail page shows resume picker dropdown with all uploaded resumes   | Picker renders with options |
+| [x]       | Browser — select a resume from the dropdown — linked resume label and download link appear | Resume links correctly      |
+| [x]       | Browser — select "— None —" — linked resume section disappears                             | Unlinking works             |
+| [x]       | Browser — PATCH with another user's resumeId (crafted request) — returns 403               | Ownership check enforced    |
+| [x]       | `npm test` — `"api.applications.\[id\].resume.test.ts"` passes (403, 200)                  | Tests passing               |
+| [x]       | `npx tsc --noEmit` passes clean                                                            | TypeScript clean            |
 
 ---
 
@@ -1752,7 +1762,7 @@ npm install resend@4.0.0
 
 ### Step 2 — Update middleware.ts
 
-Add `/api/reminders/send` to `PUBLIC_API_ROUTES` so the JWT check does not block the cron runner:
+Add `/api/reminders/send` to `PUBLIC_API_ROUTES` in `./middleware.ts` so the JWT check does not block the cron runner:
 
 ```typescript
 const PUBLIC_API_ROUTES = [
@@ -1964,8 +1974,9 @@ describe("POST /api/reminders/send", () => {
 Test the cron route from the terminal against your Vercel preview URL:
 
 ```bash
-curl -X POST https://<your-vercel-preview-url>/api/reminders/send \
-  -H "Authorization: Bearer <your-CRON_SECRET>"
+curl -k -X POST "https://hiretrace-ten.vercel.app/api/reminders/send" \
+      -H "Authorization: Bearer QPxva5bH6eIAlvSfKdeGoNSmX19sar2BTcyIQPtC8t0=" \
+      -H "x-vercel-protection-bypass: kYK9QYZ2OvcGOejvmTePMFf3Wv4wNrfu"
 ```
 
 Expected response: `{ "sent": N }` where N is the number of users emailed. `0` is valid when no reminders are due.
@@ -1974,14 +1985,14 @@ Expected response: `{ "sent": N }` where N is the number of users emailed. `0` i
 
 | Confirmed | How                                                                                 | Item                          |
 | --------- | ----------------------------------------------------------------------------------- | ----------------------------- |
-| [ ]       | `curl` — POST without `Authorization` header — returns 401                          | Auth check enforced           |
-| [ ]       | `curl` — POST with correct `Authorization: Bearer <secret>` — returns `{ sent: N }` | Cron route responds correctly |
-| [ ]       | Email received in inbox for an application with `followUpAt` today or earlier       | Email sends correctly         |
-| [ ]       | No email sent for applications in CLOSED stage                                      | CLOSED stage excluded         |
-| [ ]       | Resend dashboard — email delivery confirmed                                         | Delivery confirmed in Resend  |
-| [ ]       | `npm test` — `api.reminders.send.test.ts` passes (401, 200)                         | Tests passing                 |
-| [ ]       | `vercel.json` committed and visible in repo root                                    | Cron config committed         |
-| [ ]       | `npx tsc --noEmit` passes clean                                                     | TypeScript clean              |
+| [x]       | `curl` — POST without `Authorization` header — returns 401                          | Auth check enforced           |
+| [x]       | `curl` — POST with correct `Authorization: Bearer <secret>` — returns `{ sent: N }` | Cron route responds correctly |
+| [x]       | Email received in inbox for an application with `followUpAt` today or earlier       | Email sends correctly         |
+| [x]       | No email sent for applications in CLOSED stage                                      | CLOSED stage excluded         |
+| [x]       | Resend dashboard — email delivery confirmed                                         | Delivery confirmed in Resend  |
+| [x]       | `npm test` — `api.reminders.send.test.ts` passes (401, 200)                         | Tests passing                 |
+| [x]       | `vercel.json` committed and visible in repo root                                    | Cron config committed         |
+| [x]       | `npx tsc --noEmit` passes clean                                                     | TypeScript clean              |
 
 ---
 
@@ -2129,17 +2140,17 @@ Merge to `develop`. Verify the Vercel preview. Then proceed to Sprint 6.
 
 After the PR is merged to `develop`:
 
-- [ ] Mark all 5 PBIs `[x]` in `sprint-05.md`
-- [ ] Mark all 5 PBIs `[x]` in `product.md`
-- [ ] Complete `sprint-05.md` Sprint Review and Retrospective sections
-- [ ] Fill retro insight in `sprint-05.md` for LinkedIn
-- [ ] Commit updated docs directly to `develop`: `git commit -m "[DOCS] Sprint 5 close — update sprint-05.md, product.md"`
-- [ ] Update Notion Sprint Board: Sprint 5 → ✅ Closed, Sprint 6 → 🔄 In progress
-- [ ] Add Sprint 5 Changelog entry to Notion
-- [ ] `plan.md` Sprint Summary Table updated with close date
-- [ ] Phase 2 gate verified and date recorded in `plan.md`
+- [x] Mark all 5 PBIs `[x]` in `sprint-05.md`
+- [x] Mark all 5 PBIs `[x]` in `product.md`
+- [x] Complete `sprint-05.md` Sprint Review and Retrospective sections
+- [x] Fill retro insight in `sprint-05.md` for LinkedIn
+- [x] Commit updated docs directly to `develop`: `git commit -m "[DOCS] Sprint 5 close — update sprint-05.md, product.md"`
+- [x] Update Notion Sprint Board: Sprint 5 → ✅ Closed, Sprint 6 → 🔄 In progress
+- [x] Add Sprint 5 Changelog entry to Notion
+- [x] `plan.md` Sprint Summary Table updated with close date
+- [x] Phase 2 gate verified and date recorded in `plan.md`
 
 ---
 
-_sprint-05-implementation.md — 05 May 2026 — HireTrace_
+_sprint-05-implementation.md — 26 May 2026 — HireTrace_
 _Branch: `feature/sprint-05-resume-reminders`. Follow PBIs in dependency order. Run `npm run build` locally before every push. Pin all packages._
