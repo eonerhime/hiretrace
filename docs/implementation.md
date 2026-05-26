@@ -578,6 +578,32 @@ run on Node.js runtime.'
 Project is on React 19.2.4. npm install fails with ERESOLVE.
 18.0.1 explicitly declares React ^18 || ^19 support.
 
+---
+
+### ADR-015 — Storage Provider for Resume Uploads
+
+**Date:** 05 May 2026
+**Status:** Decided
+**Decision:** Use Cloudinary for resume file storage.
+
+**Rationale:**
+
+- Free tier: 25 GB storage, 25 GB bandwidth/month — sufficient for a portfolio project with real users
+- SDK (`cloudinary` v2) is mature, well-typed, and server-side upload is straightforward from a Next.js API route
+- No additional managed service to provision — Cloudinary is self-contained with its own CDN
+- Signed URLs allow time-limited, access-controlled download links without exposing raw storage paths
+- Upload happens server-side — the Cloudinary API secret never reaches the client
+
+**Alternative considered:** Supabase Storage — rejected because it requires provisioning a second Supabase project, adding operational complexity for no functional gain in this context. The integration pattern is identical if a future developer prefers it.
+
+**Constraints enforced at the API layer:**
+
+- File type: PDF only — MIME type checked before upload attempt
+- File size: 5 MB maximum — checked before upload attempt
+- Files stored in a `resumes/` folder within the Cloudinary project
+- `fileKey` stores the Cloudinary `public_id` — required for deletion
+- Cloudinary deletion must succeed before the DB record is deleted — if it fails, abort and return 500
+
 ## **Rule:** Do not downgrade to 16.6.0 or use --legacy-peer-deps.
 
 ## 8. Known Trade-offs & Constraints

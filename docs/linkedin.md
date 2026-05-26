@@ -471,7 +471,7 @@ Let me know below 👇
 
 **12 May 2026 · Tuesday · Text only**
 **Asset:** None
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 Sprint 1 shipped on time. All 11 PBIs complete.
@@ -508,7 +508,7 @@ Share your moment below 👇
 
 **14 May 2026 · Thursday · Carousel PDF**
 **Asset:** Build carousel in Canva using HireTrace Carousel Template. Export as PDF.
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 **Slide content:**
 
@@ -578,9 +578,9 @@ Sprint 1 closed. Foundation and auth — done.
 Swipe to see what was built, what the retro surfaced,
 and the one thing I'm changing in Sprint 2.
 
-GitHub: [link]
-Live app: [link]
-Notion: [link]
+GitHub: https://github.com/eonerhime/hiretrace
+Live app: https://hiretrace-git-develop-e1rhyme.vercel.app/register
+Notion: https://dull-grain-172.notion.site/
 
 What metric would you add to a job tracker that no tool currently shows?
 I'm listening 👇
@@ -594,7 +594,7 @@ I'm listening 👇
 
 **16 May 2026 · Saturday · Text + Screenshot**
 **Asset:** Screenshot of implementation.md ADR section open in GitHub → HireTrace Screenshot Frame
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 This one file runs the entire project.
@@ -636,7 +636,7 @@ Full file in the GitHub repo. Link in comments.
 
 **19 May 2026 · Tuesday · Text + Screenshot**
 **Asset:** Screenshot of Add Application form in HireTrace → HireTrace Screenshot Frame
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 The first real feature is live on HireTrace.
@@ -672,7 +672,7 @@ Different questions. Different answers.
 
 **21 May 2026 · Thursday · Text + Screenshot**
 **Asset:** Screenshot of RTL test file — use carbon.now.sh for clean code screenshot → HireTrace Screenshot Frame
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 Here's the test I wrote before the component existed.
@@ -709,7 +709,7 @@ tests verify it is what makes the test suite valuable.
 
 **23 May 2026 · Saturday · Text + Screenshot**
 **Asset:** Screenshot of HireTrace Kanban board → HireTrace Screenshot Frame
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 The Kanban pipeline is live.
@@ -745,7 +745,7 @@ Infinitely flexible tools become configuration projects.
 
 **26 May 2026 · Tuesday · Text only**
 **Asset:** None
-**Status:** `[ ]` Not posted
+**Status:** `[x]` Posted
 
 ```
 Sprint 2 retro. One insight worth sharing.

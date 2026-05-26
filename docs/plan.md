@@ -430,11 +430,11 @@ Track sprint status here. Update at each sprint close.
 | Sprint   | Dates              | Goal                                   | PBI Count | Status         | Close Date  | Notes                       |
 | -------- | ------------------ | -------------------------------------- | --------- | -------------- | ----------- | --------------------------- | --- |
 | Sprint 1 | 18–20 Apr 2026     | Foundation + Auth                      | 11        | ✅ Closed      | 20 Apr 2026 | Completed ahead of schedule |
-| Sprint 2 | 21–27 Apr 2026     | Core Pipeline                          | 9         | ✅ Closed      | 22 Apr 2026 | Completed ahead of schedule |     |
+| Sprint 2 | 21–27 Apr 2026     | Core Pipeline                          | 9         | ✅ Closed      | 22 Apr 2026 | Completed ahead of schedule |
 | Sprint 3 | 28 Apr–04 May 2026 | Contacts + Reminders + Dashboard (MVP) | 9         | ✅ Closed      | 24 Apr 2026 | Completed ahead of schedule |
-| Sprint 4 | 05–11 May 2026     | Notes + Metrics + API Hardening        | 7         | ✅ Closed      | 03 May 2026 |
-| Sprint 5 | 12–18 May 2026     | Resume Management + Email Reminders    | 5         | 🔄 In progress | —           |
-| Sprint 6 | 19–25 May 2026     | Analytics + Export + OAuth + E2E       | 4         | 🔲 Not started | —           |
+| Sprint 4 | 05–11 May 2026     | Notes + Metrics + API Hardening        | 7         | ✅ Closed      | 03 May 2026 | Completed ahead of schedule |  
+| Sprint 5 | 12–18 May 2026     | Resume Management + Email Reminders    | 5         | ✅ Closed      | 26 May 2026 | Completed behind schedule   |
+| Sprint 6 | 19–25 May 2026     | Analytics + Export + OAuth + E2E       | 4         | 🔲 Not started | —           |                             |
 
 **Status markers:** 🔲 Not started | 🔄 In progress | ✅ Closed | ⚠️ Overflow
 
@@ -464,15 +464,16 @@ Phase gates are hard checkpoints. The next phase does not begin until the gate i
 
 | Gate Criterion                                                 | Status |
 | -------------------------------------------------------------- | ------ |
-| All 7 Should Have PBIs complete and marked `[x]` in product.md | [~]    |
+| All 7 Should Have PBIs complete and marked `[x]` in product.md | [x]    |
 | Integration tests passing for all critical API routes          | [x]    |
 | API documentation committed                                    | [x]    |
-| Notion workspace updated                                       | [ ]    |
-| Sprint 5 retro completed and documented                        | [ ]    |
+| Notion workspace updated                                       | [x]    |
+| Sprint 5 retro completed and documented                        | [x]    |
+
 
 **Sprint 4 progress:** 6 of 7 Should Have PBIs complete (PBI-022 — Reminder list view — remains; scheduled for Sprint 5). Integration tests and API docs delivered in Sprint 4.
 
-**Gate cleared:** _(date to be recorded at Sprint 5 close)_
+**Gate cleared: 26 May 2026**
 
 ---
 
