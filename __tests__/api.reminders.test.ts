@@ -23,16 +23,12 @@ import { prisma } from "@/lib/prisma";
 const mockGetSession = getServerSession as jest.Mock;
 const mockFindMany = prisma.application.findMany as jest.Mock;
 
-function makeRequest(url = "http://localhost/api/reminders") {
-  return new Request(url) as unknown as import("next/server").NextRequest;
-}
-
 beforeEach(() => jest.clearAllMocks());
 
 describe("GET /api/reminders", () => {
   it("returns 401 when unauthenticated", async () => {
     mockGetSession.mockResolvedValue(null);
-    const res = await GET(makeRequest());
+    const res = await GET();
     expect(res.status).toBe(401);
   });
 
@@ -47,7 +43,7 @@ describe("GET /api/reminders", () => {
         followUpAt: new Date(Date.now() + 86400000),
       },
     ]);
-    const res = await GET(makeRequest());
+    const res = await GET();
     expect(res.status).toBe(200);
     const data = await res.json();
     expect(data).toHaveLength(1);
