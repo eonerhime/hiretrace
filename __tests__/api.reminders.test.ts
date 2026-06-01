@@ -7,11 +7,9 @@ jest.mock("next-auth", () => ({
   default: jest.fn(),
   getServerSession: jest.fn(),
 }));
-
 jest.mock("@/app/api/auth/[...nextauth]/route", () => ({
   authOptions: {},
 }));
-
 jest.mock("@/lib/prisma", () => ({
   prisma: {
     application: { findMany: jest.fn() },

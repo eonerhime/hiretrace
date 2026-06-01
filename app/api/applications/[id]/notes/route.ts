@@ -2,27 +2,14 @@
 import { authOptions } from "@/lib/auth-options";
 import { prisma } from "@/lib/prisma";
 import { createNoteSchema } from "@/lib/schemas/note";
+<<<<<<< HEAD
+=======
+import { logActivity } from "@/lib/activity";
+>>>>>>> develop
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
-/**
- * POST /api/applications/[id]/notes
- * Auth: Required (JWT cookie)
- *
- * Creates an interview note for the specified application.
- * Validates the request body before the DB ownership check (fail-fast on 400).
- *
- * Request body:
- *   { stage: ApplicationStage, content: string }
- *
- * Responses:
- *   201 — InterviewNote object created
- *   400 — Validation failed { error, details }
- *   401 — Unauthorized { error }
- *   404 — Application not found or not owned by user { error }
- *   500 — Internal server error { error }
- */
 export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
@@ -35,7 +22,6 @@ export async function POST(
     }
     const userId = session.user.id;
 
-    // Validate body BEFORE the DB lookup — returns 400 on bad input
     const body = await request.json();
     const result = createNoteSchema.safeParse(body);
     if (!result.success)
@@ -47,9 +33,12 @@ export async function POST(
         { status: 400 },
       );
 
-    // Now check the application exists and belongs to this user
     const application = await prisma.application.findFirst({
+<<<<<<< HEAD
       where: { id, userId: userId, deletedAt: null },
+=======
+      where: { id, userId, deletedAt: null },
+>>>>>>> develop
     });
     if (!application)
       return NextResponse.json({ error: "Not found" }, { status: 404 });
@@ -59,6 +48,16 @@ export async function POST(
         applicationId: id,
         stage: result.data.stage,
         content: result.data.content,
+      },
+    });
+
+    void logActivity({
+      userId,
+      applicationId: id,
+      action: "NOTE_ADDED",
+      metadata: {
+        company: application.company,
+        role: application.role,
       },
     });
 

@@ -1,18 +1,15 @@
 /**
  * @jest-environment node
  */
-// __tests__/api.dashboard.metrics.test.ts
 
 jest.mock("next-auth", () => ({
   __esModule: true,
   default: jest.fn(),
   getServerSession: jest.fn(),
 }));
-
 jest.mock("@/app/api/auth/[...nextauth]/route", () => ({
   authOptions: {},
 }));
-
 jest.mock("@/lib/prisma", () => ({
   prisma: {
     application: { findMany: jest.fn() },
