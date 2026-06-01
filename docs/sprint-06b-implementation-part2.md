@@ -1144,13 +1144,13 @@ PR title:
 
 After PR merges to `develop`:
 
-- [ ] Mark all 5 PBIs `[x]` in `sprint-06b.md`
-- [ ] Mark PBI-047 through PBI-051 `[x]` in `product.md`
-- [ ] Complete Sprint Review and Retrospective in `sprint-06b.md`
-- [ ] Commit updated docs to `develop`
-- [ ] Update Notion Sprint Board
-- [ ] PR from `develop` → `main` — CI passes
-- [ ] Vercel production deployment confirmed live
+- [x] Mark all 5 PBIs `[x]` in `sprint-06b.md`
+- [x] Mark PBI-047 through PBI-051 `[x]` in `product.md`
+- [x] Complete Sprint Review and Retrospective in `sprint-06b.md`
+- [x] Commit updated docs to `develop`
+- [x] Update Notion Sprint Board
+- [x] PR from `develop` → `main` — CI passes
+- [x] Vercel production deployment confirmed live
 
 ---
 
