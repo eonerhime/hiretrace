@@ -1001,13 +1001,11 @@ That's a product decision. It's in the spec. It has a reason.
 ### POST 22 — HireTrace is Live
 
 **09 June 2026 · Tuesday · Text + Screenshot**
-**Asset:** Screenshot of live HireTrace app on Vercel — full dashboard view → HireTrace Screenshot Frame
-**Status:** `[x]` Posted
+**Asset:** Screenshot of live HireFlow app on Vercel — full dashboard view → HireFlow Screenshot Frame
+**Status:** `[ ]` Not posted
 
 ```
-HireTrace is live. And I'm closing the project here.
-
-Not because it failed. Because it did what it was supposed to do.
+HireFlow MVP is live.
 
 Here's what shipped across 7 sprints:
 
@@ -1035,21 +1033,24 @@ Every AC has a test. Every test is passing.
 Live app: https://hiretrace-ten.vercel.app
 GitHub: https://github.com/eonerhime/hiretrace
 
-#HireTrace #BuildInPublic #NextJS #FullStack #SpecDrivenDevelopment #ProductOwner
+#HireFlow #BuildInPublic #MVP #NextJS #ScrumMaster #ProductOwner #FullStack
 ```
 
 ---
 
 ### POST 23 — The Numbers (SDD + Agentic Coding vs Solo Dev)
 
-**11 June 2026 · Thursday · Text only**
-**Asset:** None
+**11 June 2026 · Thursday · Carousel PDF**
+**Asset:** Build in Canva using HireFlow Carousel Template. Export as PDF.
 **Status:** `[ ]` Not posted
 
 ```
 HireTrace took 7 weeks to build. Here's what that actually means.
 
-First, the project numbers:
+SLIDE 2 — Context
+HireFlow | Sprint 3
+Goal: Contacts + Reminders + Dashboard = MVP complete
+Duration: 1 week | Phase 1 of 3 closed
 
 → 56 PBIs defined before a single line of code was written
 → 7 sprints. All closed.
@@ -1076,8 +1077,10 @@ HireTrace was built in 7 weeks.
 That's not because corners were cut.
 The test suite, the docs, the ADRs, the specs — all there.
 
-It's because Spec-Driven Development removes the most
-expensive thing in software: ambiguity.
+SLIDE 10 — CTA
+HireFlow is live. Try it.
+Link in comments. Follow for Phase 2.
+```
 
 When every feature starts as a spec with testable acceptance
 criteria, you never build the wrong thing. You never debate
@@ -1093,7 +1096,7 @@ sacrificing quality. The test suite proves it. The repo is public.
 
 That's the actual case for building spec-first.
 
-#HireTrace #BuildInPublic #SpecDrivenDevelopment #SoftwareEngineering #AgenticCoding
+#HireFlow #BuildInPublic #MVP #ScrumMaster #NextJS #Agile
 ```
 
 ---
@@ -1105,7 +1108,17 @@ That's the actual case for building spec-first.
 **Status:** `[ ]` Not posted
 
 ```
-HireTrace is done. One lesson from each hat I wore.
+HireFlow Phase 1 is done. Here's the full picture.
+
+The numbers:
+→ 3 sprints. 8 weeks planned. Compressed to 3 weeks.
+→ 28 Must Have backlog items. All shipped.
+→ 46 PBIs defined before a single line of code was written.
+→ 13 Architectural Decision Records logged.
+→ Every feature spec'd, tested, and deployed.
+→ 0 features built without acceptance criteria.
+
+What I actually learned — one lesson per hat.
 
 As Product Owner:
 The scope boundary section is the most valuable thing you write.
@@ -1137,16 +1150,17 @@ The posts made me more deliberate. Knowing I'd have to explain
 every decision made me make better decisions. That accountability
 was the most underrated part of the whole process.
 
-The repo is public. The spec docs are all there.
-If anything in these 24 posts was useful — the methodology,
-the decisions, the trade-offs — read it, fork it, steal from it.
+HireFlow is live. The repo is public. The spec docs are
+all there. If anything in these 24 posts was useful —
+the methodology, the decisions, the trade-offs — it's all
+in the GitHub repo to read, fork, or steal from.
 
 That's what building in public is for.
 
 GitHub: https://github.com/eonerhime/hiretrace
 Live: https://hiretrace-ten.vercel.app
 
-#HireTrace #BuildInPublic #ScrumMaster #ProductOwner #FullStack #Retrospective #SpecDrivenDevelopment
+#HireFlow #BuildInPublic #ScrumMaster #ProductOwner #FullStack #Retrospective #SpecDrivenDevelopment
 ```
 
 ---
